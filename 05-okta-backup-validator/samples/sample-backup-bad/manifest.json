@@ -1,0 +1,28 @@
+{
+  "utility": "okta-config-backup",
+  "version": "0.1.0",
+  "backupId": "okta-config-backup-20260625T171500Z",
+  "generatedAt": "2026-06-25T17:15:00+00:00",
+  "orgUrl": "https://your-org.okta.com",
+  "redactionEnabled": true,
+  "requestedResources": ["org", "applications", "groups"],
+  "files": ["org.json", "applications.json"],
+  "counts": {
+    "org": 1,
+    "applications": 5
+  },
+  "warnings": [],
+  "errors": [
+    {
+      "resource": "groups",
+      "type": "OktaApiError",
+      "statusCode": 401,
+      "message": "Invalid token provided"
+    }
+  ],
+  "requestSummary": {
+    "totalRequests": 3,
+    "byStatus": {"200": 2, "401": 1},
+    "totalElapsedSeconds": 0.22
+  }
+}

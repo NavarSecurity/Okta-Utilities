@@ -1,0 +1,6 @@
+Metadata-Version: 2.4
+Name: okta-config-backup
+Version: 0.1.1
+Summary: Read-only Okta configuration backup utility.
+Requires-Python: >=3.10
+Requires-Dist: requests>=2.31.0

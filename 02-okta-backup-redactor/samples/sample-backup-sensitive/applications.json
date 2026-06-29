@@ -1,0 +1,18 @@
+[
+  {
+    "id": "0oaexample123",
+    "label": "Sample OIDC App",
+    "name": "oidc_client",
+    "credentials": {
+      "oauthClient": {
+        "client_id": "0oaclientidexample",
+        "client_secret": "client-secret-should-redact"
+      }
+    },
+    "settings": {
+      "oauthClient": {
+        "redirect_uris": ["https://app.example.com/callback"]
+      }
+    }
+  }
+]

@@ -1,0 +1,21 @@
+# Secrets
+.env
+*.env
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Generated output
+output/*
+!output/.gitkeep
+
+# Local editor files
+.vscode/
+.idea/
+.DS_Store

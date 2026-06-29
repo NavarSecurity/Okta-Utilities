@@ -1,0 +1,8 @@
+[
+  {
+    "id": "0oa123example",
+    "label": "Customer Portal OIDC",
+    "name": "oidc_client",
+    "status": "ACTIVE"
+  }
+]

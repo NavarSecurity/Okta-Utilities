@@ -1,0 +1,2 @@
+[console_scripts]
+okta-selective-restore = okta_selective_restore.cli:main

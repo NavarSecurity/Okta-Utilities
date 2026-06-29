@@ -1,0 +1,3 @@
+[
+  {"id": "nzo_source_corp", "name": "Corporate NAT", "type": "IP", "status": "ACTIVE", "gateways": [{"type": "CIDR", "value": "203.0.113.0/24"}]}
+]

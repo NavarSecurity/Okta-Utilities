@@ -1,0 +1,44 @@
+{
+  "policyTypes": {
+    "PASSWORD": {
+      "errors": [],
+      "policies": [
+        {
+          "id": "00pexample123",
+          "name": "Default Policy",
+          "type": "PASSWORD",
+          "settings": {
+            "password": {
+              "complexity": {
+                "minLength": 12,
+                "minLowerCase": 1,
+                "minUpperCase": 1,
+                "minNumber": 1
+              },
+              "age": {
+                "maxAgeDays": 90
+              }
+            }
+          }
+        }
+      ],
+      "rulesByPolicyId": {
+        "00pexample123": [
+          {
+            "id": "0prexample123",
+            "name": "Default Rule",
+            "type": "PASSWORD",
+            "actions": {
+              "passwordChange": {
+                "access": "ALLOW"
+              },
+              "selfServicePasswordReset": {
+                "access": "ALLOW"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

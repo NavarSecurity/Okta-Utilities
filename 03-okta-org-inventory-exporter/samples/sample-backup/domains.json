@@ -1,0 +1,3 @@
+[
+  {"domains": [{"id":"default","domain":"example.okta.com","brandId":"bndsample","certificateSourceType":"OKTA_MANAGED","validationStatus":"COMPLETED"}]}
+]

@@ -1,0 +1,3 @@
+[
+  {"id":"tosample","name":"Customer Portal","origin":"https://app.example.com","status":"ACTIVE","scopes":[{"type":"CORS"},{"type":"REDIRECT"}],"created":"2026-01-01T00:00:00.000Z","lastUpdated":"2026-01-02T00:00:00.000Z"}
+]

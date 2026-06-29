@@ -1,0 +1,10 @@
+[
+  {
+    "id": "00g123example",
+    "type": "OKTA_GROUP",
+    "profile": {
+      "name": "Okta Backup Test Group",
+      "description": "Sample group"
+    }
+  }
+]

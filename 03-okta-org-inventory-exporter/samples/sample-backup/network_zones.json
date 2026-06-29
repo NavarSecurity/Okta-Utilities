@@ -1,0 +1,3 @@
+[
+  {"id":"nzosample","name":"Corporate Network","type":"IP","status":"ACTIVE","usage":"POLICY","gateways":[{"type":"CIDR","value":"10.0.0.0/8"}],"proxies":[],"created":"2026-01-01T00:00:00.000Z","lastUpdated":"2026-01-02T00:00:00.000Z"}
+]

@@ -1,0 +1,9 @@
+{
+  "backupId": "sample-backup-001",
+  "generatedAt": "2026-06-26T16:45:07Z",
+  "orgUrl": "https://example.okta.com",
+  "requestedResources": ["org", "applications", "groups", "policies", "domains", "authorization_servers"],
+  "redactionEnabled": true,
+  "errors": [],
+  "warnings": []
+}

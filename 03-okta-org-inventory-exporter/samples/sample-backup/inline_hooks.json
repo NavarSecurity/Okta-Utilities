@@ -1,0 +1,3 @@
+[
+  {"id":"iho sample","name":"Token Inline Hook","type":"com.okta.oauth2.tokens.transform","status":"ACTIVE","channel":{"type":"HTTP","config":{"uri":"https://hooks.example.com/token"}},"created":"2026-01-01T00:00:00.000Z","lastUpdated":"2026-01-02T00:00:00.000Z"}
+]

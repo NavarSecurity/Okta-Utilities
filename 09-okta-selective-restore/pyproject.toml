@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "okta-selective-restore"
+version = "0.1.0"
+description = "Selective restore utility for recreating selected Okta configuration objects from okta-config-backup exports."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Internal IAM Engineering" }]
+dependencies = [
+  "requests>=2.31.0",
+  "python-dotenv>=1.0.0"
+]
+
+[project.scripts]
+okta-selective-restore = "okta_selective_restore.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

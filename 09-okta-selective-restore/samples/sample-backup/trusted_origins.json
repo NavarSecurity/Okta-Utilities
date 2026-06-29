@@ -1,0 +1,17 @@
+[
+  {
+    "id": "tosource1",
+    "name": "Sample App Trusted Origin",
+    "origin": "https://app.example.com",
+    "scopes": [
+      {"type": "CORS"},
+      {"type": "REDIRECT"}
+    ],
+    "status": "ACTIVE",
+    "created": "2026-06-01T00:00:00.000Z",
+    "lastUpdated": "2026-06-01T00:00:00.000Z",
+    "_links": {
+      "self": {"href": "https://source.okta.com/api/v1/trustedOrigins/tosource1"}
+    }
+  }
+]

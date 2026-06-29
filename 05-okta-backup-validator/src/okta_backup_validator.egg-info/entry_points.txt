@@ -1,0 +1,2 @@
+[console_scripts]
+okta-backup-validator = okta_backup_validator.cli:main

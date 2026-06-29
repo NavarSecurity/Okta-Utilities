@@ -1,0 +1,21 @@
+[
+  {
+    "id": "0oasampleapp1",
+    "label": "Customer Portal OIDC",
+    "name": "oidc_client",
+    "signOnMode": "OPENID_CONNECT",
+    "status": "ACTIVE",
+    "created": "2026-01-01T00:00:00.000Z",
+    "lastUpdated": "2026-01-02T00:00:00.000Z",
+    "settings": {"oauthClient": {"redirect_uris": ["https://app.example.com/callback"], "grant_types": ["authorization_code", "refresh_token"]}}
+  },
+  {
+    "id": "0oasampleapp2",
+    "label": "Legacy SAML App",
+    "name": "template_saml_2_0",
+    "signOnMode": "SAML_2_0",
+    "status": "INACTIVE",
+    "created": "2026-01-01T00:00:00.000Z",
+    "lastUpdated": "2026-01-02T00:00:00.000Z"
+  }
+]

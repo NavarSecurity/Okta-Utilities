@@ -1,0 +1,6 @@
+{
+  "sourceBackupDir": "samples/sample-backup-sensitive",
+  "outputDir": "output",
+  "replacement": "[REDACTED]",
+  "redactHighEntropyValues": false
+}

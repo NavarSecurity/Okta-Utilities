@@ -1,0 +1,9 @@
+[
+  {
+    "id": "0oa_target_portal",
+    "label": "Customer Portal",
+    "name": "oidc_client",
+    "status": "ACTIVE",
+    "settings": {"oauthClient": {"redirect_uris": ["https://target.example.com/callback"]}}
+  }
+]

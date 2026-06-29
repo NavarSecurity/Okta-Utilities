@@ -1,0 +1,6 @@
+{
+  "backupId": "sample-backup",
+  "utility": "okta-config-backup",
+  "requestedResources": ["groups", "trusted_origins"],
+  "files": ["groups.json", "trusted_origins.json"]
+}

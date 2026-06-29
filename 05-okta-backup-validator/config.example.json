@@ -1,0 +1,15 @@
+{
+  "backupDir": "input/source-backup",
+  "outputDir": "output",
+  "expectedResources": [],
+  "requiredResources": [
+    "manifest"
+  ],
+  "allowMissingFilesForErroredResources": true,
+  "requireNoResourceErrors": false,
+  "requireRedactionEnabled": true,
+  "strictMode": false,
+  "failOnWarnings": false,
+  "sensitiveScanEnabled": true,
+  "maxSensitiveFindings": 50
+}

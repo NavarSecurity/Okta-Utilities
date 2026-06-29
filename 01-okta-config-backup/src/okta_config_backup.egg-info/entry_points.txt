@@ -1,0 +1,2 @@
+[console_scripts]
+okta-config-backup = okta_config_backup.cli:main

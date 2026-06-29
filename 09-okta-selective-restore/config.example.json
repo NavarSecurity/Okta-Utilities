@@ -1,0 +1,44 @@
+{
+  "sourceBackupDir": "input/source-backup",
+  "targetOrgUrl": "https://target-org.okta.com",
+  "outputDir": "output",
+  "include": [
+    "groups",
+    "applications",
+    "trusted_origins",
+    "network_zones",
+    "authorization_servers"
+  ],
+  "selection": {
+    "groups": {
+      "names": [],
+      "ids": []
+    },
+    "applications": {
+      "labels": [],
+      "ids": []
+    },
+    "trusted_origins": {
+      "names": [],
+      "origins": [],
+      "ids": []
+    },
+    "network_zones": {
+      "names": [],
+      "ids": []
+    },
+    "authorization_servers": {
+      "names": [],
+      "ids": []
+    }
+  },
+  "skipExisting": true,
+  "restoreInactiveObjects": false,
+  "activateApps": false,
+  "failFast": false,
+  "pageLimit": 200,
+  "timeoutSeconds": 30,
+  "maxRetries": 4,
+  "retryBaseSeconds": 1.0,
+  "redactionEnabled": true
+}
