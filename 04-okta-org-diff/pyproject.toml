@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "okta-org-diff"
+version = "0.1.0"
+description = "Compare Okta configuration backup folders for drift, migration gaps, and post-change differences."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Internal IAM Engineering" }]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+okta-org-diff = "okta_org_diff.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

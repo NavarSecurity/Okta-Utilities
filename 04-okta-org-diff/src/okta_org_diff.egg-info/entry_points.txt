@@ -1,0 +1,2 @@
+[console_scripts]
+okta-org-diff = okta_org_diff.cli:main

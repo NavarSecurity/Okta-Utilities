@@ -1,0 +1,8 @@
+{
+  "authorizationServers": [
+    {"id":"aus9","name":"Default","issuer":"https://target.okta.com/oauth2/default","status":"ACTIVE"}
+  ],
+  "detailsByAuthorizationServerId": {
+    "aus9": {"scopes":[{"name":"openid"},{"name":"profile"},{"name":"email"}],"claims":[{"name":"sub"}]}
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "backupId": "sample-baseline",
+  "requestedResources": ["org", "applications", "groups", "policies", "domains", "authorization_servers"],
+  "counts": {
+    "org": 1,
+    "applications": 2,
+    "groups": 2,
+    "policies": 2,
+    "domains": 1,
+    "authorization_servers": 1
+  }
+}

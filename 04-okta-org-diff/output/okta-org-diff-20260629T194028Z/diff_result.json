@@ -1,0 +1,513 @@
+{
+  "baselineBackupDir": "/Users/ravikumar/Cayden's Projects/Okta Projects/01-okta-config-backup/output/okta-config-backup-20260626T164507Z",
+  "comparisonBackupDir": "/Users/ravikumar/Cayden's Projects/Okta Projects/01-okta-config-backup/output/okta-config-backup-20260629T192942Z",
+  "elapsedSeconds": 0.004,
+  "errors": [],
+  "generatedAt": "2026-06-29T19:40:28.426128+00:00",
+  "hasDifferences": true,
+  "ignoreFields": [
+    "id",
+    "_links",
+    "created",
+    "lastUpdated",
+    "lastMembershipUpdated",
+    "createdBy",
+    "lastUpdatedBy"
+  ],
+  "requestedResources": [
+    "org",
+    "applications",
+    "groups",
+    "group_rules",
+    "policies",
+    "identity_providers",
+    "authorization_servers",
+    "trusted_origins",
+    "network_zones",
+    "domains",
+    "brands",
+    "authenticators",
+    "event_hooks",
+    "inline_hooks"
+  ],
+  "resources": {
+    "applications": {
+      "added": [],
+      "baselineCount": 8,
+      "changed": [],
+      "comparisonCount": 7,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [
+        {
+          "baselineId": "0oa14jzrxcdv8FCOR698",
+          "baselinePreview": "{\n  \"_links\": {\n    \"accessPolicy\": {\n      \"href\": \"https://integrator-1703705.okta.com/api/v1/policies/rst14igebi45u18tT698\"\n    },\n    \"activate\": {\n      \"href\": \"https://integrator-1703705.okta.com/api/v1/apps/0oa14jzrxcdv8FCOR698/lifecycle/activate\"\n    },\n    \"appLinks\": [\n      {\n        \"href\": \"https://integrator-1703705.okta.com/home/oidc_client/0oa14jzrxcdv8FCOR698/aln177a159h7Zf52X0g8\",\n        \"name\": \"oidc_client_link\",\n        \"type\": \"text/html\"\n      }\n    ],\n    \"clientCredent...",
+          "key": "My API Services App1",
+          "resource": "applications"
+        }
+      ],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 1,
+        "unchanged": 7,
+        "warnings": 0
+      },
+      "unchanged": [
+        {
+          "baselineId": "0oa14igmbhnEDhWYf698",
+          "comparisonId": "0oa14igmbhnEDhWYf698",
+          "key": "Okta Access Certification Reviews",
+          "resource": "applications"
+        },
+        {
+          "baselineId": "0oa14igebbjjOrvHg698",
+          "comparisonId": "0oa14igebbjjOrvHg698",
+          "key": "Okta Admin Console",
+          "resource": "applications"
+        },
+        {
+          "baselineId": "0oa14igebft0JLR64698",
+          "comparisonId": "0oa14igebft0JLR64698",
+          "key": "Okta Browser Plugin",
+          "resource": "applications"
+        },
+        {
+          "baselineId": "0oa14igebcb37syUE698",
+          "comparisonId": "0oa14igebcb37syUE698",
+          "key": "Okta Dashboard",
+          "resource": "applications"
+        },
+        {
+          "baselineId": "0oa14igjtd3RlpNVb698",
+          "comparisonId": "0oa14igjtd3RlpNVb698",
+          "key": "Okta OIN Submission Tester",
+          "resource": "applications"
+        },
+        {
+          "baselineId": "0oa14igmxoeJmeFCi698",
+          "comparisonId": "0oa14igmxoeJmeFCi698",
+          "key": "Okta Workflows",
+          "resource": "applications"
+        },
+        {
+          "baselineId": "0oa14igmxpbK1BYrn698",
+          "comparisonId": "0oa14igmxpbK1BYrn698",
+          "key": "Okta Workflows OAuth",
+          "resource": "applications"
+        }
+      ],
+      "warnings": []
+    },
+    "authenticators": {
+      "added": [],
+      "baselineCount": 6,
+      "changed": [],
+      "comparisonCount": 6,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 6,
+        "warnings": 0
+      },
+      "unchanged": [
+        {
+          "baselineId": "aut14igebj3aoICIk698",
+          "comparisonId": "aut14igebj3aoICIk698",
+          "key": "okta_email",
+          "resource": "authenticators"
+        },
+        {
+          "baselineId": "aut14igebj2dfmVpc698",
+          "comparisonId": "aut14igebj2dfmVpc698",
+          "key": "okta_password",
+          "resource": "authenticators"
+        },
+        {
+          "baselineId": "aut14igjt3i8nVxja698",
+          "comparisonId": "aut14igjt3i8nVxja698",
+          "key": "okta_verify",
+          "resource": "authenticators"
+        },
+        {
+          "baselineId": "aut14igebj4L2cdZL698",
+          "comparisonId": "aut14igebj4L2cdZL698",
+          "key": "phone_number",
+          "resource": "authenticators"
+        },
+        {
+          "baselineId": "aut14igjt3hdENhbO698",
+          "comparisonId": "aut14igjt3hdENhbO698",
+          "key": "security_question",
+          "resource": "authenticators"
+        },
+        {
+          "baselineId": "aut14igjtc1FCnbGf698",
+          "comparisonId": "aut14igjtc1FCnbGf698",
+          "key": "webauthn",
+          "resource": "authenticators"
+        }
+      ],
+      "warnings": []
+    },
+    "authorization_servers": {
+      "added": [],
+      "baselineCount": 1,
+      "changed": [],
+      "comparisonCount": 1,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 1,
+        "warnings": 0
+      },
+      "unchanged": [
+        {
+          "baselineId": "aus14igjt70jcfQm9698",
+          "comparisonId": "aus14igjt70jcfQm9698",
+          "key": "default",
+          "resource": "authorization_servers"
+        }
+      ],
+      "warnings": []
+    },
+    "brands": {
+      "added": [],
+      "baselineCount": 1,
+      "changed": [],
+      "comparisonCount": 1,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 1,
+        "warnings": 0
+      },
+      "unchanged": [
+        {
+          "baselineId": "bnd14igebbg02N8Vf698",
+          "comparisonId": "bnd14igebbg02N8Vf698",
+          "key": "navarsecurity-integrator-1703705",
+          "resource": "brands"
+        }
+      ],
+      "warnings": []
+    },
+    "domains": {
+      "added": [],
+      "baselineCount": 1,
+      "changed": [],
+      "comparisonCount": 1,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 1,
+        "warnings": 0
+      },
+      "unchanged": [
+        {
+          "baselineId": "default",
+          "comparisonId": "default",
+          "key": "integrator-1703705.okta.com",
+          "resource": "domains"
+        }
+      ],
+      "warnings": []
+    },
+    "event_hooks": {
+      "added": [],
+      "baselineCount": 0,
+      "changed": [],
+      "comparisonCount": 0,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    },
+    "group_rules": {
+      "added": [],
+      "baselineCount": 0,
+      "changed": [],
+      "comparisonCount": 0,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    },
+    "groups": {
+      "added": [],
+      "baselineCount": 2,
+      "changed": [],
+      "comparisonCount": 2,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 2,
+        "warnings": 0
+      },
+      "unchanged": [
+        {
+          "baselineId": "00g14igebdaK5gq1G698",
+          "comparisonId": "00g14igebdaK5gq1G698",
+          "key": "Everyone",
+          "resource": "groups"
+        },
+        {
+          "baselineId": "00g14igebdb33vjGy698",
+          "comparisonId": "00g14igebdb33vjGy698",
+          "key": "Okta Administrators",
+          "resource": "groups"
+        }
+      ],
+      "warnings": []
+    },
+    "identity_providers": {
+      "added": [],
+      "baselineCount": 0,
+      "changed": [],
+      "comparisonCount": 0,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    },
+    "inline_hooks": {
+      "added": [],
+      "baselineCount": 0,
+      "changed": [],
+      "comparisonCount": 0,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    },
+    "network_zones": {
+      "added": [],
+      "baselineCount": 4,
+      "changed": [],
+      "comparisonCount": 4,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 4,
+        "warnings": 0
+      },
+      "unchanged": [
+        {
+          "baselineId": "nzo14igebhwRj6AhV698",
+          "comparisonId": "nzo14igebhwRj6AhV698",
+          "key": "BlockedIpZone",
+          "resource": "network_zones"
+        },
+        {
+          "baselineId": "nzo14igebhtAoi0Yu698",
+          "comparisonId": "nzo14igebhtAoi0Yu698",
+          "key": "DefaultEnhancedDynamicZone",
+          "resource": "network_zones"
+        },
+        {
+          "baselineId": "nzo14igjt67ygYB2A698",
+          "comparisonId": "nzo14igjt67ygYB2A698",
+          "key": "DefaultExemptIpZone",
+          "resource": "network_zones"
+        },
+        {
+          "baselineId": "nzo14igebhv0v7PHf698",
+          "comparisonId": "nzo14igebhv0v7PHf698",
+          "key": "LegacyIpZone",
+          "resource": "network_zones"
+        }
+      ],
+      "warnings": []
+    },
+    "org": {
+      "added": [],
+      "baselineCount": 1,
+      "changed": [],
+      "comparisonCount": 1,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 1,
+        "warnings": 0
+      },
+      "unchanged": [
+        {
+          "baselineId": "00o14igebb9XzvK0b698",
+          "comparisonId": "00o14igebb9XzvK0b698",
+          "key": "org",
+          "resource": "org"
+        }
+      ],
+      "warnings": []
+    },
+    "policies": {
+      "added": [],
+      "baselineCount": 5,
+      "changed": [],
+      "comparisonCount": 5,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 5,
+        "warnings": 0
+      },
+      "unchanged": [
+        {
+          "baselineId": "00p14igebgutc8Htt698",
+          "comparisonId": "00p14igebgutc8Htt698",
+          "key": "IDP_DISCOVERY::Idp Discovery Policy",
+          "resource": "policies"
+        },
+        {
+          "baselineId": "00p14igjt8kIKU1HX698",
+          "comparisonId": "00p14igjt8kIKU1HX698",
+          "key": "MFA_ENROLL::Default Policy",
+          "resource": "policies"
+        },
+        {
+          "baselineId": "00p14igebdcAqI91x698",
+          "comparisonId": "00p14igebdcAqI91x698",
+          "key": "OKTA_SIGN_ON::Default Policy",
+          "resource": "policies"
+        },
+        {
+          "baselineId": "00p14igebh0Cwrtqm698",
+          "comparisonId": "00p14igebh0Cwrtqm698",
+          "key": "PASSWORD::Default Policy",
+          "resource": "policies"
+        },
+        {
+          "baselineId": "rst14igebi9XzTHCW698",
+          "comparisonId": "rst14igebi9XzTHCW698",
+          "key": "PROFILE_ENROLLMENT::Default Policy",
+          "resource": "policies"
+        }
+      ],
+      "warnings": []
+    },
+    "trusted_origins": {
+      "added": [],
+      "baselineCount": 0,
+      "changed": [],
+      "comparisonCount": 0,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    }
+  },
+  "startedAt": "2026-06-29T19:40:28.422151+00:00",
+  "status": "DIFFERENCES_FOUND",
+  "totals": {
+    "added": 0,
+    "changed": 0,
+    "duplicateKeys": 0,
+    "errors": 0,
+    "removed": 1,
+    "unchanged": 28,
+    "warnings": 0
+  },
+  "utility": "okta-org-diff",
+  "version": "0.1.0",
+  "warnings": []
+}

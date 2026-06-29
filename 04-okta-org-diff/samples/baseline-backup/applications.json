@@ -1,0 +1,4 @@
+[
+  {"id":"0oa1","label":"Customer Portal","name":"oidc_client","signOnMode":"OPENID_CONNECT","settings":{"oauthClient":{"redirect_uris":["https://app.example.com/callback"]}}},
+  {"id":"0oa2","label":"Legacy SAML App","name":"template_saml_2_0","signOnMode":"SAML_2_0"}
+]

@@ -1,0 +1,35 @@
+{
+  "baselineBackupDir": "samples/baseline-backup",
+  "comparisonBackupDir": "samples/comparison-backup",
+  "outputDir": "output",
+  "include": [
+    "org",
+    "applications",
+    "groups",
+    "group_rules",
+    "policies",
+    "identity_providers",
+    "authorization_servers",
+    "trusted_origins",
+    "network_zones",
+    "domains",
+    "brands",
+    "authenticators",
+    "event_hooks",
+    "inline_hooks"
+  ],
+  "ignoreFields": [
+    "id",
+    "_links",
+    "created",
+    "lastUpdated",
+    "lastMembershipUpdated",
+    "createdBy",
+    "lastUpdatedBy"
+  ],
+  "writeCsv": true,
+  "writeMarkdown": true,
+  "strictMode": false,
+  "failOnDifferences": false,
+  "maxDiffPreviewChars": 500
+}
