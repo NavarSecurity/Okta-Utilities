@@ -1,0 +1,432 @@
+{
+  "baselineBackupDir": "samples/baseline-backup",
+  "comparisonBackupDir": "samples/comparison-backup",
+  "elapsedSeconds": 0.003,
+  "errors": [],
+  "generatedAt": "2026-06-29T19:32:31.590703+00:00",
+  "hasDifferences": true,
+  "ignoreFields": [
+    "id",
+    "_links",
+    "created",
+    "lastUpdated",
+    "lastMembershipUpdated",
+    "createdBy",
+    "lastUpdatedBy"
+  ],
+  "requestedResources": [
+    "org",
+    "applications",
+    "groups",
+    "group_rules",
+    "policies",
+    "identity_providers",
+    "authorization_servers",
+    "trusted_origins",
+    "network_zones",
+    "domains",
+    "brands",
+    "authenticators",
+    "event_hooks",
+    "inline_hooks"
+  ],
+  "resources": {
+    "applications": {
+      "added": [
+        {
+          "comparisonId": "0oa3",
+          "comparisonPreview": "{\n  \"id\": \"0oa3\",\n  \"label\": \"New Admin App\",\n  \"name\": \"oidc_client\",\n  \"signOnMode\": \"OPENID_CONNECT\"\n}",
+          "key": "New Admin App",
+          "resource": "applications"
+        }
+      ],
+      "baselineCount": 2,
+      "changed": [
+        {
+          "baselineId": "0oa1",
+          "baselinePreview": "{\n  \"label\": \"Customer Portal\",\n  \"name\": \"oidc_client\",\n  \"settings\": {\n    \"oauthClient\": {\n      \"redirect_uris\": [\n        \"https://app.example.com/callback\"\n      ]\n    }\n  },\n  \"signOnMode\": \"OPENID_CONNECT\"\n}",
+          "changedPaths": [
+            "$.settings.oauthClient.redirect_uris[length]"
+          ],
+          "comparisonId": "0oa9",
+          "comparisonPreview": "{\n  \"label\": \"Customer Portal\",\n  \"name\": \"oidc_client\",\n  \"settings\": {\n    \"oauthClient\": {\n      \"redirect_uris\": [\n        \"https://app.example.com/alt-callback\",\n        \"https://app.example.com/callback\"\n      ]\n    }\n  },\n  \"signOnMode\": \"OPENID_CONNECT\"\n}",
+          "key": "Customer Portal",
+          "resource": "applications"
+        }
+      ],
+      "comparisonCount": 2,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [
+        {
+          "baselineId": "0oa2",
+          "baselinePreview": "{\n  \"id\": \"0oa2\",\n  \"label\": \"Legacy SAML App\",\n  \"name\": \"template_saml_2_0\",\n  \"signOnMode\": \"SAML_2_0\"\n}",
+          "key": "Legacy SAML App",
+          "resource": "applications"
+        }
+      ],
+      "summary": {
+        "added": 1,
+        "changed": 1,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 1,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    },
+    "authenticators": {
+      "added": [],
+      "baselineCount": 0,
+      "changed": [],
+      "comparisonCount": 0,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    },
+    "authorization_servers": {
+      "added": [],
+      "baselineCount": 1,
+      "changed": [
+        {
+          "baselineId": "aus1",
+          "baselinePreview": "{\n  \"_details\": {\n    \"detailsByAuthorizationServerId\": {\n      \"claims\": [\n        {\n          \"name\": \"sub\"\n        }\n      ],\n      \"scopes\": [\n        {\n          \"name\": \"openid\"\n        },\n        {\n          \"name\": \"profile\"\n        }\n      ]\n    }\n  },\n  \"issuer\": \"https://baseline.okta.com/oauth2/default\",\n  \"name\": \"Default\",\n  \"status\": \"ACTIVE\"\n}",
+          "changedPaths": [
+            "$._details.detailsByAuthorizationServerId.scopes[length]",
+            "$.issuer"
+          ],
+          "comparisonId": "aus9",
+          "comparisonPreview": "{\n  \"_details\": {\n    \"detailsByAuthorizationServerId\": {\n      \"claims\": [\n        {\n          \"name\": \"sub\"\n        }\n      ],\n      \"scopes\": [\n        {\n          \"name\": \"email\"\n        },\n        {\n          \"name\": \"openid\"\n        },\n        {\n          \"name\": \"profile\"\n        }\n      ]\n    }\n  },\n  \"issuer\": \"https://target.okta.com/oauth2/default\",\n  \"name\": \"Default\",\n  \"status\": \"ACTIVE\"\n}",
+          "key": "Default",
+          "resource": "authorization_servers"
+        }
+      ],
+      "comparisonCount": 1,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 1,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    },
+    "brands": {
+      "added": [],
+      "baselineCount": 0,
+      "changed": [],
+      "comparisonCount": 0,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    },
+    "domains": {
+      "added": [],
+      "baselineCount": 1,
+      "changed": [
+        {
+          "baselineId": "default",
+          "baselinePreview": "{\n  \"brandId\": \"bnd1\",\n  \"certificateSourceType\": \"OKTA_MANAGED\",\n  \"domain\": \"baseline.okta.com\",\n  \"validationStatus\": \"COMPLETED\"\n}",
+          "changedPaths": [
+            "$.brandId"
+          ],
+          "comparisonId": "default",
+          "comparisonPreview": "{\n  \"brandId\": \"bnd2\",\n  \"certificateSourceType\": \"OKTA_MANAGED\",\n  \"domain\": \"baseline.okta.com\",\n  \"validationStatus\": \"COMPLETED\"\n}",
+          "key": "baseline.okta.com",
+          "resource": "domains"
+        }
+      ],
+      "comparisonCount": 1,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 1,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    },
+    "event_hooks": {
+      "added": [],
+      "baselineCount": 0,
+      "changed": [],
+      "comparisonCount": 0,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    },
+    "group_rules": {
+      "added": [],
+      "baselineCount": 0,
+      "changed": [],
+      "comparisonCount": 0,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    },
+    "groups": {
+      "added": [
+        {
+          "comparisonId": "00g3",
+          "comparisonPreview": "{\n  \"created\": \"2026-02-01T00:00:00Z\",\n  \"id\": \"00g3\",\n  \"profile\": {\n    \"description\": \"Engineering access\",\n    \"name\": \"Engineering Users\"\n  }\n}",
+          "key": "Engineering Users",
+          "resource": "groups"
+        }
+      ],
+      "baselineCount": 2,
+      "changed": [
+        {
+          "baselineId": "00g1",
+          "baselinePreview": "{\n  \"profile\": {\n    \"description\": \"Finance access\",\n    \"name\": \"Finance Users\"\n  }\n}",
+          "changedPaths": [
+            "$.profile.description"
+          ],
+          "comparisonId": "00g9",
+          "comparisonPreview": "{\n  \"profile\": {\n    \"description\": \"Finance access updated\",\n    \"name\": \"Finance Users\"\n  }\n}",
+          "key": "Finance Users",
+          "resource": "groups"
+        }
+      ],
+      "comparisonCount": 2,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [
+        {
+          "baselineId": "00g2",
+          "baselinePreview": "{\n  \"created\": \"2026-01-01T00:00:00Z\",\n  \"id\": \"00g2\",\n  \"profile\": {\n    \"description\": \"HR access\",\n    \"name\": \"HR Users\"\n  }\n}",
+          "key": "HR Users",
+          "resource": "groups"
+        }
+      ],
+      "summary": {
+        "added": 1,
+        "changed": 1,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 1,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    },
+    "identity_providers": {
+      "added": [],
+      "baselineCount": 0,
+      "changed": [],
+      "comparisonCount": 0,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    },
+    "inline_hooks": {
+      "added": [],
+      "baselineCount": 0,
+      "changed": [],
+      "comparisonCount": 0,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    },
+    "network_zones": {
+      "added": [],
+      "baselineCount": 0,
+      "changed": [],
+      "comparisonCount": 0,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    },
+    "org": {
+      "added": [],
+      "baselineCount": 1,
+      "changed": [],
+      "comparisonCount": 1,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 1,
+        "warnings": 0
+      },
+      "unchanged": [
+        {
+          "baselineId": "00oBASE",
+          "comparisonId": "00oTARGET",
+          "key": "org",
+          "resource": "org"
+        }
+      ],
+      "warnings": []
+    },
+    "policies": {
+      "added": [],
+      "baselineCount": 2,
+      "changed": [
+        {
+          "baselineId": "00p2",
+          "baselinePreview": "{\n  \"_policyType\": \"PASSWORD\",\n  \"name\": \"Default Policy\",\n  \"priority\": 1,\n  \"settings\": {\n    \"password\": {\n      \"complexity\": {\n        \"minLength\": 8\n      }\n    }\n  },\n  \"status\": \"ACTIVE\",\n  \"type\": \"PASSWORD\"\n}",
+          "changedPaths": [
+            "$.settings.password.complexity.minLength"
+          ],
+          "comparisonId": "00p8",
+          "comparisonPreview": "{\n  \"_policyType\": \"PASSWORD\",\n  \"name\": \"Default Policy\",\n  \"priority\": 1,\n  \"settings\": {\n    \"password\": {\n      \"complexity\": {\n        \"minLength\": 12\n      }\n    }\n  },\n  \"status\": \"ACTIVE\",\n  \"type\": \"PASSWORD\"\n}",
+          "key": "PASSWORD::Default Policy",
+          "resource": "policies"
+        }
+      ],
+      "comparisonCount": 2,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 1,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 1,
+        "warnings": 0
+      },
+      "unchanged": [
+        {
+          "baselineId": "00p1",
+          "comparisonId": "00p9",
+          "key": "OKTA_SIGN_ON::Default Policy",
+          "resource": "policies"
+        }
+      ],
+      "warnings": []
+    },
+    "trusted_origins": {
+      "added": [],
+      "baselineCount": 0,
+      "changed": [],
+      "comparisonCount": 0,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    }
+  },
+  "startedAt": "2026-06-29T19:32:31.587325+00:00",
+  "status": "DIFFERENCES_FOUND",
+  "totals": {
+    "added": 2,
+    "changed": 5,
+    "duplicateKeys": 0,
+    "errors": 0,
+    "removed": 2,
+    "unchanged": 2,
+    "warnings": 0
+  },
+  "utility": "okta-org-diff",
+  "version": "0.1.0",
+  "warnings": []
+}

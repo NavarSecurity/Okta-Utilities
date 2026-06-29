@@ -1,0 +1,10 @@
+resource,change_type,key,baseline_id,comparison_id,changed_paths,message
+applications,added,New Admin App,,0oa3,,
+applications,removed,Legacy SAML App,0oa2,,,
+applications,changed,Customer Portal,0oa1,0oa9,$.settings.oauthClient.redirect_uris[length],
+groups,added,Engineering Users,,00g3,,
+groups,removed,HR Users,00g2,,,
+groups,changed,Finance Users,00g1,00g9,$.profile.description,
+policies,changed,PASSWORD::Default Policy,00p2,00p8,$.settings.password.complexity.minLength,
+authorization_servers,changed,Default,aus1,aus9,$._details.detailsByAuthorizationServerId.scopes[length]; $.issuer,
+domains,changed,baseline.okta.com,default,default,$.brandId,

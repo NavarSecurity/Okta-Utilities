@@ -1,0 +1,420 @@
+Metadata-Version: 2.4
+Name: okta-org-diff
+Version: 0.1.0
+Summary: Compare Okta configuration backup folders for drift, migration gaps, and post-change differences.
+Author: Internal IAM Engineering
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
+
+# 04-okta-org-diff
+
+`okta-org-diff` compares two Okta configuration backup folders and reports added, removed, changed, and unchanged objects. It is intended for drift detection, migration gap analysis, and before/after validation after Okta configuration changes.
+
+This utility reads local backup folders created by `01-okta-config-backup`. It does **not** connect to Okta and does **not** modify either environment.
+
+## What this utility does
+
+The utility compares a baseline backup against a comparison backup and produces reports showing:
+
+- Objects added in the comparison backup
+- Objects removed from the comparison backup
+- Objects that exist in both backups but have material differences
+- Objects that are unchanged
+- Duplicate natural keys that may require manual review
+- Missing or invalid backup files
+- Resource-level summary counts
+
+## Common use cases
+
+Use this utility to compare:
+
+- Before-change backup vs. after-change backup
+- Source org backup vs. target org backup
+- Dev org backup vs. production org backup
+- Previous monthly baseline vs. current baseline
+- Pre-migration backup vs. post-migration backup
+
+## Supported resources
+
+The utility can compare these backup resource files:
+
+```text
+org
+applications
+groups
+group_rules
+policies
+identity_providers
+authorization_servers
+trusted_origins
+network_zones
+domains
+brands
+authenticators
+event_hooks
+inline_hooks
+```
+
+## Folder structure
+
+Expected utility structure:
+
+```text
+04-okta-org-diff/
+  README.md
+  SECURITY.md
+  config.example.json
+  pyproject.toml
+  requirements.txt
+  requirements-dev.txt
+  src/
+  input/
+  output/
+  samples/
+  tests/
+```
+
+## Prerequisites
+
+You need:
+
+```text
+Python 3.10+
+Two local backup folders created by 01-okta-config-backup
+```
+
+You do **not** need:
+
+```text
+Okta API token
+Okta admin access
+Network access to Okta
+```
+
+## Installation
+
+From inside the `04-okta-org-diff` folder, create and activate a virtual environment.
+
+### macOS / Linux
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+### Windows PowerShell
+
+```powershell
+py -3 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+
+Install the utility:
+
+```bash
+python -m pip install --upgrade pip
+python -m pip install -e .
+```
+
+Confirm the command works:
+
+```bash
+okta-org-diff --help
+```
+
+## Quick start with sample backups
+
+Run the included sample comparison:
+
+```bash
+okta-org-diff --config config.example.json
+```
+
+Expected output:
+
+```text
+Org diff complete: output/okta-org-diff-YYYYMMDDTHHMMSSZ
+Result: output/okta-org-diff-YYYYMMDDTHHMMSSZ/diff_result.json
+Report: output/okta-org-diff-YYYYMMDDTHHMMSSZ/diff_report.md
+Status: DIFFERENCES_FOUND
+```
+
+## Run against real backups
+
+Use this format:
+
+```bash
+okta-org-diff \
+  --baseline-backup-dir ../01-okta-config-backup/output/<baseline-backup-folder> \
+  --comparison-backup-dir ../01-okta-config-backup/output/<comparison-backup-folder>
+```
+
+Example:
+
+```bash
+okta-org-diff \
+  --baseline-backup-dir ../01-okta-config-backup/output/okta-config-backup-before-change \
+  --comparison-backup-dir ../01-okta-config-backup/output/okta-config-backup-after-change
+```
+
+If your path contains spaces, wrap it in double quotes:
+
+```bash
+okta-org-diff \
+  --baseline-backup-dir "/Users/name/Okta Projects/backups/before" \
+  --comparison-backup-dir "/Users/name/Okta Projects/backups/after"
+```
+
+## Compare selected resources only
+
+To compare only applications and groups:
+
+```bash
+okta-org-diff \
+  --baseline-backup-dir ../backups/before \
+  --comparison-backup-dir ../backups/after \
+  --include applications,groups
+```
+
+To compare only policies:
+
+```bash
+okta-org-diff \
+  --baseline-backup-dir ../backups/before \
+  --comparison-backup-dir ../backups/after \
+  --include policies
+```
+
+## Use a config file
+
+Copy the example config:
+
+### macOS / Linux
+
+```bash
+cp config.example.json input/diff.config.json
+```
+
+### Windows PowerShell
+
+```powershell
+Copy-Item config.example.json input/diff.config.json
+```
+
+Edit:
+
+```text
+input/diff.config.json
+```
+
+Example config:
+
+```json
+{
+  "baselineBackupDir": "../01-okta-config-backup/output/before",
+  "comparisonBackupDir": "../01-okta-config-backup/output/after",
+  "outputDir": "output",
+  "include": [
+    "applications",
+    "groups",
+    "policies"
+  ],
+  "ignoreFields": [
+    "id",
+    "_links",
+    "created",
+    "lastUpdated",
+    "lastMembershipUpdated",
+    "createdBy",
+    "lastUpdatedBy"
+  ],
+  "writeCsv": true,
+  "writeMarkdown": true,
+  "strictMode": false,
+  "failOnDifferences": false,
+  "maxDiffPreviewChars": 500
+}
+```
+
+Run:
+
+```bash
+okta-org-diff --config input/diff.config.json
+```
+
+## Config field explanations
+
+| Field | Purpose |
+|---|---|
+| `baselineBackupDir` | Original/source/before backup folder. |
+| `comparisonBackupDir` | Target/after/current backup folder. |
+| `outputDir` | Where diff reports are written. |
+| `include` | Resource types to compare. |
+| `ignoreFields` | Fields ignored during material comparison. Useful for IDs, timestamps, and links. |
+| `writeCsv` | Writes `changes.csv`. |
+| `writeMarkdown` | Writes `diff_report.md`. |
+| `strictMode` | Exits non-zero when differences or warnings exist. |
+| `failOnDifferences` | Exits non-zero when added, removed, changed, or duplicate-key differences exist. |
+| `maxDiffPreviewChars` | Limits JSON preview size in report output. |
+
+## Output files
+
+Each run creates a timestamped output folder:
+
+```text
+output/okta-org-diff-YYYYMMDDTHHMMSSZ/
+```
+
+Generated files:
+
+```text
+diff_result.json
+changes.csv
+diff_report.md
+execution_report.md
+```
+
+### `diff_report.md`
+
+Human-readable summary of differences. Open this first.
+
+### `diff_result.json`
+
+Machine-readable result containing all comparison details.
+
+### `changes.csv`
+
+Flat CSV list of added, removed, changed, and duplicate-key findings.
+
+### `execution_report.md`
+
+Run metadata, status, totals, and generated files.
+
+## Understanding difference types
+
+| Type | Meaning |
+|---|---|
+| `added` | Object exists in the comparison backup but not in the baseline backup. |
+| `removed` | Object exists in the baseline backup but not in the comparison backup. |
+| `changed` | Object exists in both backups but material configuration differs. |
+| `unchanged` | Object exists in both backups and normalized configuration matches. |
+| `duplicateKeys` | More than one object shares the same natural key in one backup. |
+
+## Natural key matching
+
+The utility does not rely on Okta object IDs for matching because IDs can differ across orgs.
+
+Default matching keys:
+
+| Resource | Natural key |
+|---|---|
+| `org` | Single `org` record |
+| `applications` | `label`, then `name`, then `id` |
+| `groups` | `profile.name`, then `name`, then `id` |
+| `policies` | `type::name` |
+| `authorization_servers` | `name`, then `issuer`, then `id` |
+| `trusted_origins` | `origin`, then `name`, then `id` |
+| `network_zones` | `name`, then `id` |
+| `domains` | `domain`, then `id` |
+| `identity_providers` | `name`, then `id` |
+| `brands` | `name`, then `id` |
+| `authenticators` | `key`, then `name`, then `type`, then `id` |
+| `event_hooks`, `inline_hooks`, `group_rules` | `name`, then `id` |
+
+## Ignored fields
+
+By default, the diff ignores fields that commonly change between exports or differ between orgs:
+
+```text
+id
+_links
+created
+lastUpdated
+lastMembershipUpdated
+createdBy
+lastUpdatedBy
+```
+
+You can add more ignored fields from the command line:
+
+```bash
+okta-org-diff \
+  --baseline-backup-dir ../backups/before \
+  --comparison-backup-dir ../backups/after \
+  --ignore-fields embedded,credentials
+```
+
+## Strict mode
+
+Strict mode is useful in CI/CD or pre-cutover checks.
+
+```bash
+okta-org-diff \
+  --baseline-backup-dir ../backups/before \
+  --comparison-backup-dir ../backups/after \
+  --strict
+```
+
+In strict mode, the command exits non-zero if differences or warnings are detected.
+
+## Exit codes
+
+| Exit code | Meaning |
+|---:|---|
+| `0` | Diff completed and did not meet configured failure conditions. |
+| `1` | Diff completed, but differences/errors/warnings triggered failure behavior. |
+| `2` | Runtime or configuration error. |
+
+## Recommended workflow
+
+```text
+1. Run 01-okta-config-backup before a change.
+2. Run 01-okta-config-backup after the change.
+3. Run 05-okta-backup-validator against both backups.
+4. Run 04-okta-org-diff to compare the backups.
+5. Review diff_report.md and changes.csv.
+6. Use the findings for validation, rollback review, migration planning, or evidence.
+```
+
+Example:
+
+```bash
+cd 04-okta-org-diff
+
+okta-org-diff \
+  --baseline-backup-dir ../01-okta-config-backup/output/<before-backup> \
+  --comparison-backup-dir ../01-okta-config-backup/output/<after-backup> \
+  --include applications,groups,policies
+```
+
+## Security notes
+
+This tool reads backup files and writes reports. Backup files and diff reports may contain sensitive configuration data. Treat all generated output as sensitive unless reviewed and approved.
+
+Do not commit raw backup files, unreviewed diff reports, `.env` files, API tokens, client secrets, or private keys.
+
+## Development
+
+Install test dependencies:
+
+```bash
+python -m pip install -r requirements-dev.txt
+```
+
+Run tests:
+
+```bash
+pytest
+```
+
+Run syntax validation:
+
+```bash
+python -m compileall src tests
+```
+
+## Disclaimer
+
+WARNING: These utilities have limited testing and are provided as-is with no warranty. Use at your own risk.

@@ -1,0 +1,606 @@
+{
+  "baselineBackupDir": "/Users/ravikumar/Cayden's Projects/Okta Projects/01-okta-config-backup/output/okta-config-backup-20260626T193825Z",
+  "comparisonBackupDir": "/Users/ravikumar/Cayden's Projects/Okta Projects/01-okta-config-backup/output/okta-config-backup-20260629T192942Z",
+  "elapsedSeconds": 0.006,
+  "errors": [],
+  "generatedAt": "2026-06-29T19:38:53.135584+00:00",
+  "hasDifferences": true,
+  "ignoreFields": [
+    "id",
+    "_links",
+    "created",
+    "lastUpdated",
+    "lastMembershipUpdated",
+    "createdBy",
+    "lastUpdatedBy"
+  ],
+  "requestedResources": [
+    "org",
+    "applications",
+    "groups",
+    "group_rules",
+    "policies",
+    "identity_providers",
+    "authorization_servers",
+    "trusted_origins",
+    "network_zones",
+    "domains",
+    "brands",
+    "authenticators",
+    "event_hooks",
+    "inline_hooks"
+  ],
+  "resources": {
+    "applications": {
+      "added": [],
+      "baselineCount": 8,
+      "changed": [
+        {
+          "baselineId": "0oa12rbv0xoyPhkAV698",
+          "baselinePreview": "{\n  \"accessibility\": {\n    \"errorRedirectUrl\": null,\n    \"loginRedirectUrl\": null,\n    \"selfService\": false\n  },\n  \"credentials\": {\n    \"signing\": {\n      \"kid\": \"vWyPhFzyft1u0G-6jxB7LnPKpWtVNMB5eMxeoYIeYoU\"\n    },\n    \"userNameTemplate\": {\n      \"template\": \"${source.login}\",\n      \"type\": \"BUILT_IN\"\n    }\n  },\n  \"features\": [],\n  \"label\": \"Okta Access Certification Reviews\",\n  \"name\": \"okta_iga_reviewer\",\n  \"orn\": \"orn:okta:idp:00o12rbljxj8EbvI9698:apps:okta_iga_reviewer:0oa12rbv0xoyPhkAV698\",...",
+          "changedPaths": [
+            "$.credentials.signing.kid",
+            "$.orn"
+          ],
+          "comparisonId": "0oa14igmbhnEDhWYf698",
+          "comparisonPreview": "{\n  \"accessibility\": {\n    \"errorRedirectUrl\": null,\n    \"loginRedirectUrl\": null,\n    \"selfService\": false\n  },\n  \"credentials\": {\n    \"signing\": {\n      \"kid\": \"UjaA_AKSPG-FHGSRcCAM8BgRWA4JfIlxhQnz24hzUPE\"\n    },\n    \"userNameTemplate\": {\n      \"template\": \"${source.login}\",\n      \"type\": \"BUILT_IN\"\n    }\n  },\n  \"features\": [],\n  \"label\": \"Okta Access Certification Reviews\",\n  \"name\": \"okta_iga_reviewer\",\n  \"orn\": \"orn:okta:idp:00o14igebb9XzvK0b698:apps:okta_iga_reviewer:0oa14igmbhnEDhWYf698\",...",
+          "key": "Okta Access Certification Reviews",
+          "resource": "applications"
+        },
+        {
+          "baselineId": "0oa12rbljxtCxUtTr698",
+          "baselinePreview": "{\n  \"accessibility\": {\n    \"errorRedirectUrl\": null,\n    \"loginRedirectUrl\": null,\n    \"selfService\": false\n  },\n  \"credentials\": {\n    \"signing\": {\n      \"kid\": \"vWyPhFzyft1u0G-6jxB7LnPKpWtVNMB5eMxeoYIeYoU\"\n    },\n    \"userNameTemplate\": {\n      \"template\": \"${source.login}\",\n      \"type\": \"BUILT_IN\"\n    }\n  },\n  \"features\": [],\n  \"label\": \"Okta Admin Console\",\n  \"name\": \"saasure\",\n  \"orn\": \"orn:okta:idp:00o12rbljxj8EbvI9698:apps:saasure:0oa12rbljxtCxUtTr698\",\n  \"settings\": {\n    \"app\": {},\n   ...",
+          "changedPaths": [
+            "$.credentials.signing.kid",
+            "$.orn"
+          ],
+          "comparisonId": "0oa14igebbjjOrvHg698",
+          "comparisonPreview": "{\n  \"accessibility\": {\n    \"errorRedirectUrl\": null,\n    \"loginRedirectUrl\": null,\n    \"selfService\": false\n  },\n  \"credentials\": {\n    \"signing\": {\n      \"kid\": \"UjaA_AKSPG-FHGSRcCAM8BgRWA4JfIlxhQnz24hzUPE\"\n    },\n    \"userNameTemplate\": {\n      \"template\": \"${source.login}\",\n      \"type\": \"BUILT_IN\"\n    }\n  },\n  \"features\": [],\n  \"label\": \"Okta Admin Console\",\n  \"name\": \"saasure\",\n  \"orn\": \"orn:okta:idp:00o14igebb9XzvK0b698:apps:saasure:0oa14igebbjjOrvHg698\",\n  \"settings\": {\n    \"app\": {},\n   ...",
+          "key": "Okta Admin Console",
+          "resource": "applications"
+        },
+        {
+          "baselineId": "0oa12rblk0lJUiVFJ698",
+          "baselinePreview": "{\n  \"accessibility\": {\n    \"errorRedirectUrl\": null,\n    \"loginRedirectUrl\": null,\n    \"selfService\": false\n  },\n  \"credentials\": {\n    \"signing\": {\n      \"kid\": \"vWyPhFzyft1u0G-6jxB7LnPKpWtVNMB5eMxeoYIeYoU\"\n    },\n    \"userNameTemplate\": {\n      \"template\": \"${source.login}\",\n      \"type\": \"BUILT_IN\"\n    }\n  },\n  \"features\": [],\n  \"label\": \"Okta Browser Plugin\",\n  \"name\": \"okta_browser_plugin\",\n  \"orn\": \"orn:okta:idp:00o12rbljxj8EbvI9698:apps:okta_browser_plugin:0oa12rblk0lJUiVFJ698\",\n  \"settin...",
+          "changedPaths": [
+            "$.credentials.signing.kid",
+            "$.orn"
+          ],
+          "comparisonId": "0oa14igebft0JLR64698",
+          "comparisonPreview": "{\n  \"accessibility\": {\n    \"errorRedirectUrl\": null,\n    \"loginRedirectUrl\": null,\n    \"selfService\": false\n  },\n  \"credentials\": {\n    \"signing\": {\n      \"kid\": \"UjaA_AKSPG-FHGSRcCAM8BgRWA4JfIlxhQnz24hzUPE\"\n    },\n    \"userNameTemplate\": {\n      \"template\": \"${source.login}\",\n      \"type\": \"BUILT_IN\"\n    }\n  },\n  \"features\": [],\n  \"label\": \"Okta Browser Plugin\",\n  \"name\": \"okta_browser_plugin\",\n  \"orn\": \"orn:okta:idp:00o14igebb9XzvK0b698:apps:okta_browser_plugin:0oa14igebft0JLR64698\",\n  \"settin...",
+          "key": "Okta Browser Plugin",
+          "resource": "applications"
+        },
+        {
+          "baselineId": "0oa12rbljylGLVxDK698",
+          "baselinePreview": "{\n  \"accessibility\": {\n    \"errorRedirectUrl\": null,\n    \"loginRedirectUrl\": null,\n    \"selfService\": false\n  },\n  \"credentials\": {\n    \"signing\": {\n      \"kid\": \"vWyPhFzyft1u0G-6jxB7LnPKpWtVNMB5eMxeoYIeYoU\"\n    },\n    \"userNameTemplate\": {\n      \"template\": \"${source.login}\",\n      \"type\": \"BUILT_IN\"\n    }\n  },\n  \"features\": [],\n  \"label\": \"Okta Dashboard\",\n  \"name\": \"okta_enduser\",\n  \"orn\": \"orn:okta:idp:00o12rbljxj8EbvI9698:apps:okta_enduser:0oa12rbljylGLVxDK698\",\n  \"settings\": {\n    \"app\": {...",
+          "changedPaths": [
+            "$.credentials.signing.kid",
+            "$.orn"
+          ],
+          "comparisonId": "0oa14igebcb37syUE698",
+          "comparisonPreview": "{\n  \"accessibility\": {\n    \"errorRedirectUrl\": null,\n    \"loginRedirectUrl\": null,\n    \"selfService\": false\n  },\n  \"credentials\": {\n    \"signing\": {\n      \"kid\": \"UjaA_AKSPG-FHGSRcCAM8BgRWA4JfIlxhQnz24hzUPE\"\n    },\n    \"userNameTemplate\": {\n      \"template\": \"${source.login}\",\n      \"type\": \"BUILT_IN\"\n    }\n  },\n  \"features\": [],\n  \"label\": \"Okta Dashboard\",\n  \"name\": \"okta_enduser\",\n  \"orn\": \"orn:okta:idp:00o14igebb9XzvK0b698:apps:okta_enduser:0oa14igebcb37syUE698\",\n  \"settings\": {\n    \"app\": {...",
+          "key": "Okta Dashboard",
+          "resource": "applications"
+        },
+        {
+          "baselineId": "0oa12rblkdwxrsPJm698",
+          "baselinePreview": "{\n  \"accessibility\": {\n    \"errorRedirectUrl\": null,\n    \"loginRedirectUrl\": null,\n    \"selfService\": false\n  },\n  \"credentials\": {\n    \"signing\": {\n      \"kid\": \"vWyPhFzyft1u0G-6jxB7LnPKpWtVNMB5eMxeoYIeYoU\"\n    },\n    \"userNameTemplate\": {\n      \"template\": \"${source.login}\",\n      \"type\": \"BUILT_IN\"\n    }\n  },\n  \"features\": [],\n  \"label\": \"Okta OIN Submission Tester\",\n  \"name\": \"okta_oin_submission_tester_app\",\n  \"orn\": \"orn:okta:idp:00o12rbljxj8EbvI9698:apps:okta_oin_submission_tester_app:0oa...",
+          "changedPaths": [
+            "$.credentials.signing.kid",
+            "$.orn"
+          ],
+          "comparisonId": "0oa14igjtd3RlpNVb698",
+          "comparisonPreview": "{\n  \"accessibility\": {\n    \"errorRedirectUrl\": null,\n    \"loginRedirectUrl\": null,\n    \"selfService\": false\n  },\n  \"credentials\": {\n    \"signing\": {\n      \"kid\": \"UjaA_AKSPG-FHGSRcCAM8BgRWA4JfIlxhQnz24hzUPE\"\n    },\n    \"userNameTemplate\": {\n      \"template\": \"${source.login}\",\n      \"type\": \"BUILT_IN\"\n    }\n  },\n  \"features\": [],\n  \"label\": \"Okta OIN Submission Tester\",\n  \"name\": \"okta_oin_submission_tester_app\",\n  \"orn\": \"orn:okta:idp:00o14igebb9XzvK0b698:apps:okta_oin_submission_tester_app:0oa...",
+          "key": "Okta OIN Submission Tester",
+          "resource": "applications"
+        },
+        {
+          "baselineId": "0oa12rbvtykLQboWH698",
+          "baselinePreview": "{\n  \"accessibility\": {\n    \"errorRedirectUrl\": null,\n    \"loginRedirectUrl\": null,\n    \"selfService\": false\n  },\n  \"credentials\": {\n    \"signing\": {\n      \"kid\": \"vWyPhFzyft1u0G-6jxB7LnPKpWtVNMB5eMxeoYIeYoU\"\n    },\n    \"userNameTemplate\": {\n      \"template\": \"${source.login}\",\n      \"type\": \"BUILT_IN\"\n    }\n  },\n  \"features\": [\n    \"GROUP_PUSH\",\n    \"IMPORT_NEW_USERS\",\n    \"IMPORT_PROFILE_UPDATES\",\n    \"PUSH_NEW_USERS\",\n    \"PUSH_PROFILE_UPDATES\",\n    \"PUSH_USER_DEACTIVATION\",\n    \"REACTIVATE_US...",
+          "changedPaths": [
+            "$.credentials.signing.kid",
+            "$.orn",
+            "$.settings.app.initiateLoginURI",
+            "$.settings.app.redirectURI"
+          ],
+          "comparisonId": "0oa14igmxoeJmeFCi698",
+          "comparisonPreview": "{\n  \"accessibility\": {\n    \"errorRedirectUrl\": null,\n    \"loginRedirectUrl\": null,\n    \"selfService\": false\n  },\n  \"credentials\": {\n    \"signing\": {\n      \"kid\": \"UjaA_AKSPG-FHGSRcCAM8BgRWA4JfIlxhQnz24hzUPE\"\n    },\n    \"userNameTemplate\": {\n      \"template\": \"${source.login}\",\n      \"type\": \"BUILT_IN\"\n    }\n  },\n  \"features\": [\n    \"GROUP_PUSH\",\n    \"IMPORT_NEW_USERS\",\n    \"IMPORT_PROFILE_UPDATES\",\n    \"PUSH_NEW_USERS\",\n    \"PUSH_PROFILE_UPDATES\",\n    \"PUSH_USER_DEACTIVATION\",\n    \"REACTIVATE_US...",
+          "key": "Okta Workflows",
+          "resource": "applications"
+        },
+        {
+          "baselineId": "0oa12rbvxg0HMgbfe698",
+          "baselinePreview": "{\n  \"accessibility\": {\n    \"errorRedirectUrl\": null,\n    \"loginRedirectUrl\": null,\n    \"selfService\": false\n  },\n  \"credentials\": {\n    \"signing\": {\n      \"kid\": \"vWyPhFzyft1u0G-6jxB7LnPKpWtVNMB5eMxeoYIeYoU\"\n    },\n    \"userNameTemplate\": {\n      \"template\": \"${source.login}\",\n      \"type\": \"BUILT_IN\"\n    }\n  },\n  \"features\": [],\n  \"label\": \"Okta Workflows OAuth\",\n  \"name\": \"flow\",\n  \"orn\": \"orn:okta:idp:00o12rbljxj8EbvI9698:apps:flow:0oa12rbvxg0HMgbfe698\",\n  \"settings\": {\n    \"app\": {\n      \"re...",
+          "changedPaths": [
+            "$.credentials.signing.kid",
+            "$.orn"
+          ],
+          "comparisonId": "0oa14igmxpbK1BYrn698",
+          "comparisonPreview": "{\n  \"accessibility\": {\n    \"errorRedirectUrl\": null,\n    \"loginRedirectUrl\": null,\n    \"selfService\": false\n  },\n  \"credentials\": {\n    \"signing\": {\n      \"kid\": \"UjaA_AKSPG-FHGSRcCAM8BgRWA4JfIlxhQnz24hzUPE\"\n    },\n    \"userNameTemplate\": {\n      \"template\": \"${source.login}\",\n      \"type\": \"BUILT_IN\"\n    }\n  },\n  \"features\": [],\n  \"label\": \"Okta Workflows OAuth\",\n  \"name\": \"flow\",\n  \"orn\": \"orn:okta:idp:00o14igebb9XzvK0b698:apps:flow:0oa14igmxpbK1BYrn698\",\n  \"settings\": {\n    \"app\": {\n      \"re...",
+          "key": "Okta Workflows OAuth",
+          "resource": "applications"
+        }
+      ],
+      "comparisonCount": 7,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [
+        {
+          "baselineId": "0oa14jw2jexR0cddS698",
+          "baselinePreview": "{\n  \"_links\": {\n    \"accessPolicy\": {\n      \"href\": \"https://integrator-3799871.okta.com/api/v1/policies/rst12rblk2vCwshoF698\"\n    },\n    \"appLinks\": [\n      {\n        \"href\": \"https://integrator-3799871.okta.com/home/oidc_client/0oa14jw2jexR0cddS698/aln177a159h7Zf52X0g8\",\n        \"name\": \"oidc_client_link\",\n        \"type\": \"text/html\"\n      }\n    ],\n    \"clientCredentials\": [\n      {\n        \"href\": \"https://integrator-3799871.okta.com/api/v1/apps/0oa14jw2jexR0cddS698/credentials/secrets\",\n    ...",
+          "key": "My API Services App1",
+          "resource": "applications"
+        }
+      ],
+      "summary": {
+        "added": 0,
+        "changed": 7,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 1,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    },
+    "authenticators": {
+      "added": [],
+      "baselineCount": 6,
+      "changed": [],
+      "comparisonCount": 6,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 6,
+        "warnings": 0
+      },
+      "unchanged": [
+        {
+          "baselineId": "aut12rblk3jHUZvw8698",
+          "comparisonId": "aut14igebj3aoICIk698",
+          "key": "okta_email",
+          "resource": "authenticators"
+        },
+        {
+          "baselineId": "aut12rblk3ijdUeb3698",
+          "comparisonId": "aut14igebj2dfmVpc698",
+          "key": "okta_password",
+          "resource": "authenticators"
+        },
+        {
+          "baselineId": "aut12rblk3nFYZkwv698",
+          "comparisonId": "aut14igjt3i8nVxja698",
+          "key": "okta_verify",
+          "resource": "authenticators"
+        },
+        {
+          "baselineId": "aut12rblk3krgYtT8698",
+          "comparisonId": "aut14igebj4L2cdZL698",
+          "key": "phone_number",
+          "resource": "authenticators"
+        },
+        {
+          "baselineId": "aut12rblk3mbfa2V9698",
+          "comparisonId": "aut14igjt3hdENhbO698",
+          "key": "security_question",
+          "resource": "authenticators"
+        },
+        {
+          "baselineId": "aut12rblkbtTbXPrv698",
+          "comparisonId": "aut14igjtc1FCnbGf698",
+          "key": "webauthn",
+          "resource": "authenticators"
+        }
+      ],
+      "warnings": []
+    },
+    "authorization_servers": {
+      "added": [],
+      "baselineCount": 1,
+      "changed": [
+        {
+          "baselineId": "aus12rblk7jW5131Z698",
+          "baselinePreview": "{\n  \"_details\": {\n    \"detailsByAuthorizationServerId\": {\n      \"claims\": [\n        {\n          \"alwaysIncludeInToken\": false,\n          \"claimType\": \"IDENTITY\",\n          \"conditions\": {\n            \"scopes\": [\n              \"address\"\n            ]\n          },\n          \"name\": \"address\",\n          \"status\": \"ACTIVE\",\n          \"system\": true,\n          \"valueType\": \"SYSTEM\"\n        },\n        {\n          \"alwaysIncludeInToken\": false,\n          \"claimType\": \"IDENTITY\",\n          \"conditions\":...",
+          "changedPaths": [
+            "$.credentials.signing.kid",
+            "$.credentials.signing.lastRotated",
+            "$.credentials.signing.nextRotation",
+            "$.issuer"
+          ],
+          "comparisonId": "aus14igjt70jcfQm9698",
+          "comparisonPreview": "{\n  \"_details\": {\n    \"detailsByAuthorizationServerId\": {\n      \"claims\": [\n        {\n          \"alwaysIncludeInToken\": false,\n          \"claimType\": \"IDENTITY\",\n          \"conditions\": {\n            \"scopes\": [\n              \"address\"\n            ]\n          },\n          \"name\": \"address\",\n          \"status\": \"ACTIVE\",\n          \"system\": true,\n          \"valueType\": \"SYSTEM\"\n        },\n        {\n          \"alwaysIncludeInToken\": false,\n          \"claimType\": \"IDENTITY\",\n          \"conditions\":...",
+          "key": "default",
+          "resource": "authorization_servers"
+        }
+      ],
+      "comparisonCount": 1,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 1,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    },
+    "brands": {
+      "added": [
+        {
+          "comparisonId": "bnd14igebbg02N8Vf698",
+          "comparisonPreview": "{\n  \"_links\": {\n    \"self\": {\n      \"hints\": {\n        \"allow\": [\n          \"GET\",\n          \"PUT\",\n          \"DELETE\"\n        ]\n      },\n      \"href\": \"https://integrator-1703705.okta.com/api/v1/brands/bnd14igebbg02N8Vf698\"\n    },\n    \"themes\": {\n      \"hints\": {\n        \"allow\": [\n          \"GET\"\n        ]\n      },\n      \"href\": \"https://integrator-1703705.okta.com/api/v1/brands/bnd14igebbg02N8Vf698/themes\"\n    }\n  },\n  \"agreeToCustomPrivacyPolicy\": false,\n  \"customPrivacyPolicyUrl\": null,\n  \"...",
+          "key": "navarsecurity-integrator-1703705",
+          "resource": "brands"
+        }
+      ],
+      "baselineCount": 1,
+      "changed": [],
+      "comparisonCount": 1,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [
+        {
+          "baselineId": "bnd12rbljxqHf40PF698",
+          "baselinePreview": "{\n  \"_links\": {\n    \"self\": {\n      \"hints\": {\n        \"allow\": [\n          \"GET\",\n          \"PUT\",\n          \"DELETE\"\n        ]\n      },\n      \"href\": \"https://integrator-3799871.okta.com/api/v1/brands/bnd12rbljxqHf40PF698\"\n    },\n    \"themes\": {\n      \"hints\": {\n        \"allow\": [\n          \"GET\"\n        ]\n      },\n      \"href\": \"https://integrator-3799871.okta.com/api/v1/brands/bnd12rbljxqHf40PF698/themes\"\n    }\n  },\n  \"agreeToCustomPrivacyPolicy\": false,\n  \"customPrivacyPolicyUrl\": null,\n  \"...",
+          "key": "navarsecurity-integrator-3799871",
+          "resource": "brands"
+        }
+      ],
+      "summary": {
+        "added": 1,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 1,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    },
+    "domains": {
+      "added": [
+        {
+          "comparisonId": "default",
+          "comparisonPreview": "{\n  \"_links\": {\n    \"brand\": {\n      \"hints\": {\n        \"allow\": [\n          \"GET\",\n          \"PUT\",\n          \"DELETE\"\n        ]\n      },\n      \"href\": \"https://integrator-1703705.okta.com/api/v1/brands/bnd14igebbg02N8Vf698\"\n    },\n    \"self\": {\n      \"hints\": {\n        \"allow\": [\n          \"GET\"\n        ]\n      },\n      \"href\": \"https://integrator-1703705.okta.com/api/v1/domains/default\"\n    }\n  },\n  \"brandId\": \"bnd14igebbg02N8Vf698\",\n  \"certificateSourceType\": \"OKTA_MANAGED\",\n  \"domain\": \"int...",
+          "key": "integrator-1703705.okta.com",
+          "resource": "domains"
+        }
+      ],
+      "baselineCount": 1,
+      "changed": [],
+      "comparisonCount": 1,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [
+        {
+          "baselineId": "default",
+          "baselinePreview": "{\n  \"_links\": {\n    \"brand\": {\n      \"hints\": {\n        \"allow\": [\n          \"GET\",\n          \"PUT\",\n          \"DELETE\"\n        ]\n      },\n      \"href\": \"https://integrator-3799871.okta.com/api/v1/brands/bnd12rbljxqHf40PF698\"\n    },\n    \"self\": {\n      \"hints\": {\n        \"allow\": [\n          \"GET\"\n        ]\n      },\n      \"href\": \"https://integrator-3799871.okta.com/api/v1/domains/default\"\n    }\n  },\n  \"brandId\": \"bnd12rbljxqHf40PF698\",\n  \"certificateSourceType\": \"OKTA_MANAGED\",\n  \"domain\": \"int...",
+          "key": "integrator-3799871.okta.com",
+          "resource": "domains"
+        }
+      ],
+      "summary": {
+        "added": 1,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 1,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    },
+    "event_hooks": {
+      "added": [],
+      "baselineCount": 0,
+      "changed": [],
+      "comparisonCount": 0,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    },
+    "group_rules": {
+      "added": [],
+      "baselineCount": 0,
+      "changed": [],
+      "comparisonCount": 0,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    },
+    "groups": {
+      "added": [],
+      "baselineCount": 2,
+      "changed": [],
+      "comparisonCount": 2,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 2,
+        "warnings": 0
+      },
+      "unchanged": [
+        {
+          "baselineId": "00g12rbljzoNVuGu1698",
+          "comparisonId": "00g14igebdaK5gq1G698",
+          "key": "Everyone",
+          "resource": "groups"
+        },
+        {
+          "baselineId": "00g12rbljzqDcwkRA698",
+          "comparisonId": "00g14igebdb33vjGy698",
+          "key": "Okta Administrators",
+          "resource": "groups"
+        }
+      ],
+      "warnings": []
+    },
+    "identity_providers": {
+      "added": [],
+      "baselineCount": 0,
+      "changed": [],
+      "comparisonCount": 0,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    },
+    "inline_hooks": {
+      "added": [],
+      "baselineCount": 0,
+      "changed": [],
+      "comparisonCount": 0,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    },
+    "network_zones": {
+      "added": [],
+      "baselineCount": 4,
+      "changed": [],
+      "comparisonCount": 4,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 4,
+        "warnings": 0
+      },
+      "unchanged": [
+        {
+          "baselineId": "nzo12rblk2nDw3kU8698",
+          "comparisonId": "nzo14igebhwRj6AhV698",
+          "key": "BlockedIpZone",
+          "resource": "network_zones"
+        },
+        {
+          "baselineId": "nzo12rblk2lb5InND698",
+          "comparisonId": "nzo14igebhtAoi0Yu698",
+          "key": "DefaultEnhancedDynamicZone",
+          "resource": "network_zones"
+        },
+        {
+          "baselineId": "nzo12rblk4vSomOig698",
+          "comparisonId": "nzo14igjt67ygYB2A698",
+          "key": "DefaultExemptIpZone",
+          "resource": "network_zones"
+        },
+        {
+          "baselineId": "nzo12rblk2mNZ37VF698",
+          "comparisonId": "nzo14igebhv0v7PHf698",
+          "key": "LegacyIpZone",
+          "resource": "network_zones"
+        }
+      ],
+      "warnings": []
+    },
+    "org": {
+      "added": [],
+      "baselineCount": 1,
+      "changed": [
+        {
+          "baselineId": "00o12rbljxj8EbvI9698",
+          "baselinePreview": "{\n  \"address1\": null,\n  \"address2\": null,\n  \"city\": null,\n  \"companyName\": \"navarsecurity-integrator-3799871\",\n  \"country\": null,\n  \"endUserSupportHelpURL\": null,\n  \"expiresAt\": null,\n  \"phoneNumber\": null,\n  \"postalCode\": null,\n  \"state\": null,\n  \"status\": \"ACTIVE\",\n  \"subdomain\": \"integrator-3799871\",\n  \"supportPhoneNumber\": null,\n  \"website\": \"https://navarsecurity.com\"\n}",
+          "changedPaths": [
+            "$.companyName",
+            "$.subdomain"
+          ],
+          "comparisonId": "00o14igebb9XzvK0b698",
+          "comparisonPreview": "{\n  \"address1\": null,\n  \"address2\": null,\n  \"city\": null,\n  \"companyName\": \"navarsecurity-integrator-1703705\",\n  \"country\": null,\n  \"endUserSupportHelpURL\": null,\n  \"expiresAt\": null,\n  \"phoneNumber\": null,\n  \"postalCode\": null,\n  \"state\": null,\n  \"status\": \"ACTIVE\",\n  \"subdomain\": \"integrator-1703705\",\n  \"supportPhoneNumber\": null,\n  \"website\": \"https://navarsecurity.com\"\n}",
+          "key": "org",
+          "resource": "org"
+        }
+      ],
+      "comparisonCount": 1,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 1,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    },
+    "policies": {
+      "added": [],
+      "baselineCount": 5,
+      "changed": [
+        {
+          "baselineId": "00p12rblk6hXMiLHH698",
+          "baselinePreview": "{\n  \"_policyType\": \"MFA_ENROLL\",\n  \"_rules\": [\n    {\n      \"actions\": {\n        \"enroll\": {\n          \"self\": \"CHALLENGE\"\n        }\n      },\n      \"conditions\": {\n        \"network\": {\n          \"connection\": \"ANYWHERE\"\n        },\n        \"people\": {\n          \"users\": {\n            \"exclude\": []\n          }\n        }\n      },\n      \"name\": \"Default Rule\",\n      \"priority\": 1,\n      \"status\": \"ACTIVE\",\n      \"system\": true,\n      \"type\": \"MFA_ENROLL\"\n    }\n  ],\n  \"conditions\": {\n    \"people\": {\n ...",
+          "changedPaths": [
+            "$.conditions.people.groups.include[0]"
+          ],
+          "comparisonId": "00p14igjt8kIKU1HX698",
+          "comparisonPreview": "{\n  \"_policyType\": \"MFA_ENROLL\",\n  \"_rules\": [\n    {\n      \"actions\": {\n        \"enroll\": {\n          \"self\": \"CHALLENGE\"\n        }\n      },\n      \"conditions\": {\n        \"network\": {\n          \"connection\": \"ANYWHERE\"\n        },\n        \"people\": {\n          \"users\": {\n            \"exclude\": []\n          }\n        }\n      },\n      \"name\": \"Default Rule\",\n      \"priority\": 1,\n      \"status\": \"ACTIVE\",\n      \"system\": true,\n      \"type\": \"MFA_ENROLL\"\n    }\n  ],\n  \"conditions\": {\n    \"people\": {\n ...",
+          "key": "MFA_ENROLL::Default Policy",
+          "resource": "policies"
+        },
+        {
+          "baselineId": "00p12rbljzrV59ac5698",
+          "baselinePreview": "{\n  \"_policyType\": \"OKTA_SIGN_ON\",\n  \"_rules\": [\n    {\n      \"actions\": {\n        \"signon\": {\n          \"access\": \"ALLOW\",\n          \"primaryFactor\": \"PASSWORD_IDP_ANY_FACTOR\",\n          \"rememberDeviceByDefault\": false,\n          \"requireFactor\": false,\n          \"session\": {\n            \"maxSessionIdleMinutes\": 120,\n            \"maxSessionLifetimeMinutes\": 1440,\n            \"usePersistentCookie\": false\n          }\n        }\n      },\n      \"conditions\": {\n        \"authContext\": {\n          \"aut...",
+          "changedPaths": [
+            "$.conditions.people.groups.include[0]"
+          ],
+          "comparisonId": "00p14igebdcAqI91x698",
+          "comparisonPreview": "{\n  \"_policyType\": \"OKTA_SIGN_ON\",\n  \"_rules\": [\n    {\n      \"actions\": {\n        \"signon\": {\n          \"access\": \"ALLOW\",\n          \"primaryFactor\": \"PASSWORD_IDP_ANY_FACTOR\",\n          \"rememberDeviceByDefault\": false,\n          \"requireFactor\": false,\n          \"session\": {\n            \"maxSessionIdleMinutes\": 120,\n            \"maxSessionLifetimeMinutes\": 1440,\n            \"usePersistentCookie\": false\n          }\n        }\n      },\n      \"conditions\": {\n        \"authContext\": {\n          \"aut...",
+          "key": "OKTA_SIGN_ON::Default Policy",
+          "resource": "policies"
+        },
+        {
+          "baselineId": "00p12rblk1twKW1bp698",
+          "baselinePreview": "{\n  \"_policyType\": \"PASSWORD\",\n  \"_rules\": [\n    {\n      \"actions\": {\n        \"passwordChange\": {\n          \"access\": \"ALLOW\"\n        },\n        \"selfServicePasswordReset\": {\n          \"access\": \"ALLOW\",\n          \"requirement\": {\n            \"primary\": {\n              \"methods\": [\n                \"email\"\n              ]\n            },\n            \"stepUp\": {\n              \"required\": false\n            }\n          }\n        },\n        \"selfServiceUnlock\": {\n          \"access\": \"DENY\"\n        }\n ...",
+          "changedPaths": [
+            "$.conditions.people.groups.include[0]"
+          ],
+          "comparisonId": "00p14igebh0Cwrtqm698",
+          "comparisonPreview": "{\n  \"_policyType\": \"PASSWORD\",\n  \"_rules\": [\n    {\n      \"actions\": {\n        \"passwordChange\": {\n          \"access\": \"ALLOW\"\n        },\n        \"selfServicePasswordReset\": {\n          \"access\": \"ALLOW\",\n          \"requirement\": {\n            \"primary\": {\n              \"methods\": [\n                \"email\"\n              ]\n            },\n            \"stepUp\": {\n              \"required\": false\n            }\n          }\n        },\n        \"selfServiceUnlock\": {\n          \"access\": \"DENY\"\n        }\n ...",
+          "key": "PASSWORD::Default Policy",
+          "resource": "policies"
+        },
+        {
+          "baselineId": "rst12rblk2xK0mFoS698",
+          "baselinePreview": "{\n  \"_policyType\": \"PROFILE_ENROLLMENT\",\n  \"_rules\": [\n    {\n      \"actions\": {\n        \"profileEnrollment\": {\n          \"access\": \"ALLOW\",\n          \"activationRequirements\": {\n            \"emailVerification\": true\n          },\n          \"allowedIdentifiers\": [\n            \"login\"\n          ],\n          \"preRegistrationInlineHooks\": null,\n          \"profileAttributes\": [\n            {\n              \"label\": \"Email\",\n              \"name\": \"email\",\n              \"required\": true\n            },\n  ...",
+          "changedPaths": [
+            "$._rules[0].actions.profileEnrollment.uiSchemaId"
+          ],
+          "comparisonId": "rst14igebi9XzTHCW698",
+          "comparisonPreview": "{\n  \"_policyType\": \"PROFILE_ENROLLMENT\",\n  \"_rules\": [\n    {\n      \"actions\": {\n        \"profileEnrollment\": {\n          \"access\": \"ALLOW\",\n          \"activationRequirements\": {\n            \"emailVerification\": true\n          },\n          \"allowedIdentifiers\": [\n            \"login\"\n          ],\n          \"preRegistrationInlineHooks\": null,\n          \"profileAttributes\": [\n            {\n              \"label\": \"Email\",\n              \"name\": \"email\",\n              \"required\": true\n            },\n  ...",
+          "key": "PROFILE_ENROLLMENT::Default Policy",
+          "resource": "policies"
+        }
+      ],
+      "comparisonCount": 5,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 4,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 1,
+        "warnings": 0
+      },
+      "unchanged": [
+        {
+          "baselineId": "00p12rblk1adwZN2Y698",
+          "comparisonId": "00p14igebgutc8Htt698",
+          "key": "IDP_DISCOVERY::Idp Discovery Policy",
+          "resource": "policies"
+        }
+      ],
+      "warnings": []
+    },
+    "trusted_origins": {
+      "added": [],
+      "baselineCount": 0,
+      "changed": [],
+      "comparisonCount": 0,
+      "duplicateKeys": [],
+      "errors": [],
+      "removed": [],
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "duplicateKeys": 0,
+        "errors": 0,
+        "removed": 0,
+        "unchanged": 0,
+        "warnings": 0
+      },
+      "unchanged": [],
+      "warnings": []
+    }
+  },
+  "startedAt": "2026-06-29T19:38:53.129715+00:00",
+  "status": "DIFFERENCES_FOUND",
+  "totals": {
+    "added": 2,
+    "changed": 13,
+    "duplicateKeys": 0,
+    "errors": 0,
+    "removed": 3,
+    "unchanged": 13,
+    "warnings": 0
+  },
+  "utility": "okta-org-diff",
+  "version": "0.1.0",
+  "warnings": []
+}

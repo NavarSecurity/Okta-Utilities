@@ -1,0 +1,4 @@
+[
+  {"id":"0oa9","label":"Customer Portal","name":"oidc_client","signOnMode":"OPENID_CONNECT","settings":{"oauthClient":{"redirect_uris":["https://app.example.com/callback","https://app.example.com/alt-callback"]}}},
+  {"id":"0oa3","label":"New Admin App","name":"oidc_client","signOnMode":"OPENID_CONNECT"}
+]
