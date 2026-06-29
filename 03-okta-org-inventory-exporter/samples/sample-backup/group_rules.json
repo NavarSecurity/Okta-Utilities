@@ -1,0 +1,3 @@
+[
+  {"id":"0prsample1","name":"Assign Portal Users","status":"ACTIVE","type":"group_rule","actions":{"assignUserToGroups":{"groupIds":["00gsample1"]}},"created":"2026-01-01T00:00:00.000Z","lastUpdated":"2026-01-02T00:00:00.000Z"}
+]

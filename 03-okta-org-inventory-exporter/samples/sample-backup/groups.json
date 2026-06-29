@@ -1,0 +1,4 @@
+[
+  {"id": "00gsample1", "type": "OKTA_GROUP", "profile": {"name": "App - Customer Portal Users", "description": "Portal users"}, "created": "2026-01-01T00:00:00.000Z", "lastUpdated": "2026-01-02T00:00:00.000Z"},
+  {"id": "00gsample2", "type": "OKTA_GROUP", "profile": {"name": "App - Admins", "description": "Admins"}, "created": "2026-01-01T00:00:00.000Z", "lastUpdated": "2026-01-02T00:00:00.000Z"}
+]

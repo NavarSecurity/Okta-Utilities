@@ -1,0 +1,186 @@
+Metadata-Version: 2.4
+Name: okta-backup-redactor
+Version: 0.1.0
+Summary: Redacts sensitive values from Okta configuration backup folders.
+Author: Internal IAM Engineering
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+# 02-okta-backup-redactor
+
+`okta-backup-redactor` is a local, read-only utility that scans Okta configuration backup folders and creates a redacted copy before backup files are reviewed, shared, attached to tickets, or committed to Git.
+
+It does **not** call Okta. It does **not** modify the source backup folder. In apply mode, it writes a separate redacted copy and evidence reports under `output/`.
+
+## What it redacts
+
+The redactor uses exact/canonical secret-key matching instead of broad substring matching. This avoids breaking normal Okta configuration structures such as `policyTypes.PASSWORD`, `authorizationServers`, `passwordChange`, and `selfServicePasswordReset`.
+
+It redacts values for common secret-bearing keys and values, including:
+
+- `apiToken`
+- `access_token`
+- `refresh_token`
+- `id_token`
+- `client_secret` / `clientSecret`
+- `sharedSecret`
+- `privateKey`
+- `Authorization` header values
+- `Bearer`, `SSWS`, and `Basic` credential strings
+- private key PEM blocks
+
+It preserves normal Okta structural/configuration fields such as:
+
+- `policyTypes.PASSWORD`
+- Okta password policy settings blocks
+- `authorizationServers`
+- `detailsByAuthorizationServerId`
+- `passwordChange`
+- `selfServicePasswordReset`
+- `recoveryToken.tokenLifetimeMinutes`
+
+## Disclaimer
+
+These utilities have limited testing and are provided as-is with no warranty. Use at your own risk, review all code and output carefully, and test in a non-production environment before using on sensitive, client-owned, or production systems.
+
+## Installation
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -e .
+```
+
+Windows PowerShell:
+
+```powershell
+py -3 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -e .
+```
+
+Confirm installation:
+
+```bash
+okta-backup-redactor --help
+```
+
+## Quick start
+
+The default config expects the source backup here:
+
+```text
+input/source-backup/
+```
+
+This folder is included in the utility with a `.gitkeep` placeholder. Copy the contents of a backup folder into `input/source-backup/`, or point the command directly at an external backup folder with `--source-backup-dir`.
+
+Run dry-run first:
+
+```bash
+okta-backup-redactor --config config.example.json --dry-run
+```
+
+Dry-run writes evidence reports only. It does not create a redacted backup copy.
+
+Apply redaction:
+
+```bash
+okta-backup-redactor --config config.example.json --apply
+```
+
+Apply mode creates:
+
+```text
+output/okta-backup-redaction-YYYYMMDDTHHMMSSZ/
+  redacted-backup/
+  redaction_result.json
+  redaction_report.md
+  redaction_manifest.json
+```
+
+## Use an external backup folder
+
+```bash
+okta-backup-redactor \
+  --source-backup-dir ../01-okta-config-backup/output/okta-config-backup-20260626T164507Z \
+  --output-dir output \
+  --dry-run
+```
+
+Then:
+
+```bash
+okta-backup-redactor \
+  --source-backup-dir ../01-okta-config-backup/output/okta-config-backup-20260626T164507Z \
+  --output-dir output \
+  --apply
+```
+
+## Config fields
+
+| Field | Purpose |
+|---|---|
+| `sourceBackupDir` | Source backup folder to scan/redact. |
+| `outputDir` | Where reports and redacted backup copies are written. |
+| `includeFiles` | Optional list of files to include. Empty means all files. |
+| `excludeFiles` | Optional list of files to skip. |
+| `replacement` | Replacement string for sensitive values. Default: `[REDACTED]`. |
+| `copyNonJsonFiles` | Copies non-JSON files into the redacted backup in apply mode. |
+| `redactKnownSecretKeys` | Redacts values under known secret-bearing keys. |
+| `redactAuthorizationHeaders` | Reserved for authorization header redaction behavior. |
+| `redactPrivateKeyBlocks` | Redacts PEM private key blocks found in string values. |
+| `redactBearerValues` | Redacts Bearer, SSWS, and Basic credential strings. |
+| `redactHighEntropyValues` | Optional aggressive value-based redaction. Default: `false`. |
+| `maxValuePreviewChars` | Limits preview length shown in reports. |
+| `failOnFindings` | Returns exit code `1` if findings are detected. |
+| `strictMode` | Raises immediately on JSON/read errors. |
+
+## Reports
+
+`redaction_report.md` is the human-readable review report.
+
+`redaction_result.json` includes structured details:
+
+```json
+{
+  "summary": {
+    "filesProcessed": 5,
+    "filesWithFindings": 2,
+    "totalFindings": 4
+  },
+  "findings": [
+    {
+      "file": "applications.json",
+      "path": "$.credentials.oauthClient.client_secret",
+      "key": "client_secret",
+      "reason": "Sensitive key name: client_secret",
+      "value_preview": "super-secret-value",
+      "value_type": "str"
+    }
+  ]
+}
+```
+
+Because the report includes exact value previews for detected sensitive values, treat redaction reports as sensitive until reviewed.
+
+## Recommended workflow
+
+```text
+1. Run okta-config-backup.
+2. Run okta-backup-redactor in dry-run mode.
+3. Review redaction_report.md.
+4. Run okta-backup-redactor with --apply.
+5. Run okta-backup-validator against the redacted copy.
+6. Only then commit, share, or attach approved backup files.
+```
+
+## Run tests
+
+```bash
+python -m pip install -r requirements-dev.txt
+pytest
+python -m compileall src tests
+```

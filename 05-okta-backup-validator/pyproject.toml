@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "okta-backup-validator"
+version = "0.1.2"
+description = "Validate Okta configuration backup folders created by okta-config-backup."
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+okta-backup-validator = "okta_backup_validator.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

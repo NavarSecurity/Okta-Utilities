@@ -1,0 +1,25 @@
+{
+  "utility": "okta-config-backup",
+  "version": "0.1.0",
+  "backupId": "okta-config-backup-20260625T170000Z",
+  "generatedAt": "2026-06-25T17:00:00+00:00",
+  "orgUrl": "https://dev-12345678.okta.com",
+  "redactionEnabled": true,
+  "requestedResources": ["org", "applications", "groups"],
+  "config": {
+    "include": ["org", "applications", "groups"]
+  },
+  "files": ["org.json", "applications.json", "groups.json"],
+  "counts": {
+    "org": 1,
+    "applications": 1,
+    "groups": 1
+  },
+  "warnings": [],
+  "errors": [],
+  "requestSummary": {
+    "totalRequests": 3,
+    "byStatus": {"200": 3},
+    "totalElapsedSeconds": 0.21
+  }
+}

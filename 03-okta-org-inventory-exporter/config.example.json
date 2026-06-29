@@ -1,0 +1,26 @@
+{
+  "backupDir": "samples/sample-backup",
+  "outputDir": "output",
+  "include": [
+    "org",
+    "applications",
+    "groups",
+    "group_rules",
+    "policies",
+    "identity_providers",
+    "authorization_servers",
+    "trusted_origins",
+    "network_zones",
+    "domains",
+    "brands",
+    "authenticators",
+    "event_hooks",
+    "inline_hooks"
+  ],
+  "writeCsv": true,
+  "writeJson": true,
+  "writeMarkdown": true,
+  "strictMode": false,
+  "failOnManifestErrors": false,
+  "maxPreviewChars": 250
+}

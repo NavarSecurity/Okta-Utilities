@@ -1,0 +1,12 @@
+[
+  {
+    "id": "00g_source_admins",
+    "profile": {"name": "App Admins", "description": "Administrators for the app"},
+    "type": "OKTA_GROUP"
+  },
+  {
+    "id": "00g_source_users",
+    "profile": {"name": "App Users", "description": "Users for the app"},
+    "type": "OKTA_GROUP"
+  }
+]

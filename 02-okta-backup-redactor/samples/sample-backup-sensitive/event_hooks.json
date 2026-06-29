@@ -1,0 +1,19 @@
+[
+  {
+    "id": "whoexample123",
+    "name": "Sample Hook",
+    "channel": {
+      "type": "HTTP",
+      "version": "1.0.0",
+      "config": {
+        "uri": "https://hooks.example.com/okta",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer hook-secret-value"
+          }
+        ]
+      }
+    }
+  }
+]

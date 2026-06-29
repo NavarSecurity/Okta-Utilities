@@ -1,0 +1,15 @@
+[
+  {
+    "id": "0oa_source_portal",
+    "label": "Customer Portal",
+    "name": "oidc_client",
+    "status": "ACTIVE",
+    "settings": {"oauthClient": {"redirect_uris": ["https://app.example.com/callback"]}}
+  },
+  {
+    "id": "0oa_source_legacy",
+    "label": "Legacy SAML App",
+    "name": "template_saml_2_0",
+    "status": "ACTIVE"
+  }
+]

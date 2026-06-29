@@ -1,0 +1,4 @@
+[
+  {"id":"autpassword","key":"okta_password","name":"Password","type":"password","status":"ACTIVE","created":"2026-01-01T00:00:00.000Z","lastUpdated":"2026-01-02T00:00:00.000Z"},
+  {"id":"autverify","key":"okta_verify","name":"Okta Verify","type":"app","status":"ACTIVE","created":"2026-01-01T00:00:00.000Z","lastUpdated":"2026-01-02T00:00:00.000Z"}
+]

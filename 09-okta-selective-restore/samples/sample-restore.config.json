@@ -1,0 +1,26 @@
+{
+  "sourceBackupDir": "samples/sample-backup",
+  "targetOrgUrl": "https://target-org.okta.com",
+  "outputDir": "output",
+  "include": ["groups", "trusted_origins"],
+  "selection": {
+    "groups": {
+      "names": ["Okta Backup Test Group"],
+      "ids": []
+    },
+    "trusted_origins": {
+      "names": [],
+      "origins": ["https://app.example.com"],
+      "ids": []
+    }
+  },
+  "skipExisting": true,
+  "restoreInactiveObjects": false,
+  "activateApps": false,
+  "failFast": false,
+  "pageLimit": 200,
+  "timeoutSeconds": 30,
+  "maxRetries": 4,
+  "retryBaseSeconds": 1.0,
+  "redactionEnabled": true
+}

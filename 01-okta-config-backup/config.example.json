@@ -1,0 +1,33 @@
+{
+  "orgUrl": "https://your-org.okta.com",
+  "outputDir": "output",
+  "include": [
+    "org",
+    "applications",
+    "groups",
+    "group_rules",
+    "policies",
+    "identity_providers",
+    "authorization_servers",
+    "event_hooks",
+    "inline_hooks",
+    "network_zones",
+    "trusted_origins",
+    "brands",
+    "domains",
+    "authenticators"
+  ],
+  "policyTypes": [
+    "OKTA_SIGN_ON",
+    "PASSWORD",
+    "MFA_ENROLL",
+    "IDP_DISCOVERY",
+    "PROFILE_ENROLLMENT"
+  ],
+  "pageLimit": 200,
+  "timeoutSeconds": 30,
+  "maxRetries": 4,
+  "retryBaseSeconds": 1.0,
+  "failFast": false,
+  "redactionEnabled": true
+}

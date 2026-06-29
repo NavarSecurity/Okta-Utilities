@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "okta-config-backup"
+version = "0.1.1"
+description = "Read-only Okta configuration backup utility."
+requires-python = ">=3.10"
+dependencies = ["requests>=2.31.0"]
+
+[project.scripts]
+okta-config-backup = "okta_config_backup.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,2 @@
+[console_scripts]
+okta-org-inventory-exporter = okta_org_inventory_exporter.cli:main

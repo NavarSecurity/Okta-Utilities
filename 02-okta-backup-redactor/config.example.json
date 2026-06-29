@@ -1,0 +1,16 @@
+{
+  "sourceBackupDir": "input/source-backup",
+  "outputDir": "output",
+  "includeFiles": [],
+  "excludeFiles": [],
+  "replacement": "[REDACTED]",
+  "copyNonJsonFiles": true,
+  "redactKnownSecretKeys": true,
+  "redactAuthorizationHeaders": true,
+  "redactPrivateKeyBlocks": true,
+  "redactBearerValues": true,
+  "redactHighEntropyValues": false,
+  "maxValuePreviewChars": 160,
+  "failOnFindings": false,
+  "strictMode": false
+}

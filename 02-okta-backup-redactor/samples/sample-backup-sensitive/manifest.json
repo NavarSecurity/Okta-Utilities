@@ -1,0 +1,15 @@
+{
+  "backupId": "sample-backup-sensitive",
+  "utility": "okta-config-backup",
+  "version": "0.1.0",
+  "orgUrl": "https://example.okta.com",
+  "requestedResources": ["applications", "policies", "event_hooks"],
+  "files": ["applications.json", "policies.json", "event_hooks.json"],
+  "counts": {
+    "applications": 1,
+    "policies": 1,
+    "event_hooks": 1
+  },
+  "redactionEnabled": false,
+  "errors": []
+}

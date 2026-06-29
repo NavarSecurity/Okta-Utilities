@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: okta-backup-validator
+Version: 0.1.2
+Summary: Validate Okta configuration backup folders created by okta-config-backup.
+Requires-Python: >=3.10

@@ -1,0 +1,20 @@
+{
+  "sourceBackupDir": "samples/source-backup",
+  "targetBackupDir": "samples/target-backup",
+  "outputDir": "output",
+  "include": [
+    "groups",
+    "applications",
+    "trusted_origins",
+    "network_zones",
+    "authorization_servers",
+    "policies",
+    "identity_providers"
+  ],
+  "compareMaterialDifferences": true,
+  "treatMissingHighRiskAsBlocker": true,
+  "strictMode": false,
+  "writeCsv": true,
+  "writeMarkdown": true,
+  "maxJsonPreviewChars": 300
+}

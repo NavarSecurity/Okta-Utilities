@@ -1,0 +1,8 @@
+[
+  {
+    "authorizationServers": [
+      {"id": "aus_source_default", "name": "Customer API", "description": "API authorization server", "audiences": ["api://customer"]}
+    ],
+    "detailsByAuthorizationServerId": {}
+  }
+]

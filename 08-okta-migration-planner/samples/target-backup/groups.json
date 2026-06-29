@@ -1,0 +1,7 @@
+[
+  {
+    "id": "00g_target_admins",
+    "profile": {"name": "App Admins", "description": "Administrators for the app"},
+    "type": "OKTA_GROUP"
+  }
+]

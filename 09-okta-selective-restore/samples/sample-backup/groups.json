@@ -1,0 +1,15 @@
+[
+  {
+    "id": "00gsourcegroup1",
+    "created": "2026-06-01T00:00:00.000Z",
+    "lastUpdated": "2026-06-01T00:00:00.000Z",
+    "type": "OKTA_GROUP",
+    "profile": {
+      "name": "Okta Backup Test Group",
+      "description": "Sample group for selective restore testing"
+    },
+    "_links": {
+      "self": {"href": "https://source.okta.com/api/v1/groups/00gsourcegroup1"}
+    }
+  }
+]

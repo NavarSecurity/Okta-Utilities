@@ -1,0 +1,8 @@
+[
+  {
+    "id": "0oa123example",
+    "name": "oidc_client",
+    "status": "ACTIVE",
+    "client_secret": "not-redacted-secret"
+  }
+]

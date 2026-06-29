@@ -1,0 +1,6 @@
+{
+  "authorizationServers": [
+    {"id":"ausdefault","name":"default","description":"Default authorization server","status":"ACTIVE","issuer":"https://example.okta.com/oauth2/default","audiences":["api://default"],"created":"2026-01-01T00:00:00.000Z","lastUpdated":"2026-01-02T00:00:00.000Z"}
+  ],
+  "detailsByAuthorizationServerId": {}
+}

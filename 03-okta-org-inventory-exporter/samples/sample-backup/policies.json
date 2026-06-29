@@ -1,0 +1,15 @@
+{
+  "policyTypes": {
+    "OKTA_SIGN_ON": {
+      "errors": [],
+      "policies": [{"id":"00psignon","name":"Default Policy","type":"OKTA_SIGN_ON","status":"ACTIVE","priority":1,"system":true,"created":"2026-01-01T00:00:00.000Z","lastUpdated":"2026-01-02T00:00:00.000Z"}],
+      "rulesByPolicyId": {"00psignon": [{"id":"0prsignon","name":"Default Rule","status":"ACTIVE"}]}
+    },
+    "PASSWORD": {
+      "errors": [],
+      "policies": [{"id":"00ppassword","name":"Default Password Policy","type":"PASSWORD","status":"ACTIVE","priority":1,"system":true,"created":"2026-01-01T00:00:00.000Z","lastUpdated":"2026-01-02T00:00:00.000Z"}],
+      "rulesByPolicyId": {"00ppassword": [{"id":"0prpassword","name":"Default Rule","status":"ACTIVE"}]}
+    }
+  },
+  "warnings": []
+}
