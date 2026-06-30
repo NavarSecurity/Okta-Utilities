@@ -1,0 +1,38 @@
+{
+  "targetOrgUrl": "https://your-org.okta.com",
+  "outputDir": "output",
+  "createAssignments": false,
+  "skipExisting": true,
+  "failFast": false,
+  "pageLimit": 200,
+  "timeoutSeconds": 30,
+  "maxRetries": 4,
+  "retryBaseSeconds": 1.0,
+  "applications": [
+    {
+      "label": "Customer Portal OIDC",
+      "applicationType": "web",
+      "grantTypes": [
+        "authorization_code",
+        "refresh_token"
+      ],
+      "responseTypes": [
+        "code"
+      ],
+      "redirectUris": [
+        "https://app.example.com/callback"
+      ],
+      "postLogoutRedirectUris": [
+        "https://app.example.com/logout"
+      ],
+      "initiateLoginUri": "https://app.example.com/login",
+      "pkceRequired": false,
+      "tokenEndpointAuthMethod": "client_secret_basic",
+      "consentMethod": "REQUIRED",
+      "assignments": {
+        "groups": [],
+        "users": []
+      }
+    }
+  ]
+}
