@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "okta-terraform-import-generator"
+version = "0.1.0"
+description = "Generate Terraform import commands and import blocks from Okta configuration backups."
+requires-python = ">=3.10"
+authors = [{ name = "Internal IAM Engineering" }]
+dependencies = []
+
+[project.scripts]
+okta-terraform-import-generator = "okta_terraform_import_generator.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

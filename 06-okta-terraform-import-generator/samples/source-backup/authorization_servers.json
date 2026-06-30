@@ -1,0 +1,30 @@
+[
+  {
+    "authorizationServers": [
+      {
+        "id": "ausdefault123",
+        "name": "default",
+        "issuer": "https://example.okta.com/oauth2/default"
+      }
+    ],
+    "detailsByAuthorizationServerId": {
+      "ausdefault123": {
+        "scopes": [
+          {"id": "scpopenid", "name": "openid"},
+          {"id": "scpprofile", "name": "profile"}
+        ],
+        "claims": [
+          {"id": "clmtenant", "name": "tenant_id"}
+        ],
+        "policies": [
+          {"id": "poldefault", "name": "Default Policy"}
+        ],
+        "rulesByPolicyId": {
+          "poldefault": [
+            {"id": "ruldefault", "name": "Default Rule"}
+          ]
+        }
+      }
+    }
+  }
+]

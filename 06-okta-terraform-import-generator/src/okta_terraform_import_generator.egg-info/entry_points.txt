@@ -1,0 +1,2 @@
+[console_scripts]
+okta-terraform-import-generator = okta_terraform_import_generator.cli:main

@@ -1,0 +1,7 @@
+[
+  {
+    "id": "00gsourceadmins",
+    "profile": {"name": "Source Admins", "description": "Sample admin group"},
+    "type": "OKTA_GROUP"
+  }
+]
