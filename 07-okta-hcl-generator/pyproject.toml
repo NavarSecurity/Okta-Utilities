@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "okta-hcl-generator"
+version = "0.1.0"
+description = "Generate starter Terraform HCL from Okta configuration backups."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Internal IAM Engineering" }
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0"]
+
+[project.scripts]
+okta-hcl-generator = "okta_hcl_generator.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

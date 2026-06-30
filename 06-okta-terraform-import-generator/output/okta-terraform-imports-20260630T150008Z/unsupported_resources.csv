@@ -1,2 +1,0 @@
-resource,source_file,object_id,object_name,reason
-applications,applications.json,0oasourceapp2,Unsupported Custom App,No Terraform resource mapping for Okta app type/name 'unknown_custom_app'

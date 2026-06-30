@@ -1,0 +1,23 @@
+{
+  "backupId": "sample-okta-config-backup",
+  "orgUrl": "https://example.okta.com",
+  "requestedResources": [
+    "groups",
+    "applications",
+    "trusted_origins",
+    "network_zones",
+    "authorization_servers",
+    "policies",
+    "identity_providers"
+  ],
+  "counts": {
+    "groups": 2,
+    "applications": 2,
+    "trusted_origins": 1,
+    "network_zones": 1,
+    "authorization_servers": 1,
+    "policies": 1,
+    "identity_providers": 1
+  },
+  "errors": []
+}

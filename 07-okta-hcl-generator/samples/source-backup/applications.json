@@ -1,0 +1,34 @@
+[
+  {
+    "id": "0oasourceoidc01",
+    "name": "oidc_client",
+    "label": "Customer Portal OIDC",
+    "signOnMode": "OPENID_CONNECT",
+    "status": "ACTIVE",
+    "settings": {
+      "oauthClient": {
+        "application_type": "web",
+        "grant_types": ["authorization_code", "refresh_token"],
+        "redirect_uris": ["https://app.example.com/callback"],
+        "response_types": ["code"]
+      }
+    }
+  },
+  {
+    "id": "0oasourcesaml01",
+    "name": "template_saml_2_0",
+    "label": "Vendor SAML App",
+    "signOnMode": "SAML_2_0",
+    "status": "ACTIVE",
+    "settings": {
+      "signOn": {
+        "ssoAcsUrl": "https://vendor.example.com/saml/acs",
+        "recipient": "https://vendor.example.com/saml/acs",
+        "destination": "https://vendor.example.com/saml/acs",
+        "audience": "https://vendor.example.com/saml/metadata",
+        "subjectNameIdTemplate": "${user.email}",
+        "subjectNameIdFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+      }
+    }
+  }
+]

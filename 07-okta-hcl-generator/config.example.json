@@ -1,0 +1,23 @@
+{
+  "backupDir": "input/source-backup",
+  "outputDir": "output",
+  "include": [
+    "groups",
+    "applications",
+    "trusted_origins",
+    "network_zones",
+    "authorization_servers",
+    "authorization_server_scopes",
+    "authorization_server_claims",
+    "policies",
+    "identity_providers"
+  ],
+  "resourceNamePrefix": "okta",
+  "providerVersionConstraint": "~> 4.0",
+  "moduleMode": false,
+  "generateImportSuggestions": true,
+  "generateManualReviewFile": true,
+  "writeMarkdown": true,
+  "strictMode": false,
+  "maxJsonPreviewChars": 300
+}
