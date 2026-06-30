@@ -1,0 +1,46 @@
+[
+  {
+    "id": "0oaSOURCEOIDC001",
+    "name": "oidc_client",
+    "label": "Customer Portal OIDC",
+    "status": "ACTIVE",
+    "signOnMode": "OPENID_CONNECT",
+    "created": "2026-06-01T00:00:00.000Z",
+    "lastUpdated": "2026-06-01T00:00:00.000Z",
+    "settings": {
+      "oauthClient": {
+        "application_type": "web",
+        "grant_types": ["authorization_code", "refresh_token"],
+        "redirect_uris": ["https://app.example.com/callback"],
+        "post_logout_redirect_uris": ["https://app.example.com/logout"],
+        "response_types": ["code"],
+        "client_id": "0oaSOURCEOIDC001",
+        "client_secret": "[REDACTED]"
+      }
+    },
+    "credentials": {
+      "oauthClient": {
+        "client_id": "0oaSOURCEOIDC001",
+        "client_secret": "[REDACTED]"
+      }
+    },
+    "_links": {
+      "self": {"href": "https://source.okta.com/api/v1/apps/0oaSOURCEOIDC001"}
+    }
+  },
+  {
+    "id": "0oaSOURCESAML001",
+    "name": "template_saml_2_0",
+    "label": "Example SAML App",
+    "status": "ACTIVE",
+    "signOnMode": "SAML_2_0",
+    "settings": {
+      "app": {
+        "acsUrl": "https://saml.example.com/acs",
+        "audience": "https://saml.example.com/metadata",
+        "recipient": "https://saml.example.com/acs",
+        "destination": "https://saml.example.com/acs"
+      }
+    }
+  }
+]
