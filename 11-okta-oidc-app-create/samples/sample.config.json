@@ -1,0 +1,66 @@
+{
+  "targetOrgUrl": "https://example.okta.com",
+  "outputDir": "output",
+  "createAssignments": true,
+  "skipExisting": true,
+  "failFast": false,
+  "pageLimit": 200,
+  "timeoutSeconds": 30,
+  "maxRetries": 4,
+  "retryBaseSeconds": 1.0,
+  "applications": [
+    {
+      "label": "Sample Web OIDC App",
+      "applicationType": "web",
+      "grantTypes": [
+        "authorization_code",
+        "refresh_token"
+      ],
+      "responseTypes": [
+        "code"
+      ],
+      "redirectUris": [
+        "https://sample.example.com/callback"
+      ],
+      "postLogoutRedirectUris": [
+        "https://sample.example.com/logout"
+      ],
+      "initiateLoginUri": "https://sample.example.com/login",
+      "pkceRequired": false,
+      "tokenEndpointAuthMethod": "client_secret_basic",
+      "consentMethod": "REQUIRED",
+      "assignments": {
+        "groups": [
+          "Sample App Users"
+        ],
+        "users": [
+          "test.user@example.com"
+        ]
+      }
+    },
+    {
+      "label": "Sample SPA OIDC App",
+      "applicationType": "browser",
+      "grantTypes": [
+        "authorization_code",
+        "refresh_token"
+      ],
+      "responseTypes": [
+        "code"
+      ],
+      "redirectUris": [
+        "https://spa.example.com/callback"
+      ],
+      "postLogoutRedirectUris": [
+        "https://spa.example.com/logout"
+      ],
+      "pkceRequired": true,
+      "tokenEndpointAuthMethod": "none",
+      "consentMethod": "REQUIRED",
+      "assignments": {
+        "groups": [],
+        "users": []
+      }
+    }
+  ]
+}
