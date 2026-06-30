@@ -1,0 +1,14 @@
+[
+  {
+    "id": "0oasourceapp1",
+    "name": "oidc_client",
+    "label": "Customer Portal OIDC",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "0oasourceapp2",
+    "name": "unknown_custom_app",
+    "label": "Unsupported Custom App",
+    "status": "ACTIVE"
+  }
+]

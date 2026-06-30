@@ -1,0 +1,5 @@
+{
+  "backupId": "sample-source-backup",
+  "utility": "okta-config-backup",
+  "requestedResources": ["groups", "applications", "trusted_origins", "network_zones", "authorization_servers", "policies", "identity_providers"]
+}

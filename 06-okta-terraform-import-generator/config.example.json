@@ -1,0 +1,42 @@
+{
+  "backupDir": "input/source-backup",
+  "outputDir": "output",
+  "include": [
+    "groups",
+    "applications",
+    "trusted_origins",
+    "network_zones",
+    "authorization_servers",
+    "authorization_server_scopes",
+    "authorization_server_claims",
+    "authorization_server_policies",
+    "authorization_server_policy_rules",
+    "policies",
+    "identity_providers"
+  ],
+  "mode": "both",
+  "modulePrefix": "",
+  "resourceNamePrefix": "",
+  "maxResourceNameLength": 80,
+  "skipSystemObjects": false,
+  "strictMode": false,
+  "writeCsv": true,
+  "writeMarkdown": true,
+  "includeUnsupported": true,
+  "appResourceMappings": {
+    "oidc_client": "okta_app_oauth",
+    "saml2": "okta_app_saml",
+    "bookmark": "okta_app_bookmark"
+  },
+  "idpResourceMappings": {
+    "SAML2": "okta_idp_saml",
+    "OIDC": "okta_idp_oidc"
+  },
+  "policyResourceMappings": {
+    "OKTA_SIGN_ON": "okta_policy_signon",
+    "PASSWORD": "okta_policy_password",
+    "MFA_ENROLL": "okta_policy_mfa",
+    "IDP_DISCOVERY": "okta_policy_idp_discovery"
+  },
+  "customResourceMappings": {}
+}

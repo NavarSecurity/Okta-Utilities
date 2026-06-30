@@ -1,0 +1,9 @@
+resource,source_file,object_id,object_name,reason
+applications,applications.json,0oa14igebbjjOrvHg698,Okta Admin Console,No Terraform resource mapping for Okta app type/name 'saasure'
+applications,applications.json,0oa14igebcb37syUE698,Okta Dashboard,No Terraform resource mapping for Okta app type/name 'okta_enduser'
+applications,applications.json,0oa14igebft0JLR64698,Okta Browser Plugin,No Terraform resource mapping for Okta app type/name 'okta_browser_plugin'
+applications,applications.json,0oa14igjtd3RlpNVb698,Okta OIN Submission Tester,No Terraform resource mapping for Okta app type/name 'okta_oin_submission_tester_app'
+applications,applications.json,0oa14igmbhnEDhWYf698,Okta Access Certification Reviews,No Terraform resource mapping for Okta app type/name 'okta_iga_reviewer'
+applications,applications.json,0oa14igmxoeJmeFCi698,Okta Workflows,No Terraform resource mapping for Okta app type/name 'okta_flow_sso'
+applications,applications.json,0oa14igmxpbK1BYrn698,Okta Workflows OAuth,No Terraform resource mapping for Okta app type/name 'flow'
+policies,policies.json,rst14igebi9XzTHCW698,PROFILE_ENROLLMENT_Default Policy,No Terraform resource mapping for Okta policy type 'PROFILE_ENROLLMENT'
