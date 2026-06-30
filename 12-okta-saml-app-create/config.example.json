@@ -1,0 +1,72 @@
+{
+  "targetOrgUrl": "https://your-okta-org.okta.com",
+  "outputDir": "output",
+  "skipExisting": true,
+  "failFast": false,
+  "pageLimit": 200,
+  "timeoutSeconds": 30,
+  "maxRetries": 4,
+  "retryBaseSeconds": 1.0,
+  "app": {
+    "label": "Example SAML App",
+    "defaultRelayState": "",
+    "ssoAcsUrl": "https://app.example.com/saml/acs",
+    "recipient": "https://app.example.com/saml/acs",
+    "destination": "https://app.example.com/saml/acs",
+    "audience": "https://app.example.com/saml/metadata",
+    "subjectNameIdTemplate": "${user.email}",
+    "subjectNameIdFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+    "responseSigned": true,
+    "assertionSigned": true,
+    "signatureAlgorithm": "RSA_SHA256",
+    "digestAlgorithm": "SHA256",
+    "honorForceAuthn": false,
+    "authnContextClassRef": "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
+    "visibility": {
+      "autoSubmitToolbar": false,
+      "hide": {
+        "iOS": false,
+        "web": false
+      }
+    },
+    "accessibility": {
+      "selfService": false,
+      "errorRedirectUrl": null,
+      "loginRedirectUrl": null
+    },
+    "userNameTemplate": {
+      "template": "${source.login}",
+      "type": "BUILT_IN"
+    },
+    "attributeStatements": [
+      {
+        "type": "EXPRESSION",
+        "name": "email",
+        "namespace": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified",
+        "values": [
+          "user.email"
+        ]
+      },
+      {
+        "type": "EXPRESSION",
+        "name": "firstName",
+        "namespace": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified",
+        "values": [
+          "user.firstName"
+        ]
+      },
+      {
+        "type": "EXPRESSION",
+        "name": "lastName",
+        "namespace": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified",
+        "values": [
+          "user.lastName"
+        ]
+      }
+    ],
+    "assignments": {
+      "groupIds": [],
+      "userIds": []
+    }
+  }
+}
