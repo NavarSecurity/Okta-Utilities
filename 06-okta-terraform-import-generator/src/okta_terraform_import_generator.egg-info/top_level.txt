@@ -1,1 +1,0 @@
-okta_terraform_import_generator

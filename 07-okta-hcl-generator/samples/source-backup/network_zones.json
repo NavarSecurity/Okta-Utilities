@@ -1,0 +1,10 @@
+[
+  {
+    "id": "nzsource01",
+    "name": "Corporate VPN",
+    "type": "IP",
+    "usage": "POLICY",
+    "gateways": ["203.0.113.10/32"],
+    "proxies": []
+  }
+]

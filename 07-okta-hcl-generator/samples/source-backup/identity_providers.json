@@ -1,0 +1,8 @@
+[
+  {
+    "id": "0oaisource01",
+    "name": "External OIDC IdP",
+    "type": "OIDC",
+    "status": "ACTIVE"
+  }
+]

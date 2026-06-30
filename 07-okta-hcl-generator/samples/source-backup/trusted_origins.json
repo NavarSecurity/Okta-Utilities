@@ -1,0 +1,12 @@
+[
+  {
+    "id": "tosource01",
+    "name": "Customer Portal",
+    "origin": "https://app.example.com",
+    "status": "ACTIVE",
+    "scopes": [
+      {"type": "CORS"},
+      {"type": "REDIRECT"}
+    ]
+  }
+]

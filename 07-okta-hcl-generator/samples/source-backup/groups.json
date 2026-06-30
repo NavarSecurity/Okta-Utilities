@@ -1,0 +1,16 @@
+[
+  {
+    "id": "00gsource01",
+    "profile": {
+      "name": "Sales Users",
+      "description": "Sales application users"
+    }
+  },
+  {
+    "id": "00gsource02",
+    "profile": {
+      "name": "API Admins",
+      "description": "Administrators for API services"
+    }
+  }
+]

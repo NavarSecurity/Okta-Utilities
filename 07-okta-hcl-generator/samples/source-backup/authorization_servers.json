@@ -1,0 +1,41 @@
+{
+  "authorizationServers": [
+    {
+      "id": "aussource01",
+      "name": "Customer API",
+      "description": "Customer API authorization server",
+      "audiences": ["api://customer"],
+      "status": "ACTIVE"
+    }
+  ],
+  "detailsByAuthorizationServerId": {
+    "aussource01": {
+      "scopes": [
+        {
+          "id": "scp01",
+          "name": "orders:read",
+          "description": "Read orders",
+          "consent": "IMPLICIT",
+          "metadataPublish": "NO_CLIENTS",
+          "default": false
+        }
+      ],
+      "claims": [
+        {
+          "id": "clm01",
+          "name": "tenant_id",
+          "value": "appuser.tenantId",
+          "claimType": "RESOURCE",
+          "valueType": "EXPRESSION",
+          "alwaysIncludeInToken": true
+        }
+      ],
+      "policies": [
+        {
+          "id": "pol01",
+          "name": "Default Policy"
+        }
+      ]
+    }
+  }
+}

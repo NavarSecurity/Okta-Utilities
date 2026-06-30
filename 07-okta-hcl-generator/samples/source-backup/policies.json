@@ -1,0 +1,16 @@
+{
+  "policyTypes": {
+    "OKTA_SIGN_ON": {
+      "errors": [],
+      "policies": [
+        {
+          "id": "00psignon01",
+          "name": "Default Policy",
+          "type": "OKTA_SIGN_ON",
+          "status": "ACTIVE"
+        }
+      ],
+      "rulesByPolicyId": {}
+    }
+  }
+}
