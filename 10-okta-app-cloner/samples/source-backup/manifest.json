@@ -1,0 +1,5 @@
+{
+  "backupId": "sample-app-cloner-backup",
+  "requestedResources": ["applications"],
+  "counts": {"applications": 2}
+}

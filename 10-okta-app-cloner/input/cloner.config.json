@@ -1,0 +1,25 @@
+{
+  "sourceBackupDir": "input/source-backup",
+  "targetOrgUrl": "https://target-org.okta.com",
+  "outputDir": "output",
+  "selection": {
+    "applications": {
+      "labels": [
+        "Customer Portal OIDC"
+      ],
+      "ids": [],
+      "signOnModes": []
+    }
+  },
+  "skipExisting": true,
+  "cloneInactiveApps": false,
+  "activateClonedApps": false,
+  "includeAssignments": false,
+  "includeProvisioningSettings": false,
+  "failFast": false,
+  "pageLimit": 200,
+  "timeoutSeconds": 30,
+  "maxRetries": 4,
+  "retryBaseSeconds": 1.0,
+  "redactionEnabled": true
+}

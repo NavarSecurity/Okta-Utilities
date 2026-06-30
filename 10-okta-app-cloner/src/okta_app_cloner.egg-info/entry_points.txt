@@ -1,0 +1,2 @@
+[console_scripts]
+okta-app-cloner = okta_app_cloner.cli:main

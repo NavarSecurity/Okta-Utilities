@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "okta-app-cloner"
+version = "0.1.1"
+description = "Clone selected Okta application configuration from backup exports into a target Okta org with dry-run planning and evidence output."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Internal IAM Engineering" }]
+dependencies = [
+  "requests>=2.31.0",
+  "python-dotenv>=1.0.0"
+]
+
+[project.scripts]
+okta-app-cloner = "okta_app_cloner.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
