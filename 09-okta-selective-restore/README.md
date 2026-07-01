@@ -1,3 +1,7 @@
+# WARNING
+
+These utilities have limited testing and are provided as-is with no warranty. Use at your own risk.
+
 # 09-okta-selective-restore
 
 `okta-selective-restore` is a guarded command-line utility for recreating selected Okta configuration objects from an `okta-config-backup` export into a target Okta org.

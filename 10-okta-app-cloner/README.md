@@ -1,3 +1,7 @@
+# WARNING
+
+These utilities have limited testing and are provided as-is with no warranty. Use at your own risk.
+
 # 10-okta-app-cloner
 
 `okta-app-cloner` clones selected Okta application configuration from a backup export into a target Okta org with dry-run planning, duplicate checks, sanitized payloads, rollback output, and execution reporting.

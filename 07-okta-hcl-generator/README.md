@@ -1,3 +1,7 @@
+# WARNING
+
+These utilities have limited testing and are provided as-is with no warranty. Use at your own risk.
+
 # 07-okta-hcl-generator
 
 `okta-hcl-generator` creates starter Terraform HCL files from an Okta configuration backup created by `01-okta-config-backup`.

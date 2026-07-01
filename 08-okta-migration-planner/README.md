@@ -1,3 +1,7 @@
+# WARNING
+
+These utilities have limited testing and are provided as-is with no warranty. Use at your own risk.
+
 # 08-okta-migration-planner
 
 Read-only utility for comparing a source Okta configuration backup against a target Okta configuration backup and generating migration planning artifacts.

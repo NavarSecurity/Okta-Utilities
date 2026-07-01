@@ -1,3 +1,7 @@
+# WARNING
+
+These utilities have limited testing and are provided as-is with no warranty. Use at your own risk.
+
 # okta-config-backup
 
 Read-only Okta configuration backup utility for reusable IAM delivery work.
@@ -107,8 +111,8 @@ Copy-Item .env.example .env
 Edit `.env`:
 
 ```text
-OKTA_ORG_URL=https://your-org.okta.com
-OKTA_API_TOKEN=your_okta_api_token_here
+OKTA_ORG_URL=https://integrator-1703705-admin.okta.com/
+OKTA_API_TOKEN=00fdUOsdMVZ9XnLbu47jOKl5B-Pgf6R3srdQSI-mIZ
 ```
 
 ### 4. Review the config file
