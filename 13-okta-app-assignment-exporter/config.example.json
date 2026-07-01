@@ -1,0 +1,28 @@
+{
+  "targetOrgUrl": "https://your-org.okta.com",
+  "outputDir": "output",
+  "appSelection": {
+    "mode": "all",
+    "appIds": [],
+    "appLabels": [],
+    "statuses": ["ACTIVE"],
+    "signOnModes": [],
+    "excludeAppIds": [],
+    "excludeAppLabels": []
+  },
+  "exportOptions": {
+    "includeUsers": true,
+    "includeGroups": true,
+    "includeUserProfile": false,
+    "includeGroupProfile": false,
+    "includeRawAssignments": false,
+    "maxApps": null,
+    "failFast": false
+  },
+  "http": {
+    "pageLimit": 200,
+    "timeoutSeconds": 30,
+    "maxRetries": 4,
+    "retryBaseSeconds": 1.0
+  }
+}
