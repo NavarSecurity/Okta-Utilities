@@ -1,0 +1,26 @@
+# Secrets and local configuration
+.env
+*.env
+input/*.json
+!input/.gitkeep
+
+# Output and evidence
+output/*
+!output/.gitkeep
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
