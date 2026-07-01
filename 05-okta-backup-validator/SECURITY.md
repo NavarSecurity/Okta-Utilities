@@ -1,3 +1,7 @@
+# WARNING
+
+These utilities have limited testing and are provided as-is with no warranty. Use at your own risk.
+
 # Security Notes for okta-backup-validator
 
 `okta-backup-validator` is a local validation utility. It does not call Okta APIs and does not require an Okta API token.

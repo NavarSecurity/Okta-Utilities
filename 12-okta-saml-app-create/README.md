@@ -1,6 +1,8 @@
-# 12-okta-saml-app-create
+# WARNING
 
-**WARNING: These utilities have limited testing and are provided as-is with no warranty. Use at your own risk.**
+These utilities have limited testing and are provided as-is with no warranty. Use at your own risk.
+
+# 12-okta-saml-app-create
 
 `okta-saml-app-create` creates Okta SAML 2.0 application integrations from a JSON configuration file. It is intended for repeatable application onboarding work where SAML settings such as ACS URL, audience, recipient, destination, NameID, signing options, and attribute statements need to be captured and applied consistently.
 

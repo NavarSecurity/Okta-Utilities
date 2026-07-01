@@ -1,3 +1,7 @@
+# WARNING
+
+These utilities have limited testing and are provided as-is with no warranty. Use at your own risk.
+
 # 04-okta-org-diff
 
 `okta-org-diff` compares two Okta configuration backup folders and reports added, removed, changed, and unchanged objects. It is intended for drift detection, migration gap analysis, and before/after validation after Okta configuration changes.

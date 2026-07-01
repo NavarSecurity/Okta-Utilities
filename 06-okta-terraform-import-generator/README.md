@@ -1,3 +1,7 @@
+# WARNING
+
+These utilities have limited testing and are provided as-is with no warranty. Use at your own risk.
+
 # 06-okta-terraform-import-generator
 
 `okta-terraform-import-generator` generates Terraform import commands and Terraform `import` blocks from an Okta configuration backup folder.

@@ -1,3 +1,7 @@
+# WARNING
+
+These utilities have limited testing and are provided as-is with no warranty. Use at your own risk.
+
 # 03-okta-org-inventory-exporter
 
 `okta-org-inventory-exporter` builds readable inventory reports from an Okta configuration backup folder.

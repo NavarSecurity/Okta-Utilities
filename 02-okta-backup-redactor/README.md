@@ -1,3 +1,7 @@
+# WARNING
+
+These utilities have limited testing and are provided as-is with no warranty. Use at your own risk.
+
 # 02-okta-backup-redactor
 
 `okta-backup-redactor` scans an Okta configuration backup folder for sensitive values and creates a separate redacted copy that is safer to review, share internally, or commit to Git.
