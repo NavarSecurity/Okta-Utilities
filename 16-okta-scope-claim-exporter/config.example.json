@@ -1,0 +1,19 @@
+{
+  "sourceOrgUrl": "https://your-org.okta.com",
+  "outputDir": "output",
+  "settings": {
+    "includeInactiveAuthorizationServers": true,
+    "includeScopes": true,
+    "includeClaims": true,
+    "includeRawResponses": false,
+    "continueOnError": true,
+    "requestTimeoutSeconds": 30,
+    "maxRetries": 3
+  },
+  "filters": {
+    "authorizationServerIds": [],
+    "authorizationServerNames": [],
+    "excludeAuthorizationServerIds": [],
+    "excludeAuthorizationServerNames": []
+  }
+}

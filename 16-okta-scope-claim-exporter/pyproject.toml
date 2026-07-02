@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "okta-scope-claim-exporter"
+version = "0.1.0"
+description = "Read-only exporter for Okta custom authorization server OAuth scopes and claims."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "requests>=2.31.0",
+  "python-dotenv>=1.0.0"
+]
+
+[project.scripts]
+okta-scope-claim-exporter = "okta_scope_claim_exporter.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
