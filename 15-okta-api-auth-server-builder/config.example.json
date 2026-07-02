@@ -1,0 +1,91 @@
+{
+  "targetOrgUrl": "https://your-org.okta.com",
+  "settings": {
+    "skipExisting": true,
+    "continueOnError": false,
+    "requestTimeoutSeconds": 30,
+    "maxRetries": 3
+  },
+  "authorizationServers": [
+    {
+      "name": "Example API Authorization Server",
+      "description": "Authorization server for Example API.",
+      "audiences": [
+        "api://example"
+      ],
+      "issuerMode": "ORG_URL",
+      "status": "ACTIVE",
+      "scopes": [
+        {
+          "name": "read:example",
+          "description": "Read Example API data",
+          "consent": "IMPLICIT",
+          "metadataPublish": "ALL_CLIENTS",
+          "default": false
+        },
+        {
+          "name": "write:example",
+          "description": "Write Example API data",
+          "consent": "IMPLICIT",
+          "metadataPublish": "ALL_CLIENTS",
+          "default": false
+        }
+      ],
+      "claims": [
+        {
+          "name": "email",
+          "status": "ACTIVE",
+          "claimType": "IDENTITY",
+          "valueType": "EXPRESSION",
+          "value": "user.email",
+          "alwaysIncludeInToken": true,
+          "conditions": {
+            "scopes": [
+              "openid"
+            ]
+          }
+        }
+      ],
+      "policies": [
+        {
+          "name": "Default API Access Policy",
+          "description": "Default policy for API clients.",
+          "priority": 1,
+          "status": "ACTIVE",
+          "clientWhitelist": [
+            "ALL_CLIENTS"
+          ],
+          "rules": [
+            {
+              "name": "Authorization Code Access",
+              "priority": 1,
+              "status": "ACTIVE",
+              "grantTypeWhitelist": [
+                "authorization_code"
+              ],
+              "scopeWhitelist": [
+                "read:example",
+                "write:example"
+              ],
+              "accessTokenLifetimeMinutes": 60,
+              "refreshTokenLifetimeMinutes": 10080,
+              "refreshTokenWindowMinutes": 10080
+            },
+            {
+              "name": "Client Credentials Access",
+              "priority": 2,
+              "status": "ACTIVE",
+              "grantTypeWhitelist": [
+                "client_credentials"
+              ],
+              "scopeWhitelist": [
+                "read:example"
+              ],
+              "accessTokenLifetimeMinutes": 60
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
