@@ -1,0 +1,24 @@
+# Local environment
+.env
+.venv/
+venv/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Output and local inputs
+output/*
+!output/.gitkeep
+input/*
+!input/.gitkeep
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
