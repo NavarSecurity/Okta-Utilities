@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "okta-user-exporter"
+version = "0.1.0"
+description = "Read-only Okta user exporter for users, profile fields, groups, and app link context."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "requests>=2.31.0"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0"]
+
+[project.scripts]
+okta-user-exporter = "okta_user_exporter.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
