@@ -1,0 +1,44 @@
+{
+  "orgUrl": "https://your-org.okta.com",
+  "settings": {
+    "requestTimeoutSeconds": 30,
+    "maxRetries": 3,
+    "pageLimit": 200,
+    "maxUsers": null,
+    "continueOnError": true,
+    "saveRawResponses": false,
+    "redactSensitiveProfileFields": true
+  },
+  "filters": {
+    "statuses": [],
+    "query": "",
+    "search": "",
+    "filter": "",
+    "userIds": [],
+    "loginContains": "",
+    "profileFields": [
+      "login",
+      "email",
+      "firstName",
+      "lastName",
+      "department",
+      "title",
+      "employeeNumber",
+      "manager"
+    ],
+    "includeProfileAll": false
+  },
+  "include": {
+    "groups": true,
+    "appLinks": true
+  },
+  "output": {
+    "usersCsv": "users.csv",
+    "usersJson": "users.json",
+    "userGroupsCsv": "user_groups.csv",
+    "userAppLinksCsv": "user_app_links.csv",
+    "summaryCsv": "user_export_summary.csv",
+    "resultJson": "user_export_result.json",
+    "reportMarkdown": "user_export_report.md"
+  }
+}
