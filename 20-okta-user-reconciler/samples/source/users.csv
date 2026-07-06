@@ -1,0 +1,4 @@
+login,email,firstName,lastName,status,profile.login,profile.email,profile.firstName,profile.lastName,profile.department,profile.title
+alex.test@example.com,alex.test@example.com,Alex,Test,ACTIVE,alex.test@example.com,alex.test@example.com,Alex,Test,IT,Analyst
+jordan.test@example.com,jordan.test@example.com,Jordan,Test,ACTIVE,jordan.test@example.com,jordan.test@example.com,Jordan,Test,Security,Engineer
+casey.sourceonly@example.com,casey.sourceonly@example.com,Casey,SourceOnly,STAGED,casey.sourceonly@example.com,casey.sourceonly@example.com,Casey,SourceOnly,Operations,Coordinator

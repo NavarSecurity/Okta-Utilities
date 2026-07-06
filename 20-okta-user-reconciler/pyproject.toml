@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "okta-user-reconciler"
+version = "0.1.1"
+description = "Reconcile source and target Okta user exports for migration and validation evidence."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+okta-user-reconciler = "okta_user_reconciler.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

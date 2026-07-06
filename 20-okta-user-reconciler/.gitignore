@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local secrets/configs
+.env
+*.token
+*secret*
+
+# Runtime output
+output/*
+!output/.gitkeep
+
+# Local input data
+input/*
+!input/.gitkeep
