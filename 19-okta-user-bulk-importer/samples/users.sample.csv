@@ -1,0 +1,3 @@
+login,email,firstName,lastName,displayName,department,title,employeeNumber,groupIds
+alex.test@example.com,alex.test@example.com,Alex,Test,Alex Test,IT,Analyst,E1001,
+jordan.test@example.com,jordan.test@example.com,Jordan,Test,Jordan Test,Security,Engineer,E1002,

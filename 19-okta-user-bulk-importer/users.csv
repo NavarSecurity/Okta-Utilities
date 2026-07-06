@@ -1,0 +1,6 @@
+id,status,login,email,firstName,lastName,created,activated,statusChanged,lastLogin,lastUpdated,passwordChanged,type_id,groupCount,appLinkCount,profile.department,profile.email,profile.firstName,profile.lastName,profile.login,profile.title
+,STAGED,okta.test.user01@example.com,okta.test.user01@example.com,Okta,TestUser01,,,,,,,,0,0,IT,okta.test.user01@example.com,Okta,TestUser01,okta.test.user01@example.com,IAM Test Analyst
+,STAGED,okta.test.user02@example.com,okta.test.user02@example.com,Okta,TestUser02,,,,,,,,0,0,Security,okta.test.user02@example.com,Okta,TestUser02,okta.test.user02@example.com,Security Test Analyst
+,STAGED,okta.test.user03@example.com,okta.test.user03@example.com,Okta,TestUser03,,,,,,,,0,0,Engineering,okta.test.user03@example.com,Okta,TestUser03,okta.test.user03@example.com,API Test Engineer
+,STAGED,okta.test.user04@example.com,okta.test.user04@example.com,Okta,TestUser04,,,,,,,,0,0,Operations,okta.test.user04@example.com,Okta,TestUser04,okta.test.user04@example.com,Operations Test User
+,STAGED,okta.test.user05@example.com,okta.test.user05@example.com,Okta,TestUser05,,,,,,,,0,0,QA,okta.test.user05@example.com,Okta,TestUser05,okta.test.user05@example.com,QA Test User
