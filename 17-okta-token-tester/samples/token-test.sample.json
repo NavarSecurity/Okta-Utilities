@@ -1,0 +1,57 @@
+{
+  "orgUrl": "https://your-org.okta.com",
+  "authorizationServerId": "default",
+  "issuerUrl": "",
+  "outputDir": "output",
+  "settings": {
+    "runDiscovery": true,
+    "fetchJwks": true,
+    "includeRawResponses": false,
+    "requestTimeoutSeconds": 30,
+    "maxRetries": 3,
+    "continueOnError": true,
+    "redactTokensInOutput": true
+  },
+  "client": {
+    "clientId": "",
+    "clientSecret": "",
+    "tokenEndpointAuthMethod": "client_secret_basic"
+  },
+  "tokenSources": {
+    "accessToken": "",
+    "idToken": "",
+    "accessTokenFile": "",
+    "idTokenFile": "",
+    "authorizationCode": "",
+    "codeVerifier": ""
+  },
+  "clientCredentialsTests": [
+    {
+      "name": "Client Credentials Test",
+      "scopes": ["read:example"],
+      "expectedAudience": "api://example",
+      "expectedScopes": ["read:example"]
+    }
+  ],
+  "authorizationCodeTests": [],
+  "jwtValidationTests": [
+    {
+      "name": "Validate Access Token",
+      "tokenSource": "accessToken",
+      "tokenType": "access",
+      "expectedIssuer": "",
+      "expectedAudience": "api://example",
+      "expectedScopes": ["read:example"],
+      "requiredClaims": ["iss", "sub", "aud", "exp", "iat"],
+      "verifySignature": true
+    }
+  ],
+  "introspectionTests": [
+    {
+      "name": "Introspect Access Token",
+      "tokenSource": "accessToken",
+      "tokenTypeHint": "access_token",
+      "expectedActive": true
+    }
+  ]
+}

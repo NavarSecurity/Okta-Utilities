@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+input/*.json
+input/*.csv
+input/*.txt
+!input/.gitkeep
+
+# Generated output
+output/*
+!output/.gitkeep
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
