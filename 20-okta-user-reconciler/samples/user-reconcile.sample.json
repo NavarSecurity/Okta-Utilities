@@ -1,0 +1,49 @@
+{
+  "sourceUsersFile": "input/source/users.csv",
+  "targetUsersFile": "input/target/users.csv",
+  "matchRules": {
+    "primaryMatchField": "login",
+    "fallbackMatchFields": [
+      "email",
+      "profile.login",
+      "profile.email"
+    ],
+    "caseInsensitive": true,
+    "trimWhitespace": true
+  },
+  "profileFieldsToCompare": [
+    "login",
+    "email",
+    "firstName",
+    "lastName",
+    "status",
+    "profile.login",
+    "profile.email",
+    "profile.firstName",
+    "profile.lastName",
+    "profile.department",
+    "profile.title"
+  ],
+  "settings": {
+    "ignoreBlankSourceValues": true,
+    "ignoreBlankTargetValues": false,
+    "includeSourceOnly": true,
+    "includeTargetOnly": true,
+    "detectDuplicates": true,
+    "strictMode": false,
+    "ignoredFields": [
+      "id",
+      "created",
+      "activated",
+      "statusChanged",
+      "lastLogin",
+      "lastUpdated",
+      "passwordChanged",
+      "_links",
+      "credentials",
+      "type_id",
+      "type",
+      "links"
+    ]
+  }
+}
