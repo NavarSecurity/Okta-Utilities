@@ -1,0 +1,33 @@
+{
+  "targetOrgUrl": "https://your-org.okta.com",
+  "inputUserCsv": "input/users.csv",
+  "profileFieldMap": {
+    "login": "login",
+    "email": "email",
+    "firstName": "firstName",
+    "lastName": "lastName",
+    "displayName": "displayName",
+    "primaryPhone": "primaryPhone",
+    "mobilePhone": "mobilePhone",
+    "department": "department",
+    "title": "title",
+    "employeeNumber": "employeeNumber"
+  },
+  "requiredProfileFields": ["login", "email", "firstName", "lastName"],
+  "duplicateLookupField": "login",
+  "defaultGroupIds": [],
+  "perRowGroupIdsColumn": "groupIds",
+  "passwordColumn": "password",
+  "settings": {
+    "skipExisting": true,
+    "updateExisting": false,
+    "activateUsers": false,
+    "continueOnError": true,
+    "performDuplicateCheckInDryRun": true,
+    "allowPasswordImport": false,
+    "assignGroups": false,
+    "requestTimeoutSeconds": 30,
+    "maxRetries": 3,
+    "rateLimitSleepSeconds": 5
+  }
+}
