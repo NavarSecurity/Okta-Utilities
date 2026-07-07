@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "okta-user-deactivator"
+version = "0.1.1"
+description = "Bulk suspend, deprovision, or delete approved Okta users with dry-run, rollback planning, and evidence output."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "requests>=2.31.0",
+  "python-dotenv>=1.0.0"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0"]
+
+[project.scripts]
+okta-user-deactivator = "okta_user_deactivator.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

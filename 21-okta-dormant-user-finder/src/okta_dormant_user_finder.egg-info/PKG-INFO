@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: okta-dormant-user-finder
-Version: 0.1.0
+Version: 0.1.1
 Summary: Finds stale, never-used, unassigned, or inactive Okta accounts.
 Requires-Python: >=3.10
 Description-Content-Type: text/markdown
@@ -23,7 +23,9 @@ It can find accounts that are:
 - optionally not assigned to any groups
 - optionally using an old `passwordChanged` timestamp
 
-The utility does **not** suspend, deactivate, delete, or modify users. It only produces review reports.
+The utility does **not** suspend, deprovision, delete, or modify users. It only produces review reports.
+
+`dormant_users.csv` is formatted so it can be reviewed and then used as the input file for Utility 22, `okta-user-deactivator`.
 
 ## Setup
 
@@ -102,6 +104,13 @@ Main config sections:
     "limit": 200,
     "requestTimeoutSeconds": 30,
     "maxRetries": 3
+  },
+  "output": {
+    "includeRawUsers": false,
+    "includePerUserEvidence": true,
+    "lifecycleAction": "deprovision",
+    "lifecycleApprovedDefault": "",
+    "lifecycleReasonPrefix": "Dormant user review candidate"
   }
 }
 ```
@@ -164,11 +173,55 @@ finder_result.json
 execution_report.md
 ```
 
+`dormant_users.csv` includes the Utility 22 lifecycle columns:
+
+```text
+id
+login
+email
+action
+approved
+reason
+```
+
+The default lifecycle values are intentionally conservative:
+
+```text
+action = deprovision
+approved = blank
+reason = auto-populated from dormant-user evidence
+```
+
+Utility 22 requires approved rows by default. Review the file first, then set `approved` to `true` only for users that are approved for lifecycle action.
+
 If `includeRawUsers` is enabled, the utility also writes:
 
 ```text
 raw_users.json
 ```
+
+
+## Utility 22 Workflow
+
+Use this workflow when you want to take action on approved dormant-user findings:
+
+1. Run Utility 21 to generate `dormant_users.csv`.
+2. Review each row with the account owner, HR/source of truth, application owner, or support process.
+3. Keep or change the `action` value. Supported Utility 22 values are `suspend`, `deprovision`, and `delete`.
+4. Set `approved` to `true` only for rows approved for action.
+5. Keep the generated `reason`, or replace it with a clearer review-approved reason.
+6. Copy the reviewed CSV into Utility 22 as `input/users-to-deprovision.csv`, or update Utility 22 config to point directly to the reviewed file.
+7. Run Utility 22 in dry-run mode first.
+8. Apply only after reviewing Utility 22's plan.
+
+Example reviewed row:
+
+```csv
+id,login,email,action,approved,reason
+00u123,utility.test.user@example.com,utility.test.user@example.com,deprovision,true,Dormant account reviewed and approved for deprovisioning
+```
+
+For delete actions, Utility 22 requires delete to be enabled in its config and requires users to already be `DEPROVISIONED` by default.
 
 ## Finding Reasons
 
@@ -205,7 +258,7 @@ After confirming the output, switch to API mode.
 ## Safety Notes
 
 - This utility is read-only.
-- It does not deactivate users.
+- It does not suspend, deprovision, or delete users.
 - It does not remove group membership.
 - It does not remove app assignments.
 - Review every candidate before taking lifecycle action.
