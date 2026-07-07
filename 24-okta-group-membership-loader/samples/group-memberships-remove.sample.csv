@@ -1,0 +1,2 @@
+groupId,groupName,userId,login,email,action,approved,reason
+00gExampleGroupId01,Finance App Users,00uExampleUserId04,old.finance.user@example.com,old.finance.user@example.com,remove,true,Approved removal from Finance App Users

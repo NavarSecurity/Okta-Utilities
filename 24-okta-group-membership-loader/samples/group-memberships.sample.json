@@ -1,0 +1,14 @@
+{
+  "memberships": [
+    {
+      "groupId": "00gExampleGroupId01",
+      "groupName": "Finance App Users",
+      "userId": "00uExampleUserId01",
+      "login": "finance.user01@example.com",
+      "email": "finance.user01@example.com",
+      "action": "add",
+      "approved": true,
+      "reason": "Approved access request for Finance App Users"
+    }
+  ]
+}

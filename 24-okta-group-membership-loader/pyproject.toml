@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "okta-group-membership-loader"
+version = "0.1.0"
+description = "Bulk add, remove, or replace Okta group memberships with dry-run, safety controls, rollback output, and evidence reporting."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "requests>=2.31.0",
+  "python-dotenv>=1.0.1",
+  "PyYAML>=6.0.1"
+]
+
+[project.scripts]
+okta-group-membership-loader = "okta_group_membership_loader.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

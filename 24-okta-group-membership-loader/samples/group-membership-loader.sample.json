@@ -1,0 +1,37 @@
+{
+  "targetOrgUrl": "https://your-org.okta.com",
+  "membershipFile": "samples/group-memberships.sample.csv",
+  "inputFormat": "auto",
+  "defaultAction": "add",
+  "settings": {
+    "continueOnError": false,
+    "requestTimeoutSeconds": 30,
+    "maxRetries": 3,
+    "retryBackoffSeconds": 2,
+    "verifyExistingStateInDryRun": false
+  },
+  "safety": {
+    "requireApproved": true,
+    "approvedValues": ["true", "yes", "y", "approved"],
+    "requireReason": true,
+    "maxChangesPerRun": 250,
+    "allowRemove": false,
+    "allowReplace": false,
+    "skipExistingAdditions": true,
+    "skipMissingRemovals": true,
+    "allowGroupNameLookup": true,
+    "allowUserLoginLookup": true,
+    "blockAdminUsers": true,
+    "protectedLoginPatterns": ["admin", "breakglass", "break-glass", "service", "svc-"]
+  },
+  "columns": {
+    "groupId": "groupId",
+    "groupName": "groupName",
+    "userId": "userId",
+    "login": "login",
+    "email": "email",
+    "action": "action",
+    "approved": "approved",
+    "reason": "reason"
+  }
+}
