@@ -1,0 +1,205 @@
+# WARNING
+
+These utilities have limited testing and are provided as-is with no warranty. Use at your own risk.
+
+# 21-okta-dormant-user-finder
+
+`okta-dormant-user-finder` is a read-only utility for identifying Okta users that may need lifecycle review.
+
+It can find accounts that are:
+
+- stale based on `lastLogin`
+- never used after a configured number of days
+- in inactive statuses such as `STAGED`, `SUSPENDED`, or `DEPROVISIONED`
+- not assigned to any visible app links
+- optionally not assigned to any groups
+- optionally using an old `passwordChanged` timestamp
+
+The utility does **not** suspend, deactivate, delete, or modify users. It only produces review reports.
+
+## Setup
+
+Create and activate a Python virtual environment.
+
+macOS/Linux:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+Windows PowerShell:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+
+Install the utility:
+
+```bash
+python -m pip install --upgrade pip
+python -m pip install -e .
+```
+
+Create the `.env` file:
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env`:
+
+```env
+OKTA_ORG_URL=https://your-org.okta.com
+OKTA_API_TOKEN=your-read-only-okta-api-token
+```
+
+Use the normal Okta org URL. Do not use `-admin.okta.com`, `/admin`, `/api/v1`, or `/oauth2` in the org URL.
+
+## Configuration
+
+Copy the sample config:
+
+```bash
+cp samples/dormant-user-finder.sample.json input/dormant-user-finder.config.json
+```
+
+Main config sections:
+
+```json
+{
+  "orgUrl": "https://your-org.okta.com",
+  "source": {
+    "mode": "api",
+    "usersFile": "input/users.csv"
+  },
+  "filters": {
+    "statuses": ["ACTIVE", "PROVISIONED", "STAGED", "SUSPENDED", "DEPROVISIONED"],
+    "excludeUserIds": [],
+    "excludeLogins": [],
+    "excludeLoginDomains": []
+  },
+  "dormancyRules": {
+    "staleLoginDays": 90,
+    "neverLoggedInAfterDays": 14,
+    "inactiveStatuses": ["STAGED", "SUSPENDED", "DEPROVISIONED"],
+    "flagUnassignedToApps": true,
+    "flagNoGroupMembership": false,
+    "flagPasswordNotChangedDays": 365
+  },
+  "apiOptions": {
+    "fetchAppLinks": true,
+    "fetchGroups": false,
+    "limit": 200,
+    "requestTimeoutSeconds": 30,
+    "maxRetries": 3
+  }
+}
+```
+
+## Source Modes
+
+### API mode
+
+Use API mode when you want the utility to read users directly from Okta.
+
+```json
+"source": {
+  "mode": "api"
+}
+```
+
+API mode requires `OKTA_ORG_URL` and `OKTA_API_TOKEN`.
+
+### File mode
+
+Use file mode when you want to analyze an existing export, such as the `users.csv` file produced by Utility 18.
+
+```json
+"source": {
+  "mode": "file",
+  "usersFile": "input/users.csv"
+}
+```
+
+File mode is useful for offline review, testing, and comparing the dormant-user logic before connecting to Okta.
+
+## Dry Run
+
+Dry run validates the config and writes a plan. It does not read Okta users.
+
+```bash
+okta-dormant-user-finder --config input/dormant-user-finder.config.json --dry-run
+```
+
+## Find Dormant Users
+
+Run the finder:
+
+```bash
+okta-dormant-user-finder --config input/dormant-user-finder.config.json --find
+```
+
+The utility creates a timestamped output folder under `output/`.
+
+## Output Files
+
+Typical output files:
+
+```text
+dormant_users.csv
+all_users_analyzed.csv
+summary_by_reason.csv
+dormant_user_report.md
+finder_result.json
+execution_report.md
+```
+
+If `includeRawUsers` is enabled, the utility also writes:
+
+```text
+raw_users.json
+```
+
+## Finding Reasons
+
+Common reason codes:
+
+| Reason | Meaning |
+|---|---|
+| `STALE_LOGIN` | User has a last login older than `staleLoginDays`. |
+| `NEVER_LOGGED_IN` | User was created more than `neverLoggedInAfterDays` ago and has no `lastLogin`. |
+| `INACTIVE_STATUS` | User status is one of the configured inactive statuses. |
+| `NO_APP_LINKS` | User has no app links returned by Okta. |
+| `NO_GROUP_MEMBERSHIP` | User has no groups returned by Okta. |
+| `PASSWORD_NOT_CHANGED` | User password has not changed within the configured threshold. |
+
+## Recommended First Test
+
+For a safe first test, use file mode with the included sample:
+
+```json
+"source": {
+  "mode": "file",
+  "usersFile": "samples/users.csv"
+}
+```
+
+Then run:
+
+```bash
+okta-dormant-user-finder --config input/dormant-user-finder.config.json --find
+```
+
+After confirming the output, switch to API mode.
+
+## Safety Notes
+
+- This utility is read-only.
+- It does not deactivate users.
+- It does not remove group membership.
+- It does not remove app assignments.
+- Review every candidate before taking lifecycle action.
+- Keep `.env` out of Git and shared ZIP files.
+- Use a least-privilege read-only admin/API token where possible.
