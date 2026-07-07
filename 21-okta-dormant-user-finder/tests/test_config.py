@@ -29,3 +29,22 @@ def test_api_mode_requires_token(tmp_path, monkeypatch):
     path.write_text(json.dumps({"orgUrl": "https://example.okta.com", "source": {"mode": "api"}}))
     with pytest.raises(ValueError):
         load_config(path)
+
+
+def test_load_output_lifecycle_options(tmp_path, monkeypatch):
+    monkeypatch.delenv("OKTA_API_TOKEN", raising=False)
+    monkeypatch.delenv("OKTA_ORG_URL", raising=False)
+    path = tmp_path / "config.json"
+    path.write_text(json.dumps({
+        "orgUrl": "https://example.okta.com",
+        "source": {"mode": "file", "usersFile": "input/users.csv"},
+        "output": {
+            "lifecycleAction": "suspend",
+            "lifecycleApprovedDefault": "reviewed",
+            "lifecycleReasonPrefix": "Approved dormant review"
+        }
+    }))
+    config = load_config(path)
+    assert config.output.lifecycle_action == "suspend"
+    assert config.output.lifecycle_approved_default == "reviewed"
+    assert config.output.lifecycle_reason_prefix == "Approved dormant review"

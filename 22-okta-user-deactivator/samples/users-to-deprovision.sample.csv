@@ -1,0 +1,6 @@
+id,login,email,action,approved,reason
+,utility22.test.user01@example.com,utility22.test.user01@example.com,suspend,true,Dormant account cleanup test
+,utility22.test.user02@example.com,utility22.test.user02@example.com,deprovision,true,Approved deprovisioning test
+,utility22.test.user03@example.com,utility22.test.user03@example.com,delete,true,Approved deletion test for already deprovisioned user
+,utility22.test.user04@example.com,utility22.test.user04@example.com,deactivate,true,Legacy alias example; deactivate is normalized to deprovision
+,utility22.test.user05@example.com,utility22.test.user05@example.com,suspend,false,Not approved example should be skipped

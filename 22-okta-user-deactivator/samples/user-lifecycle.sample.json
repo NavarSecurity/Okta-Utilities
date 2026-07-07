@@ -1,0 +1,42 @@
+{
+  "targetOrgUrl": "https://your-org.okta.com",
+  "inputFile": "input/users-to-deprovision.csv",
+  "outputDir": "output",
+  "settings": {
+    "defaultAction": "suspend",
+    "requireApproved": true,
+    "approvedValues": ["true", "yes", "y", "approved"],
+    "requireReason": true,
+    "continueOnError": false,
+    "maxUsersPerRun": 100,
+    "verifyUsersOnDryRun": false,
+    "sendDeprovisionEmail": false,
+    "sendDeleteEmail": false,
+    "skipAlreadyInTargetState": true,
+    "allowDeleteDeprovisionedUsers": false,
+    "requireDeprovisionedBeforeDelete": true,
+    "requestTimeoutSeconds": 30,
+    "maxRetries": 3
+  },
+  "safety": {
+    "requireConfirmationPhraseForApply": true,
+    "confirmationPhrase": "APPLY APPROVED USER LIFECYCLE ACTIONS",
+    "preventSelfDeactivationLogin": "",
+    "blockedLoginPatterns": [
+      "admin",
+      "breakglass",
+      "break-glass",
+      "service-account",
+      "svc-"
+    ],
+    "blockedUserIds": []
+  },
+  "columns": {
+    "userId": "id",
+    "login": "login",
+    "email": "email",
+    "action": "action",
+    "approved": "approved",
+    "reason": "reason"
+  }
+}

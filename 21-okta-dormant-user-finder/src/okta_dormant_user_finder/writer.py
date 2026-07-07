@@ -8,7 +8,8 @@ from typing import Any
 
 
 CSV_COLUMNS = [
-    "id", "login", "email", "firstName", "lastName", "status", "created", "lastLogin", "passwordChanged",
+    "id", "login", "email", "action", "approved", "reason",
+    "firstName", "lastName", "status", "created", "lastLogin", "passwordChanged",
     "appLinkCount", "groupCount", "createdDays", "lastLoginDays", "passwordChangedDays",
     "isDormantCandidate", "reasons", "evidence", "riskScore", "reviewPriority",
 ]
@@ -75,8 +76,9 @@ def write_report(path: Path, result: dict[str, Any]) -> None:
         "",
         "## Review Guidance",
         "",
-        "This report identifies accounts that should be reviewed. It does not deactivate, suspend, or modify users.",
-        "Validate each candidate with the account owner, HR/source of truth, application owner, or support process before taking action.",
+        "This report identifies accounts that should be reviewed. It does not deactivate, suspend, deprovision, delete, or modify users.",
+        "The dormant_users.csv file includes action, approved, and reason columns so it can be reviewed and then used with Utility 22.",
+        "Validate each candidate with the account owner, HR/source of truth, application owner, or support process before setting approved=true and taking lifecycle action.",
     ])
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 

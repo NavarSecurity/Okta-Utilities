@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "okta-dormant-user-finder"
-version = "0.1.0"
+version = "0.1.1"
 description = "Finds stale, never-used, unassigned, or inactive Okta accounts."
 readme = "README.md"
 requires-python = ">=3.10"

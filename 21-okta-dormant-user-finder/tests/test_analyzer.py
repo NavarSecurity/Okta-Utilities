@@ -49,3 +49,18 @@ def test_read_json_users_array(tmp_path):
     path = tmp_path / "users.json"
     path.write_text(json.dumps([{"id": "1"}]), encoding="utf-8")
     assert read_users_file(path)[0]["id"] == "1"
+
+
+def test_dormant_user_has_utility22_lifecycle_columns():
+    config = AppConfig(org_url="https://example.okta.com")
+    now = datetime(2026, 7, 1, tzinfo=timezone.utc)
+    result = analyze_user({
+        "id": "00u1",
+        "status": "ACTIVE",
+        "created": "2026-01-01T00:00:00.000Z",
+        "profile": {"login": "never@example.com", "email": "never@example.com"},
+    }, config, now=now)
+    assert result["action"] == "deprovision"
+    assert result["approved"] == ""
+    assert result["reason"].startswith("Dormant user review candidate:")
+    assert "NEVER_LOGGED_IN" in result["reason"]

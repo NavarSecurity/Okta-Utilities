@@ -158,14 +158,26 @@ def analyze_user(user: dict[str, Any], config: AppConfig, now: datetime | None =
     else:
         review_priority = "NONE"
 
+    reason_text = ";".join(sorted(set(reasons)))
+    evidence_text = " | ".join(evidence)
+    lifecycle_reason = ""
+    if reasons:
+        prefix = (config.output.lifecycle_reason_prefix or "Dormant user review candidate").strip()
+        lifecycle_reason = f"{prefix}: {reason_text}"
+        if evidence_text:
+            lifecycle_reason = f"{lifecycle_reason}. Evidence: {evidence_text}"
+
     return {
         **row,
+        "action": config.output.lifecycle_action if reasons else "",
+        "approved": config.output.lifecycle_approved_default if reasons else "",
+        "reason": lifecycle_reason,
         "createdDays": created_days if created_days is not None else "",
         "lastLoginDays": last_login_days if last_login_days is not None else "",
         "passwordChangedDays": password_changed_days if password_changed_days is not None else "",
         "isDormantCandidate": bool(reasons),
-        "reasons": ";".join(sorted(set(reasons))),
-        "evidence": " | ".join(evidence),
+        "reasons": reason_text,
+        "evidence": evidence_text,
         "riskScore": risk_score,
         "reviewPriority": review_priority,
     }

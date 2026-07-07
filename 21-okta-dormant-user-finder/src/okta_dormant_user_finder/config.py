@@ -71,6 +71,9 @@ class ApiOptions:
 class OutputConfig:
     include_raw_users: bool = False
     include_per_user_evidence: bool = True
+    lifecycle_action: str = "deprovision"
+    lifecycle_approved_default: str = ""
+    lifecycle_reason_prefix: str = "Dormant user review candidate"
 
 
 @dataclass
@@ -130,9 +133,18 @@ def load_config(config_path: str | Path) -> AppConfig:
         max_retries=int(api_data.get("maxRetries", 3)),
     )
 
+    lifecycle_action = str(output_data.get("lifecycleAction", "deprovision")).strip().lower().replace("-", "_")
+    if lifecycle_action == "deactivate":
+        lifecycle_action = "deprovision"
+    if lifecycle_action not in {"suspend", "deprovision", "delete", ""}:
+        raise ValueError("output.lifecycleAction must be suspend, deprovision, delete, deactivate, or blank.")
+
     output = OutputConfig(
         include_raw_users=bool(output_data.get("includeRawUsers", False)),
         include_per_user_evidence=bool(output_data.get("includePerUserEvidence", True)),
+        lifecycle_action=lifecycle_action,
+        lifecycle_approved_default=str(output_data.get("lifecycleApprovedDefault", "")),
+        lifecycle_reason_prefix=str(output_data.get("lifecycleReasonPrefix", "Dormant user review candidate")),
     )
 
     if source.mode == "api" and not api_token:

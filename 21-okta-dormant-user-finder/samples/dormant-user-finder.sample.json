@@ -5,7 +5,13 @@
     "usersFile": "input/users.csv"
   },
   "filters": {
-    "statuses": ["ACTIVE", "PROVISIONED", "STAGED", "SUSPENDED", "DEPROVISIONED"],
+    "statuses": [
+      "ACTIVE",
+      "PROVISIONED",
+      "STAGED",
+      "SUSPENDED",
+      "DEPROVISIONED"
+    ],
     "excludeUserIds": [],
     "excludeLogins": [],
     "excludeLoginDomains": []
@@ -13,7 +19,11 @@
   "dormancyRules": {
     "staleLoginDays": 90,
     "neverLoggedInAfterDays": 14,
-    "inactiveStatuses": ["STAGED", "SUSPENDED", "DEPROVISIONED"],
+    "inactiveStatuses": [
+      "STAGED",
+      "SUSPENDED",
+      "DEPROVISIONED"
+    ],
     "flagUnassignedToApps": true,
     "flagNoGroupMembership": false,
     "flagPasswordNotChangedDays": 365
@@ -27,6 +37,9 @@
   },
   "output": {
     "includeRawUsers": false,
-    "includePerUserEvidence": true
+    "includePerUserEvidence": true,
+    "lifecycleAction": "deprovision",
+    "lifecycleApprovedDefault": "",
+    "lifecycleReasonPrefix": "Dormant user review candidate"
   }
 }
