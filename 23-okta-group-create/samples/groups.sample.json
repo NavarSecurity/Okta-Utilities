@@ -1,0 +1,16 @@
+{
+  "groups": [
+    {
+      "name": "Utility 23 JSON Test Group 01",
+      "description": "Test group loaded from JSON",
+      "approved": true
+    },
+    {
+      "profile": {
+        "name": "Utility 23 JSON Test Group 02",
+        "description": "Second JSON group using profile object"
+      },
+      "approved": true
+    }
+  ]
+}
