@@ -1,0 +1,2 @@
+[console_scripts]
+okta-dormant-user-finder = okta_dormant_user_finder.cli:main

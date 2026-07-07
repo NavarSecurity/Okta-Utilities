@@ -1,0 +1,5 @@
+id,status,created,activated,statusChanged,lastLogin,lastUpdated,passwordChanged,login,email,firstName,lastName
+00uactive1,ACTIVE,2026-01-01T10:00:00.000Z,2026-01-01T10:05:00.000Z,2026-01-01T10:05:00.000Z,2026-07-01T10:00:00.000Z,2026-07-01T10:00:00.000Z,2026-06-01T10:00:00.000Z,active.user@example.com,active.user@example.com,Active,User
+00ustale1,ACTIVE,2025-01-01T10:00:00.000Z,2025-01-01T10:05:00.000Z,2025-01-01T10:05:00.000Z,2025-03-01T10:00:00.000Z,2026-01-01T10:00:00.000Z,2025-01-01T10:00:00.000Z,stale.user@example.com,stale.user@example.com,Stale,User
+00unever1,ACTIVE,2026-01-01T10:00:00.000Z,2026-01-01T10:05:00.000Z,2026-01-01T10:05:00.000Z,,2026-01-01T10:00:00.000Z,2026-01-01T10:00:00.000Z,never.login@example.com,never.login@example.com,Never,Login
+00ustaged1,STAGED,2026-01-01T10:00:00.000Z,,,,2026-01-01T10:00:00.000Z,,staged.user@example.com,staged.user@example.com,Staged,User

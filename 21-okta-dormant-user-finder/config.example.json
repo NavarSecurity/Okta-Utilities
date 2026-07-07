@@ -1,0 +1,32 @@
+{
+  "orgUrl": "https://your-org.okta.com",
+  "source": {
+    "mode": "api",
+    "usersFile": "input/users.csv"
+  },
+  "filters": {
+    "statuses": ["ACTIVE", "PROVISIONED", "STAGED", "SUSPENDED", "DEPROVISIONED"],
+    "excludeUserIds": [],
+    "excludeLogins": [],
+    "excludeLoginDomains": []
+  },
+  "dormancyRules": {
+    "staleLoginDays": 90,
+    "neverLoggedInAfterDays": 14,
+    "inactiveStatuses": ["STAGED", "SUSPENDED", "DEPROVISIONED"],
+    "flagUnassignedToApps": true,
+    "flagNoGroupMembership": false,
+    "flagPasswordNotChangedDays": 365
+  },
+  "apiOptions": {
+    "fetchAppLinks": true,
+    "fetchGroups": false,
+    "limit": 200,
+    "requestTimeoutSeconds": 30,
+    "maxRetries": 3
+  },
+  "output": {
+    "includeRawUsers": false,
+    "includePerUserEvidence": true
+  }
+}
