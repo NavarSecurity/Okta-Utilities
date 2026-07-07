@@ -1,0 +1,2 @@
+[console_scripts]
+okta-group-membership-loader = okta_group_membership_loader.cli:main

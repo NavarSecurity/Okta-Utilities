@@ -1,0 +1,4 @@
+groupId,groupName,userId,login,email,action,approved,reason
+00gExampleGroupId01,Finance App Users,00uExampleUserId01,finance.user01@example.com,finance.user01@example.com,add,true,Approved access request for Finance App Users
+00gExampleGroupId01,Finance App Users,00uExampleUserId02,finance.user02@example.com,finance.user02@example.com,add,true,Approved access request for Finance App Users
+00gExampleGroupId02,VPN Users,00uExampleUserId03,vpn.user01@example.com,vpn.user01@example.com,add,true,Approved VPN access request
