@@ -1,0 +1,8 @@
+groups:
+  - name: Utility 23 YAML Test Group 01
+    description: Test group loaded from YAML
+    approved: true
+  - profile:
+      name: Utility 23 YAML Test Group 02
+      description: Second YAML group using profile object
+    approved: true

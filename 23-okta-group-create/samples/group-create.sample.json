@@ -1,0 +1,23 @@
+{
+  "targetOrgUrl": "https://your-org.okta.com",
+  "groupsFile": "samples/groups.sample.csv",
+  "settings": {
+    "skipExisting": true,
+    "requireApproved": false,
+    "approvedValues": ["true", "yes", "y", "approved"],
+    "continueOnError": true,
+    "maxGroupsPerRun": 100,
+    "requestTimeoutSeconds": 30,
+    "maxRetries": 3,
+    "retryBackoffSeconds": 2
+  },
+  "columns": {
+    "name": "name",
+    "description": "description",
+    "approved": "approved"
+  },
+  "profileFieldMappings": {
+    "name": "name",
+    "description": "description"
+  }
+}
