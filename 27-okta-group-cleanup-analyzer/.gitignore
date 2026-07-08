@@ -1,0 +1,13 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+output/*
+!output/.gitkeep
+input/*.csv
+input/*.json
+input/*.yaml
+input/*.yml
+!input/.gitkeep
