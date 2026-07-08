@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "okta-group-rule-create"
+version = "0.1.1"
+description = "Create Okta group rules from configuration with dry-run, approval gating, and rollback output."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "requests>=2.31.0",
+  "python-dotenv>=1.0.0",
+  "PyYAML>=6.0.1"
+]
+
+[project.scripts]
+okta-group-rule-create = "okta_group_rule_create.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
