@@ -1,0 +1,39 @@
+{
+  "mode": "api",
+  "orgUrl": "https://your-org.okta.com",
+  "analysis": {
+    "findEmptyGroups": true,
+    "findUnusedGroups": true,
+    "findDuplicateNames": true,
+    "findStaleGroups": true,
+    "findOwnerlessGroups": true,
+    "staleDays": 180,
+    "ownerFields": [
+      "owner",
+      "groupOwner",
+      "profile.owner",
+      "profile.groupOwner"
+    ],
+    "protectedGroupNamePatterns": [
+      "admin",
+      "administrator",
+      "super admin",
+      "break glass",
+      "service account",
+      "everyone"
+    ],
+    "cleanupRecommendationMode": "review_only"
+  },
+  "settings": {
+    "includeOktaBuiltInGroups": false,
+    "fetchMemberCountsInApiMode": true,
+    "fetchAppAssignmentCountsInApiMode": true,
+    "fetchRuleTargetCountsInApiMode": true,
+    "continueOnEvidenceFetchError": true,
+    "requestTimeoutSeconds": 30,
+    "maxRetries": 3,
+    "writeRawApiResponses": false,
+    "strictMode": false
+  },
+  "outputDir": "output"
+}

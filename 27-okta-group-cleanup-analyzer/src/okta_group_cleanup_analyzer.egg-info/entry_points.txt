@@ -1,0 +1,2 @@
+[console_scripts]
+okta-group-cleanup-analyzer = okta_group_cleanup_analyzer.cli:main
