@@ -1,0 +1,75 @@
+{
+  "targetOrgUrl": "https://your-org.okta.com",
+  "settings": {
+    "skipExisting": true,
+    "requireApproved": true,
+    "activateAfterCreate": false,
+    "continueOnError": false,
+    "maxRulesPerRun": 25,
+    "requestTimeoutSeconds": 30,
+    "maxRetries": 3
+  },
+  "rules": [
+    {
+      "name": "Rule - Engineering Users",
+      "description": "Assign Engineering users to the Engineering Users group.",
+      "approved": true,
+      "basicCondition": {
+        "attribute": "department",
+        "operator": "equals",
+        "value": "Engineering"
+      },
+      "targetGroupIds": [
+        "00gexampleengineering"
+      ],
+      "targetGroupNames": [],
+      "excludeUserIds": [],
+      "excludeGroupIds": [],
+      "activate": false
+    },
+    {
+      "name": "Rule - Contractor Users",
+      "description": "Assign contractor email-domain users to the Contractors group.",
+      "approved": false,
+      "basicCondition": {
+        "attribute": "email",
+        "operator": "contains",
+        "value": "@contractor.example.com"
+      },
+      "targetGroupIds": [],
+      "targetGroupNames": [
+        "Contractors"
+      ],
+      "excludeUserIds": [],
+      "excludeGroupIds": [],
+      "activate": false
+    },
+    {
+      "name": "Rule - Active Engineering Managers",
+      "description": "Example of multiple basic conditions joined together.",
+      "approved": false,
+      "basicConditions": {
+        "match": "all",
+        "conditions": [
+          {
+            "attribute": "department",
+            "operator": "equals",
+            "value": "Engineering"
+          },
+          {
+            "attribute": "title",
+            "operator": "contains",
+            "value": "Manager"
+          }
+        ]
+      },
+      "targetGroupIds": [],
+      "targetGroupNames": [
+        "Engineering Managers"
+      ],
+      "excludeUserIds": [],
+      "excludeGroupIds": [],
+      "activate": false
+    }
+  ]
+}

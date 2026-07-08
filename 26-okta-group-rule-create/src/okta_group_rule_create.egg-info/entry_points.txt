@@ -1,0 +1,2 @@
+[console_scripts]
+okta-group-rule-create = okta_group_rule_create.cli:main
