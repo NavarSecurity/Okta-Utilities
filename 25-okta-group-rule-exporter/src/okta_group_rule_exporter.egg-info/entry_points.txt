@@ -1,0 +1,2 @@
+[console_scripts]
+okta-group-rule-exporter = okta_group_rule_exporter.cli:main
