@@ -1,0 +1,21 @@
+{
+  "targetOrgUrl": "https://your-org.okta.com",
+  "outputDir": "output",
+  "export": {
+    "ruleIds": [],
+    "ruleNameContains": "",
+    "statuses": [
+      "ACTIVE",
+      "INACTIVE"
+    ],
+    "includeInactive": true,
+    "expandGroupNames": true,
+    "saveRawResponses": false
+  },
+  "settings": {
+    "requestTimeoutSeconds": 30,
+    "maxRetries": 3,
+    "pageLimit": 200,
+    "continueOnError": false
+  }
+}
