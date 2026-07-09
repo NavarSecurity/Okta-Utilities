@@ -1,0 +1,2 @@
+[console_scripts]
+okta-mfa-reset = okta_mfa_reset.cli:main

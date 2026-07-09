@@ -1,0 +1,4 @@
+userId,login,email,action,factorId,factorType,provider,authenticatorEnrollmentId,approved,reason
+00u123example001,test.user01@example.com,test.user01@example.com,reset_all_factors,,,,,true,Approved test reset for help desk ticket HD-1001
+00u123example002,test.user02@example.com,test.user02@example.com,delete_factor,,sms,OKTA,,true,Approved removal of old SMS factor HD-1002
+00u123example003,test.user03@example.com,test.user03@example.com,delete_factor,ufs123factorid,,,,true,Approved removal of selected factor HD-1003
