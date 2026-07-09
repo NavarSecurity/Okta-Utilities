@@ -1,0 +1,2 @@
+[console_scripts]
+okta-mfa-enrollment-reporter = okta_mfa_enrollment_reporter.cli:main

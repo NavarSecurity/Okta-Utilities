@@ -1,0 +1,23 @@
+{
+  "orgUrl": "https://your-org.okta.com",
+  "input": {
+    "userIds": [],
+    "userLogins": [],
+    "groupIds": [],
+    "groupNames": [],
+    "statuses": ["ACTIVE"],
+    "includeUsersWithoutFactors": true
+  },
+  "reporting": {
+    "requiredFactorTypes": ["push", "token:software:totp", "sms", "webauthn"],
+    "factorTypes": [],
+    "includeFactorProfile": false,
+    "includeRawFactors": false
+  },
+  "settings": {
+    "pageLimit": 200,
+    "requestTimeoutSeconds": 30,
+    "maxRetries": 3,
+    "redactSensitiveProfileValues": true
+  }
+}
