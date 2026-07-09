@@ -1,0 +1,34 @@
+{
+  "orgUrl": "https://your-org.okta.com",
+  "input": {
+    "usersFile": "input/mfa-reset-users.csv"
+  },
+  "settings": {
+    "defaultAction": "reset_all_factors",
+    "requireApproved": true,
+    "approvedValues": ["true", "yes", "y", "approved"],
+    "requireReason": true,
+    "maxUsersPerRun": 5,
+    "allowResetAllFactors": true,
+    "allowDeleteSelectedFactors": true,
+    "allowDeleteAuthenticatorEnrollments": false,
+    "verifyUsersBeforeAction": false,
+    "skipProtectedLogins": true,
+    "protectedLoginPatterns": ["admin", "breakglass", "break-glass", "service", "svc", "root", "superadmin"],
+    "continueOnError": false,
+    "requestTimeoutSeconds": 30,
+    "maxRetries": 3
+  },
+  "columns": {
+    "userId": "userId",
+    "login": "login",
+    "email": "email",
+    "action": "action",
+    "factorId": "factorId",
+    "factorType": "factorType",
+    "provider": "provider",
+    "authenticatorEnrollmentId": "authenticatorEnrollmentId",
+    "approved": "approved",
+    "reason": "reason"
+  }
+}
