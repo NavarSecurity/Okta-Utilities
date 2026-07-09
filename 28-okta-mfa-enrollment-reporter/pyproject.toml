@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "okta-mfa-enrollment-reporter"
+version = "0.1.0"
+description = "Read-only Okta MFA enrollment reporting utility"
+requires-python = ">=3.9"
+dependencies = [
+    "requests>=2.31.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0"]
+
+[project.scripts]
+okta-mfa-enrollment-reporter = "okta_mfa_enrollment_reporter.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
