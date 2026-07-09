@@ -1,0 +1,20 @@
+{
+  "outputDir": "./output",
+  "includeOrgPolicies": true,
+  "includeAuthorizationServerPolicies": false,
+  "includeRules": true,
+  "includeRawObjects": true,
+  "policyTypes": [
+    "OKTA_SIGN_ON",
+    "ACCESS_POLICY",
+    "PASSWORD",
+    "MFA_ENROLL"
+  ],
+  "pageLimit": 200,
+  "failOnPolicyTypeError": false,
+  "request": {
+    "maxRetries": 5,
+    "baseDelayMs": 750,
+    "timeoutMs": 30000
+  }
+}

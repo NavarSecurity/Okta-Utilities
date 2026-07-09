@@ -1,0 +1,16 @@
+{
+  "outputDir": "./output",
+  "includeOrgPolicies": false,
+  "includeAuthorizationServerPolicies": true,
+  "includeRules": true,
+  "includeRawObjects": true,
+  "policyTypes": [],
+  "authorizationServerIds": ["default"],
+  "pageLimit": 200,
+  "failOnPolicyTypeError": false,
+  "request": {
+    "maxRetries": 5,
+    "baseDelayMs": 750,
+    "timeoutMs": 30000
+  }
+}
