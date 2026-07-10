@@ -1,0 +1,43 @@
+{
+  "sourceLabel": "dev",
+  "targetLabel": "prod",
+  "sourceExportPath": "samples/source-policies_full.json",
+  "targetExportPath": "samples/target-policies_full.json",
+  "outputDir": "output",
+  "identityMode": "name_type_scope",
+  "failOnDrift": false,
+  "includeEqualItems": false,
+  "compare": {
+    "includePolicyFields": [
+      "status",
+      "name",
+      "description",
+      "priority",
+      "system",
+      "type",
+      "conditions",
+      "actions",
+      "settings"
+    ],
+    "includeRuleFields": [
+      "status",
+      "name",
+      "priority",
+      "system",
+      "type",
+      "conditions",
+      "actions"
+    ],
+    "ignorePaths": [],
+    "ignoreFields": [
+      "id",
+      "created",
+      "lastUpdated",
+      "_links",
+      "links"
+    ],
+    "sortPrimitiveArrays": true,
+    "normalizeOrgUrls": true,
+    "referenceMapPath": ""
+  }
+}

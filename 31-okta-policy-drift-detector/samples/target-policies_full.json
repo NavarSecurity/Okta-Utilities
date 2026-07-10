@@ -1,0 +1,172 @@
+{
+  "metadata": {
+    "utility": "30-okta-policy-exporter",
+    "generatedAt": "2026-07-01T10:05:00.000Z",
+    "orgUrl": "https://prod.example.okta.com",
+    "counts": {
+      "totalPolicies": 3,
+      "totalRules": 3
+    }
+  },
+  "orgPolicies": [
+    {
+      "source": "orgPolicy",
+      "policyType": "OKTA_SIGN_ON",
+      "policyTypeLabel": "Global Session / Okta Sign-On Policy",
+      "policy": {
+        "id": "00pTARGETSESSION",
+        "status": "ACTIVE",
+        "name": "Default Policy",
+        "description": "The default policy applies in all situations if no other policy applies.",
+        "priority": 1,
+        "system": true,
+        "type": "OKTA_SIGN_ON",
+        "conditions": {
+          "people": {
+            "groups": {
+              "include": ["EVERYONE"]
+            }
+          }
+        },
+        "created": "2026-07-01T10:05:00.000Z",
+        "lastUpdated": "2026-07-01T10:05:00.000Z",
+        "_links": {
+          "self": {
+            "href": "https://prod.example.okta.com/api/v1/policies/00pTARGETSESSION"
+          }
+        }
+      },
+      "rules": [
+        {
+          "id": "0prTARGETRULE1",
+          "status": "ACTIVE",
+          "name": "Default Rule",
+          "priority": 1,
+          "system": true,
+          "type": "SIGN_ON",
+          "conditions": {
+            "network": {
+              "connection": "ANYWHERE"
+            },
+            "authContext": {
+              "authType": "ANY"
+            }
+          },
+          "actions": {
+            "signon": {
+              "access": "ALLOW",
+              "requireFactor": true,
+              "session": {
+                "maxSessionIdleMinutes": 60,
+                "maxSessionLifetimeMinutes": 1440
+              }
+            }
+          },
+          "created": "2026-07-01T10:05:00.000Z",
+          "lastUpdated": "2026-07-01T10:05:00.000Z"
+        },
+        {
+          "id": "0prTARGETRULE2",
+          "status": "ACTIVE",
+          "name": "Privileged Network Rule",
+          "priority": 2,
+          "system": false,
+          "type": "SIGN_ON",
+          "conditions": {
+            "network": {
+              "include": ["corp-network-zone"]
+            }
+          },
+          "actions": {
+            "signon": {
+              "access": "ALLOW",
+              "requireFactor": true
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "authorizationServerPolicies": [
+    {
+      "source": "authorizationServerPolicy",
+      "policyType": "AUTHORIZATION_SERVER_ACCESS_POLICY",
+      "policyTypeLabel": "Custom Authorization Server Access Policy",
+      "authorizationServer": {
+        "id": "ausTARGET",
+        "name": "Example API Authorization Server",
+        "audience": ["api://example"],
+        "issuer": "https://prod.example.okta.com/oauth2/ausTARGET",
+        "status": "ACTIVE"
+      },
+      "policy": {
+        "id": "00pTARGETAPI",
+        "status": "ACTIVE",
+        "name": "Default API Access Policy",
+        "description": "Default policy for API clients.",
+        "priority": 1,
+        "system": false,
+        "type": "OAUTH_AUTHORIZATION_POLICY",
+        "conditions": {
+          "clients": {
+            "include": ["ALL_CLIENTS"]
+          }
+        }
+      },
+      "rules": [
+        {
+          "id": "0prTARGETAPI1",
+          "status": "ACTIVE",
+          "name": "Authorization Code Access",
+          "priority": 1,
+          "system": false,
+          "type": "RESOURCE_ACCESS",
+          "conditions": {
+            "grantTypes": {
+              "include": ["authorization_code"]
+            },
+            "scopes": {
+              "include": ["read:example"]
+            }
+          },
+          "actions": {
+            "token": {
+              "accessTokenLifetimeMinutes": 60,
+              "refreshTokenLifetimeMinutes": 10080,
+              "refreshTokenWindowMinutes": 10080
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "authorizationServerPolicy",
+      "policyType": "AUTHORIZATION_SERVER_ACCESS_POLICY",
+      "policyTypeLabel": "Custom Authorization Server Access Policy",
+      "authorizationServer": {
+        "id": "ausTARGET",
+        "name": "Example API Authorization Server",
+        "audience": ["api://example"],
+        "issuer": "https://prod.example.okta.com/oauth2/ausTARGET",
+        "status": "ACTIVE"
+      },
+      "policy": {
+        "id": "00pTARGETCLIENT",
+        "status": "ACTIVE",
+        "name": "Client Credentials Only",
+        "description": "Extra policy in target.",
+        "priority": 2,
+        "system": false,
+        "type": "OAUTH_AUTHORIZATION_POLICY",
+        "conditions": {
+          "clients": {
+            "include": ["ALL_CLIENTS"]
+          }
+        }
+      },
+      "rules": []
+    }
+  ],
+  "warnings": [],
+  "errors": []
+}
