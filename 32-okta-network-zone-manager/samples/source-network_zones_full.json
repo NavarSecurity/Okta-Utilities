@@ -1,0 +1,36 @@
+{
+  "zones": [
+    {
+      "id": "nzo_source_1",
+      "name": "Corporate Office IPs",
+      "type": "IP",
+      "usage": "POLICY",
+      "status": "ACTIVE",
+      "system": false,
+      "gateways": [
+        {
+          "type": "CIDR",
+          "value": "203.0.113.0/24"
+        }
+      ],
+      "proxies": [],
+      "created": "2024-01-01T00:00:00.000Z",
+      "lastUpdated": "2024-01-02T00:00:00.000Z"
+    },
+    {
+      "id": "nzo_source_2",
+      "name": "Temporary Vendor IPs",
+      "type": "IP",
+      "usage": "POLICY",
+      "status": "INACTIVE",
+      "system": false,
+      "gateways": [
+        {
+          "type": "RANGE",
+          "value": "198.51.100.10-198.51.100.20"
+        }
+      ],
+      "proxies": []
+    }
+  ]
+}

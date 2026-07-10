@@ -1,0 +1,25 @@
+{
+  "outputDir": "output",
+  "operation": "manage",
+  "okta": {
+    "orgUrlEnv": "OKTA_ORG_URL",
+    "apiTokenEnv": "OKTA_API_TOKEN"
+  },
+  "manage": {
+    "actionsFile": "input/actions.json",
+    "allowDelete": false,
+    "allowDeleteActiveZones": false,
+    "protectSystemZones": true,
+    "protectedNames": [
+      "LegacyIpZone",
+      "BlockedIpZone",
+      "DefaultEnhancedDynamicZone",
+      "DefaultExemptIpZone"
+    ]
+  },
+  "request": {
+    "timeoutSeconds": 30,
+    "maxRetries": 4,
+    "retryBackoffSeconds": 2
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "zones": [
+    {
+      "name": "Corporate Office IPs",
+      "type": "IP",
+      "usage": "POLICY",
+      "status": "ACTIVE",
+      "gateways": [
+        {
+          "type": "CIDR",
+          "value": "203.0.113.0/24"
+        }
+      ],
+      "proxies": []
+    },
+    {
+      "name": "Temporary Vendor IPs",
+      "type": "IP",
+      "usage": "POLICY",
+      "status": "INACTIVE",
+      "gateways": [
+        {
+          "type": "RANGE",
+          "value": "198.51.100.10-198.51.100.20"
+        }
+      ],
+      "proxies": []
+    }
+  ]
+}

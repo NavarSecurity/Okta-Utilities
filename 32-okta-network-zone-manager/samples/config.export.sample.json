@@ -1,0 +1,17 @@
+{
+  "outputDir": "output",
+  "operation": "export",
+  "okta": {
+    "orgUrlEnv": "OKTA_ORG_URL",
+    "apiTokenEnv": "OKTA_API_TOKEN"
+  },
+  "export": {
+    "includeSystemZones": true,
+    "limit": 200
+  },
+  "request": {
+    "timeoutSeconds": 30,
+    "maxRetries": 4,
+    "retryBackoffSeconds": 2
+  }
+}

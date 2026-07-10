@@ -1,0 +1,9 @@
+{
+  "outputDir": "output",
+  "operation": "compare",
+  "compare": {
+    "sourceFile": "samples/source-network_zones_full.json",
+    "targetFile": "samples/target-network_zones_full.json",
+    "matchBy": "name"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "actions": [
+    {
+      "action": "deactivate",
+      "match": {
+        "name": "Temporary Vendor IPs"
+      },
+      "reason": "Vendor access window ended"
+    },
+    {
+      "action": "activate",
+      "match": {
+        "name": "Corporate Office IPs"
+      },
+      "reason": "Corporate office range approved"
+    }
+  ]
+}
