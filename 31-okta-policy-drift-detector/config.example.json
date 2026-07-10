@@ -1,0 +1,47 @@
+{
+  "sourceLabel": "source",
+  "targetLabel": "target",
+  "sourceExportPath": "../30-okta-policy-exporter/output/source-policy-export/policies_full.json",
+  "targetExportPath": "../30-okta-policy-exporter/output/target-policy-export/policies_full.json",
+  "outputDir": "output",
+  "identityMode": "name_type_scope",
+  "failOnDrift": false,
+  "includeEqualItems": false,
+  "compare": {
+    "includePolicyFields": [
+      "status",
+      "name",
+      "description",
+      "priority",
+      "system",
+      "type",
+      "conditions",
+      "actions",
+      "settings"
+    ],
+    "includeRuleFields": [
+      "status",
+      "name",
+      "priority",
+      "system",
+      "type",
+      "conditions",
+      "actions"
+    ],
+    "ignorePaths": [
+      "metadata.generatedAt",
+      "metadata.orgUrl",
+      "issuer"
+    ],
+    "ignoreFields": [
+      "id",
+      "created",
+      "lastUpdated",
+      "_links",
+      "links"
+    ],
+    "sortPrimitiveArrays": true,
+    "normalizeOrgUrls": true,
+    "referenceMapPath": ""
+  }
+}

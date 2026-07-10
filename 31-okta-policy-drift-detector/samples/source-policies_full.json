@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "utility": "30-okta-policy-exporter",
+    "generatedAt": "2026-07-01T10:00:00.000Z",
+    "orgUrl": "https://dev.example.okta.com",
+    "counts": {
+      "totalPolicies": 2,
+      "totalRules": 2
+    }
+  },
+  "orgPolicies": [
+    {
+      "source": "orgPolicy",
+      "policyType": "OKTA_SIGN_ON",
+      "policyTypeLabel": "Global Session / Okta Sign-On Policy",
+      "policy": {
+        "id": "00pSOURCESESSION",
+        "status": "ACTIVE",
+        "name": "Default Policy",
+        "description": "The default policy applies in all situations if no other policy applies.",
+        "priority": 1,
+        "system": true,
+        "type": "OKTA_SIGN_ON",
+        "conditions": {
+          "people": {
+            "groups": {
+              "include": ["EVERYONE"]
+            }
+          }
+        },
+        "created": "2026-07-01T10:00:00.000Z",
+        "lastUpdated": "2026-07-01T10:00:00.000Z",
+        "_links": {
+          "self": {
+            "href": "https://dev.example.okta.com/api/v1/policies/00pSOURCESESSION"
+          }
+        }
+      },
+      "rules": [
+        {
+          "id": "0prSOURCERULE1",
+          "status": "ACTIVE",
+          "name": "Default Rule",
+          "priority": 1,
+          "system": true,
+          "type": "SIGN_ON",
+          "conditions": {
+            "network": {
+              "connection": "ANYWHERE"
+            },
+            "authContext": {
+              "authType": "ANY"
+            }
+          },
+          "actions": {
+            "signon": {
+              "access": "ALLOW",
+              "requireFactor": false,
+              "session": {
+                "maxSessionIdleMinutes": 120,
+                "maxSessionLifetimeMinutes": 1440
+              }
+            }
+          },
+          "created": "2026-07-01T10:00:00.000Z",
+          "lastUpdated": "2026-07-01T10:00:00.000Z"
+        }
+      ]
+    }
+  ],
+  "authorizationServerPolicies": [
+    {
+      "source": "authorizationServerPolicy",
+      "policyType": "AUTHORIZATION_SERVER_ACCESS_POLICY",
+      "policyTypeLabel": "Custom Authorization Server Access Policy",
+      "authorizationServer": {
+        "id": "ausSOURCE",
+        "name": "Example API Authorization Server",
+        "audience": ["api://example"],
+        "issuer": "https://dev.example.okta.com/oauth2/ausSOURCE",
+        "status": "ACTIVE"
+      },
+      "policy": {
+        "id": "00pSOURCEAPI",
+        "status": "ACTIVE",
+        "name": "Default API Access Policy",
+        "description": "Default policy for API clients.",
+        "priority": 1,
+        "system": false,
+        "type": "OAUTH_AUTHORIZATION_POLICY",
+        "conditions": {
+          "clients": {
+            "include": ["ALL_CLIENTS"]
+          }
+        }
+      },
+      "rules": [
+        {
+          "id": "0prSOURCEAPI1",
+          "status": "ACTIVE",
+          "name": "Authorization Code Access",
+          "priority": 1,
+          "system": false,
+          "type": "RESOURCE_ACCESS",
+          "conditions": {
+            "grantTypes": {
+              "include": ["authorization_code"]
+            },
+            "scopes": {
+              "include": ["read:example", "write:example"]
+            }
+          },
+          "actions": {
+            "token": {
+              "accessTokenLifetimeMinutes": 60,
+              "refreshTokenLifetimeMinutes": 10080,
+              "refreshTokenWindowMinutes": 10080
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "warnings": [],
+  "errors": []
+}
