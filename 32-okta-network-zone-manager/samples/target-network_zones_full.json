@@ -1,0 +1,36 @@
+{
+  "zones": [
+    {
+      "id": "nzo_target_1",
+      "name": "Corporate Office IPs",
+      "type": "IP",
+      "usage": "POLICY",
+      "status": "ACTIVE",
+      "system": false,
+      "gateways": [
+        {
+          "type": "CIDR",
+          "value": "203.0.113.0/25"
+        }
+      ],
+      "proxies": [],
+      "created": "2024-02-01T00:00:00.000Z",
+      "lastUpdated": "2024-02-02T00:00:00.000Z"
+    },
+    {
+      "id": "nzo_target_3",
+      "name": "Legacy Partner IPs",
+      "type": "IP",
+      "usage": "POLICY",
+      "status": "ACTIVE",
+      "system": false,
+      "gateways": [
+        {
+          "type": "CIDR",
+          "value": "192.0.2.0/24"
+        }
+      ],
+      "proxies": []
+    }
+  ]
+}

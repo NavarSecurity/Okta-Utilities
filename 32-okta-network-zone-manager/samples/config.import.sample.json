@@ -1,0 +1,26 @@
+{
+  "outputDir": "output",
+  "operation": "import",
+  "okta": {
+    "orgUrlEnv": "OKTA_ORG_URL",
+    "apiTokenEnv": "OKTA_API_TOKEN"
+  },
+  "import": {
+    "inputFile": "samples/zones.import.sample.json",
+    "matchBy": "name",
+    "replaceExisting": false,
+    "activateCreatedZones": false,
+    "protectSystemZones": true,
+    "protectedNames": [
+      "LegacyIpZone",
+      "BlockedIpZone",
+      "DefaultEnhancedDynamicZone",
+      "DefaultExemptIpZone"
+    ]
+  },
+  "request": {
+    "timeoutSeconds": 30,
+    "maxRetries": 4,
+    "retryBackoffSeconds": 2
+  }
+}

@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "okta-network-zone-manager"
+version = "1.0.0"
+description = "Export, compare, import, and manage Okta Network Zones."
+requires-python = ">=3.10"
+authors = [{ name = "Internal IAM Engineering" }]
+readme = "README.md"
+dependencies = []
+
+[project.scripts]
+okta-network-zone-manager = "okta_network_zone_manager.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
