@@ -1,0 +1,2 @@
+[console_scripts]
+okta-profile-schema-exporter = okta_profile_schema_exporter.cli:main

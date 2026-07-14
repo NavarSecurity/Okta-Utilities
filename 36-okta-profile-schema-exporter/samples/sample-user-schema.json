@@ -1,0 +1,44 @@
+{
+  "id": "https://example.okta.com/meta/schemas/user/default",
+  "title": "User",
+  "type": "object",
+  "definitions": {
+    "base": {
+      "id": "#base",
+      "type": "object",
+      "required": ["login", "email"],
+      "properties": {
+        "login": {
+          "title": "Username",
+          "type": "string",
+          "mutability": "READ_WRITE",
+          "scope": "NONE"
+        },
+        "email": {
+          "title": "Primary email",
+          "type": "string",
+          "mutability": "READ_WRITE",
+          "scope": "NONE"
+        }
+      }
+    },
+    "custom": {
+      "id": "#custom",
+      "type": "object",
+      "properties": {
+        "employeeNumber": {
+          "title": "Employee Number",
+          "type": "string",
+          "mutability": "READ_WRITE",
+          "scope": "NONE",
+          "unique": true
+        },
+        "departmentCode": {
+          "title": "Department Code",
+          "type": "string",
+          "enum": ["IT", "HR", "FINANCE"]
+        }
+      }
+    }
+  }
+}

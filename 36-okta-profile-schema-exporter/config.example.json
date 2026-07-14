@@ -1,0 +1,29 @@
+{
+  "outputDirectory": "output",
+  "includeUserSchemas": true,
+  "userSchemaIds": [
+    "default"
+  ],
+  "includeGroupSchema": false,
+  "includeAppSchemas": true,
+  "appSelection": {
+    "mode": "all",
+    "appIds": [],
+    "appNames": [],
+    "appFile": "input/apps.txt"
+  },
+  "includeInactiveApps": false,
+  "continueOnAppSchemaError": true,
+  "writeIndividualSchemaFiles": true,
+  "redactSensitiveValues": true,
+  "timeoutSeconds": 30,
+  "maxRetries": 3,
+  "skipOktaSystemApps": true,
+  "excludedAppNames": [
+    "saasure",
+    "okta_enduser",
+    "okta_browser_plugin",
+    "okta_oin_submission_tester_app",
+    "okta_iga_reviewer"
+  ]
+}

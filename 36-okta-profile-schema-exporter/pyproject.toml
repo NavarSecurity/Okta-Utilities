@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "okta-profile-schema-exporter"
+version = "1.0.1"
+description = "Export Okta Universal Directory user and app profile schemas."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "requests>=2.31.0",
+  "python-dotenv>=1.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0.0"
+]
+
+[project.scripts]
+okta-profile-schema-exporter = "okta_profile_schema_exporter.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
