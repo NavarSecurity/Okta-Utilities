@@ -1,0 +1,2 @@
+[console_scripts]
+okta-idp-exporter = okta_idp_exporter.cli:main

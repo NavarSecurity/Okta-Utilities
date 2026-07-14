@@ -1,0 +1,12 @@
+{
+  "outputDir": "output",
+  "includeInactive": false,
+  "includeLinks": false,
+  "includeKeys": false,
+  "splitByType": true,
+  "redactSensitiveValues": true,
+  "filters": {
+    "types": [],
+    "statuses": ["ACTIVE"]
+  }
+}

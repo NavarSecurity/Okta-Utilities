@@ -1,0 +1,61 @@
+{
+  "identityProviders": [
+    {
+      "id": "0oaexample1",
+      "type": "SAML2",
+      "name": "Example SAML Partner",
+      "status": "ACTIVE",
+      "protocol": {
+        "type": "SAML2",
+        "endpoints": {
+          "sso": {
+            "url": "https://idp.example.com/sso"
+          }
+        },
+        "credentials": {
+          "trust": {
+            "issuer": "https://idp.example.com/metadata"
+          },
+          "signing": {
+            "algorithm": "SHA-256"
+          }
+        }
+      },
+      "policy": {
+        "accountLink": {
+          "filter": null,
+          "action": "AUTO"
+        },
+        "provisioning": {
+          "action": "AUTO"
+        }
+      }
+    },
+    {
+      "id": "0oaexample2",
+      "type": "OIDC",
+      "name": "Example OIDC Partner",
+      "status": "INACTIVE",
+      "protocol": {
+        "type": "OIDC",
+        "endpoints": {
+          "authorization": {
+            "url": "https://login.example.com/oauth2/v1/authorize"
+          },
+          "token": {
+            "url": "https://login.example.com/oauth2/v1/token"
+          },
+          "jwks": {
+            "url": "https://login.example.com/oauth2/v1/keys"
+          }
+        },
+        "credentials": {
+          "client": {
+            "client_id": "example-client-id",
+            "client_secret": "[REDACTED]"
+          }
+        }
+      }
+    }
+  ]
+}
