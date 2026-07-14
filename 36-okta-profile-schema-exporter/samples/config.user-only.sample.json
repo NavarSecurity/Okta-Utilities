@@ -1,0 +1,12 @@
+{
+  "outputDirectory": "output",
+  "includeUserSchemas": true,
+  "userSchemaIds": ["default"],
+  "includeGroupSchema": false,
+  "includeAppSchemas": false,
+  "appSelection": {
+    "mode": "none"
+  },
+  "writeIndividualSchemaFiles": true,
+  "redactSensitiveValues": true
+}

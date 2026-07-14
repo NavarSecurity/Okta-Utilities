@@ -1,0 +1,25 @@
+{
+  "id": "https://example.okta.com/meta/schemas/apps/0oa123/default",
+  "title": "Sample App User",
+  "type": "object",
+  "definitions": {
+    "base": {
+      "type": "object",
+      "properties": {
+        "userName": {
+          "title": "Username",
+          "type": "string"
+        }
+      }
+    },
+    "custom": {
+      "type": "object",
+      "properties": {
+        "costCenter": {
+          "title": "Cost Center",
+          "type": "string"
+        }
+      }
+    }
+  }
+}
