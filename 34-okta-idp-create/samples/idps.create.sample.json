@@ -1,0 +1,52 @@
+{
+  "identityProviders": [
+    {
+      "name": "Utility34 Test SAML IdP",
+      "type": "SAML2",
+      "description": "Test-only external SAML IdP for utility validation.",
+      "payload": {
+        "type": "SAML2",
+        "name": "Utility34 Test SAML IdP",
+        "protocol": {
+          "type": "SAML2",
+          "endpoints": {
+            "sso": {
+              "url": "https://example.com/utility34-test/saml/sso",
+              "binding": "HTTP-POST",
+              "destination": "https://example.com/utility34-test/saml/sso"
+            }
+          },
+          "settings": {
+            "nameFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+          },
+          "credentials": {
+            "trust": {
+              "issuer": "urn:utility34:test:saml:idp",
+              "audience": "https://your-org.okta.com",
+              "kid": "replace-with-uploaded-idp-key-id"
+            }
+          }
+        },
+        "policy": {
+          "provisioning": {
+            "action": "DISABLED",
+            "profileMaster": false,
+            "groups": {
+              "action": "NONE"
+            }
+          },
+          "accountLink": {
+            "action": "DISABLED"
+          },
+          "subject": {
+            "userNameTemplate": {
+              "template": "idpuser.subjectNameId"
+            },
+            "matchType": "USERNAME"
+          },
+          "maxClockSkew": 120000
+        }
+      }
+    }
+  ]
+}

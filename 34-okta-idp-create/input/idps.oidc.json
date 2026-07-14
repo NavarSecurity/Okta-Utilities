@@ -1,0 +1,67 @@
+{
+  "identityProviders": [
+    {
+      "name": "Utility34 Test OIDC IdP",
+      "type": "OIDC",
+      "description": "Test-only external OIDC IdP for utility validation.",
+      "payload": {
+        "type": "OIDC",
+        "name": "Utility34 Test OIDC IdP",
+        "protocol": {
+          "type": "OIDC",
+          "scopes": [
+            "openid",
+            "profile",
+            "email"
+          ],
+          "endpoints": {
+            "authorization": {
+              "url": "https://idp.example.com/oauth2/v1/authorize",
+              "binding": "HTTP-REDIRECT"
+            },
+            "token": {
+              "url": "https://idp.example.com/oauth2/v1/token",
+              "binding": "HTTP-POST"
+            },
+            "jwks": {
+              "url": "https://idp.example.com/oauth2/v1/keys",
+              "binding": "HTTP-REDIRECT"
+            },
+            "userInfo": {
+              "url": "https://idp.example.com/oauth2/v1/userinfo",
+              "binding": "HTTP-REDIRECT"
+            }
+          },
+          "credentials": {
+            "client": {
+              "client_id": "replace-with-client-id",
+              "client_secret": "replace-with-client-secret"
+            }
+          },
+          "issuer": {
+            "url": "https://idp.example.com"
+          }
+        },
+        "policy": {
+          "provisioning": {
+            "action": "DISABLED",
+            "profileMaster": false,
+            "groups": {
+              "action": "NONE"
+            }
+          },
+          "accountLink": {
+            "action": "DISABLED"
+          },
+          "subject": {
+            "userNameTemplate": {
+              "template": "idpuser.email"
+            },
+            "matchType": "USERNAME"
+          },
+          "maxClockSkew": 120000
+        }
+      }
+    }
+  ]
+}

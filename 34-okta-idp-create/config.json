@@ -1,0 +1,10 @@
+{
+  "inputFile": "samples/idps.oidc.sample.json",
+  "outputDirectory": "output",
+  "checkExisting": true,
+  "matchBy": "name",
+  "onExisting": "skip",
+  "activateAfterCreate": false,
+  "redactSensitiveValues": true,
+  "timeoutSeconds": 30
+}
