@@ -1,0 +1,2 @@
+[console_scripts]
+okta-idp-create = okta_idp_create.cli:main
