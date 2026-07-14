@@ -3,6 +3,7 @@
 __pycache__/
 *.pyc
 .pytest_cache/
-output/
+output/*
+!output/.gitkeep
 *.log
 .DS_Store
