@@ -1,0 +1,595 @@
+Metadata-Version: 2.4
+Name: okta-trusted-origin-manager
+Version: 1.0.0
+Summary: Export, compare, validate, and import Okta Trusted Origins.
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: requests>=2.31.0
+Requires-Dist: python-dotenv>=1.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0.0; extra == "dev"
+
+# WARNING
+
+These utilities have limited testing and are provided as-is with no warranty. Use at your own risk.
+
+# okta-trusted-origin-manager
+
+Python utility for exporting, comparing, validating, and importing Okta Trusted Origins.
+
+This utility is intended for Okta administration, migration support, application onboarding, embedded sign-in support, and security baseline reviews. It can be used to review trusted origins before or after changes to CORS, redirect, or iFrame embedding settings.
+
+---
+
+## What This Utility Does
+
+The `okta-trusted-origin-manager` utility supports four main operations:
+
+| Operation | Purpose |
+|---|---|
+| `export` | Export Okta Trusted Origins from an org. |
+| `compare` | Compare two exported trusted origin files offline. |
+| `validate` | Validate trusted origin input or export files for common configuration risks. |
+| `import` | Create or replace trusted origins from an approved input file. |
+
+Trusted origins are commonly used for browser-based authentication, redirect allowlists, embedded sign-in pages, CORS access, and iFrame embedding scenarios. This utility helps capture, compare, and safely prepare those settings before they are changed in an Okta org.
+
+---
+
+## Safety Model
+
+This utility is designed to be conservative.
+
+Mutation operations require explicit apply mode.
+
+Read-only operations:
+
+```bash
+okta-trusted-origin-manager --config config.json --operation export
+okta-trusted-origin-manager --config config.json --operation compare
+okta-trusted-origin-manager --config config.json --operation validate
+```
+
+Mutation preview:
+
+```bash
+okta-trusted-origin-manager --config config.json --operation import --dry-run
+```
+
+Mutation apply:
+
+```bash
+okta-trusted-origin-manager --config config.json --operation import --apply
+```
+
+The utility should not create or replace trusted origins unless `--apply` is provided.
+
+---
+
+## Folder Structure
+
+```text
+35-okta-trusted-origin-manager/
+  README.md
+  pyproject.toml
+  .env.example
+  .gitignore
+  config.example.json
+  src/
+    okta_trusted_origin_manager/
+      __init__.py
+      __main__.py
+      cli.py
+      config.py
+      diff.py
+      normalize.py
+      okta_client.py
+      operations.py
+      reports.py
+      validate.py
+  samples/
+    config.export.sample.json
+    config.compare.sample.json
+    config.validate.sample.json
+    config.import.sample.json
+    trusted-origins.import.sample.json
+    source-trusted_origins_full.json
+    target-trusted_origins_full.json
+  tests/
+    test_diff.py
+    test_normalize.py
+    test_okta_client.py
+    test_validate.py
+  input/
+  output/
+```
+
+---
+
+## Requirements
+
+- Python 3.10 or newer
+- Okta admin API token
+- Okta org URL
+- Network access to the Okta tenant
+
+The Okta API token should be generated from an account with permissions to read or manage trusted origins, depending on the operation being performed.
+
+---
+
+## Setup
+
+Run these commands from the utility folder.
+
+Create a virtual environment:
+
+```bash
+python3 -m venv .venv
+```
+
+Activate the virtual environment on macOS or Linux:
+
+```bash
+source .venv/bin/activate
+```
+
+Activate the virtual environment on Windows PowerShell:
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+Install the utility:
+
+```bash
+python -m pip install -e .
+```
+
+Copy the environment example:
+
+```bash
+cp .env.example .env
+```
+
+Copy a sample configuration file:
+
+```bash
+cp samples/config.export.sample.json config.json
+```
+
+Open `.env` and update the Okta values.
+
+---
+
+## Environment Variables
+
+Create a `.env` file using `.env.example`.
+
+Example:
+
+```env
+OKTA_ORG_URL=https://your-org.okta.com
+OKTA_API_TOKEN=replace-with-okta-api-token
+```
+
+Do not commit `.env` files.
+
+The `.gitignore` file should exclude:
+
+```text
+.env
+output/
+*.log
+```
+
+---
+
+## Configuration
+
+The utility is driven by `config.json`.
+
+Example export configuration:
+
+```json
+{
+  "operation": "export",
+  "outputDirectory": "output",
+  "includeInactiveOrigins": true,
+  "redactSensitiveValues": true
+}
+```
+
+Example compare configuration:
+
+```json
+{
+  "operation": "compare",
+  "sourceFile": "samples/source-trusted_origins_full.json",
+  "targetFile": "samples/target-trusted_origins_full.json",
+  "outputDirectory": "output",
+  "matchStrategy": "origin"
+}
+```
+
+Example validate configuration:
+
+```json
+{
+  "operation": "validate",
+  "inputFile": "samples/trusted-origins.import.sample.json",
+  "outputDirectory": "output",
+  "allowHttpLocalhost": true,
+  "allowWildcardForIframeOnly": true,
+  "failOnWarnings": false
+}
+```
+
+Example import configuration:
+
+```json
+{
+  "operation": "import",
+  "inputFile": "samples/trusted-origins.import.sample.json",
+  "outputDirectory": "output",
+  "checkExisting": true,
+  "matchBy": "origin",
+  "onExisting": "skip",
+  "validateBeforeImport": true,
+  "allowHttpLocalhost": true,
+  "allowWildcardForIframeOnly": true
+}
+```
+
+---
+
+## Operation: Export Trusted Origins
+
+Use export mode to capture the current Okta Trusted Origins configuration.
+
+```bash
+okta-trusted-origin-manager --config config.json --operation export
+```
+
+Expected output:
+
+```text
+output/trusted-origin-export-<timestamp>/
+  trusted_origins_full.json
+  trusted_origins_summary.csv
+  trusted_origins_by_scope/
+  validation_report.json
+  execution_report.json
+  manifest.json
+```
+
+Use this before application onboarding changes, redirect allowlist updates, embedded sign-in changes, or security reviews.
+
+---
+
+## Operation: Compare Trusted Origins
+
+Use compare mode to compare two exported trusted origin files.
+
+```bash
+okta-trusted-origin-manager --config config.json --operation compare
+```
+
+Sample compare run:
+
+```bash
+cp samples/config.compare.sample.json config.json
+okta-trusted-origin-manager --config config.json --operation compare
+```
+
+Expected output:
+
+```text
+output/trusted-origin-compare-<timestamp>/
+  trusted_origin_diff_details.json
+  trusted_origin_diff_summary.csv
+  trusted_origin_diff_report.md
+  execution_report.json
+  manifest.json
+```
+
+Compare mode is offline and does not require an Okta API token.
+
+---
+
+## Operation: Validate Trusted Origins
+
+Use validate mode to review trusted origins before importing them or before using them in policy-sensitive authentication flows.
+
+```bash
+cp samples/config.validate.sample.json config.json
+okta-trusted-origin-manager --config config.json --operation validate
+```
+
+Expected output:
+
+```text
+output/trusted-origin-validate-<timestamp>/
+  validation_report.json
+  trusted_origins_validation.csv
+  execution_report.json
+  manifest.json
+```
+
+Validation checks include:
+
+| Check | Purpose |
+|---|---|
+| Allowed scope types | Confirms scope values are `CORS`, `REDIRECT`, or `IFRAME_EMBED`. |
+| Origin URL format | Confirms each origin is a valid absolute origin value. |
+| HTTP usage | Warns when HTTP is used outside localhost scenarios. |
+| Path/query/fragment usage | Warns when origin values include path, query, or fragment components. |
+| Wildcard usage | Flags wildcard origins for review, especially when used with CORS or redirect scopes. |
+| Duplicate origins | Detects repeated origin values in the same input file. |
+| Empty scopes | Flags origins without an enabled scope. |
+
+---
+
+## Operation: Import Trusted Origins
+
+Use import mode to create or replace trusted origins from a reviewed input file.
+
+Run a dry run first:
+
+```bash
+cp samples/config.import.sample.json config.json
+okta-trusted-origin-manager --config config.json --operation import --dry-run
+```
+
+Apply the import only after reviewing the dry-run output:
+
+```bash
+okta-trusted-origin-manager --config config.json --operation import --apply
+```
+
+Expected output:
+
+```text
+output/trusted-origin-import-<timestamp>/
+  planned_changes.json
+  applied_changes.json
+  rollback_actions.json
+  validation_report.json
+  execution_report.json
+  manifest.json
+```
+
+Import mode should be reviewed carefully before apply mode is used.
+
+---
+
+## Input File Format for Trusted Origin Import
+
+Example import file:
+
+```json
+{
+  "trustedOrigins": [
+    {
+      "name": "Local App Dev",
+      "origin": "http://localhost:3000",
+      "scopes": [
+        {
+          "type": "CORS"
+        },
+        {
+          "type": "REDIRECT"
+        }
+      ]
+    },
+    {
+      "name": "Production App",
+      "origin": "https://app.example.com",
+      "scopes": [
+        {
+          "type": "CORS"
+        },
+        {
+          "type": "REDIRECT"
+        }
+      ]
+    },
+    {
+      "name": "Embedded Portal Parent",
+      "origin": "https://portal.example.com",
+      "scopes": [
+        {
+          "type": "IFRAME_EMBED"
+        }
+      ]
+    }
+  ]
+}
+```
+
+The utility should preserve supported Okta trusted origin fields where practical. Review all generated payloads before using apply mode.
+
+---
+
+## Output Reports
+
+Each run creates timestamped output.
+
+Common files:
+
+| File | Purpose |
+|---|---|
+| `execution_report.json` | Counts, warnings, errors, and run metadata. |
+| `manifest.json` | Input files, output files, operation, and timestamp. |
+| `trusted_origins_full.json` | Full exported trusted origin data. |
+| `trusted_origins_summary.csv` | Human-readable summary of exported trusted origins. |
+| `trusted_origin_diff_details.json` | Detailed comparison results. |
+| `trusted_origin_diff_summary.csv` | Summary of detected trusted origin drift. |
+| `validation_report.json` | Detailed validation findings. |
+| `trusted_origins_validation.csv` | Human-readable validation findings. |
+| `planned_changes.json` | Preview of intended mutation actions. |
+| `rollback_actions.json` | Best-effort rollback data for applied changes. |
+
+Execution reports should not include API tokens or sensitive headers.
+
+---
+
+## Recommended Workflow
+
+For client work, use this sequence.
+
+Export existing trusted origins:
+
+```bash
+cp samples/config.export.sample.json config.json
+okta-trusted-origin-manager --config config.json --operation export
+```
+
+Review the exported origins.
+
+Validate a proposed import file:
+
+```bash
+cp samples/config.validate.sample.json config.json
+okta-trusted-origin-manager --config config.json --operation validate
+```
+
+Compare source and target org exports:
+
+```bash
+cp samples/config.compare.sample.json config.json
+okta-trusted-origin-manager --config config.json --operation compare
+```
+
+Preview imports:
+
+```bash
+cp samples/config.import.sample.json config.json
+okta-trusted-origin-manager --config config.json --operation import --dry-run
+```
+
+After reviewing the dry-run report:
+
+```bash
+okta-trusted-origin-manager --config config.json --operation import --apply
+```
+
+---
+
+## Testing
+
+Install test dependencies:
+
+```bash
+python -m pip install -e ".[dev]"
+```
+
+Run tests:
+
+```bash
+pytest
+```
+
+Run tests with verbose output:
+
+```bash
+pytest -v
+```
+
+---
+
+## Troubleshooting
+
+### 401 Unauthorized
+
+Confirm the Okta org URL and API token in `.env`.
+
+```bash
+cat .env
+```
+
+The org URL should look like:
+
+```text
+https://your-org.okta.com
+```
+
+Do not include `/api/v1` in `OKTA_ORG_URL`.
+
+---
+
+### 403 Forbidden
+
+The API token may not have sufficient admin permissions to read or manage trusted origins.
+
+Confirm the token was generated by an Okta admin account with the required permissions.
+
+---
+
+### No trusted origins exported
+
+Confirm the org actually has trusted origins configured.
+
+Trusted origins are normally found in:
+
+```text
+Okta Admin Console → Security → API → Trusted Origins
+```
+
+---
+
+### Import skipped existing origins
+
+The default import behavior is conservative.
+
+If `onExisting` is set to `skip`, existing origins are not replaced.
+
+To replace existing origins intentionally, update the config:
+
+```json
+{
+  "onExisting": "replace"
+}
+```
+
+Run dry-run again before using apply mode.
+
+---
+
+### Validation flags wildcard origins
+
+Wildcard origins should be reviewed carefully.
+
+The utility treats wildcard usage as a finding because wildcard behavior differs by trusted origin use case. Avoid wildcard origins for CORS and redirect scopes unless there is a documented Okta-supported reason and the configuration has been reviewed.
+
+---
+
+## Security Notes
+
+- Do not commit `.env`.
+- Do not commit raw exports from client environments unless they have been reviewed.
+- Treat trusted origin data as sensitive because it may reveal application URLs, redirect allowlists, embedded portals, development environments, or internal web architecture.
+- Use dry-run mode before all import operations.
+- Keep rollback output with the project evidence package.
+- Review wildcard, localhost, HTTP, and redirect-scope findings before making production changes.
+
+---
+
+## Practical Use Cases
+
+Use this utility to:
+
+- Back up Okta Trusted Origins before application onboarding changes.
+- Compare trusted origins between dev, test, and production Okta orgs.
+- Detect missing redirect or CORS origins after migration.
+- Review risky wildcard, localhost, HTTP, or stale trusted origins.
+- Prepare evidence for IAM or security reviews.
+- Safely import reviewed trusted origin definitions into a target org.
+- Validate that embedded sign-in and redirect allowlist settings were applied as expected.
+
+---
+
+## Notes
+
+Trusted origins can directly affect authentication, redirects, browser-based API calls, and embedded sign-in behavior. Review all planned changes before apply mode.
+
+For production environments, export the current trusted origins before running import operations.

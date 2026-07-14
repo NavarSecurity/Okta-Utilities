@@ -1,0 +1,13 @@
+{
+  "operation": "import",
+  "inputFile": "samples/trusted-origins.import.sample.json",
+  "outputDirectory": "output",
+  "checkExisting": true,
+  "matchBy": "origin",
+  "onExisting": "skip",
+  "validateBeforeImport": true,
+  "allowHttpLocalhost": true,
+  "allowWildcardForIframeOnly": true,
+  "timeoutSeconds": 30,
+  "maxRetries": 3
+}

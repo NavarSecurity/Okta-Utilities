@@ -1,0 +1,37 @@
+{
+  "trustedOrigins": [
+    {
+      "name": "Local App Dev",
+      "origin": "http://localhost:3000",
+      "scopes": [
+        {
+          "type": "CORS"
+        },
+        {
+          "type": "REDIRECT"
+        }
+      ]
+    },
+    {
+      "name": "Production App",
+      "origin": "https://app.example.com",
+      "scopes": [
+        {
+          "type": "CORS"
+        },
+        {
+          "type": "REDIRECT"
+        }
+      ]
+    },
+    {
+      "name": "Embedded Portal Parent",
+      "origin": "https://portal.example.com",
+      "scopes": [
+        {
+          "type": "IFRAME_EMBED"
+        }
+      ]
+    }
+  ]
+}

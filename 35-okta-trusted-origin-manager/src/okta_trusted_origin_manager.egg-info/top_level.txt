@@ -1,0 +1,1 @@
+okta_trusted_origin_manager

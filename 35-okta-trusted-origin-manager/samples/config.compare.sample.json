@@ -1,0 +1,8 @@
+{
+  "operation": "compare",
+  "sourceFile": "samples/source-trusted_origins_full.json",
+  "targetFile": "samples/target-trusted_origins_full.json",
+  "outputDirectory": "output",
+  "matchStrategy": "origin",
+  "includeStatusInCompare": true
+}

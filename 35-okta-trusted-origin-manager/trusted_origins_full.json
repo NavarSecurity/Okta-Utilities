@@ -1,0 +1,120 @@
+{
+  "trustedOrigins": [
+    {
+      "id": "to_valid_001",
+      "name": "Valid Production App",
+      "origin": "https://app.example.com",
+      "status": "ACTIVE",
+      "scopes": [
+        { "type": "CORS" },
+        { "type": "REDIRECT" }
+      ]
+    },
+    {
+      "id": "to_missing_name_002",
+      "origin": "https://missing-name.example.com",
+      "status": "ACTIVE",
+      "scopes": [
+        { "type": "CORS" }
+      ]
+    },
+    {
+      "id": "to_missing_origin_003",
+      "name": "Missing Origin URL",
+      "origin": "",
+      "status": "ACTIVE",
+      "scopes": [
+        { "type": "REDIRECT" }
+      ]
+    },
+    {
+      "id": "to_invalid_url_004",
+      "name": "Invalid Relative Origin",
+      "origin": "not-a-real-origin",
+      "status": "ACTIVE",
+      "scopes": [
+        { "type": "CORS" }
+      ]
+    },
+    {
+      "id": "to_invalid_scheme_005",
+      "name": "FTP Origin Invalid Scheme",
+      "origin": "ftp://files.example.com",
+      "status": "ACTIVE",
+      "scopes": [
+        { "type": "REDIRECT" }
+      ]
+    },
+    {
+      "id": "to_http_origin_006",
+      "name": "HTTP Non Localhost Origin",
+      "origin": "http://insecure.example.com",
+      "status": "ACTIVE",
+      "scopes": [
+        { "type": "CORS" }
+      ]
+    },
+    {
+      "id": "to_path_query_007",
+      "name": "Origin With Path Query Fragment",
+      "origin": "https://portal.example.com/callback?env=test#section",
+      "status": "ACTIVE",
+      "scopes": [
+        { "type": "REDIRECT" }
+      ]
+    },
+    {
+      "id": "to_wildcard_cors_008",
+      "name": "Wildcard CORS Origin",
+      "origin": "https://*.example.com",
+      "status": "ACTIVE",
+      "scopes": [
+        { "type": "CORS" }
+      ]
+    },
+    {
+      "id": "to_no_scopes_009",
+      "name": "No Scopes Origin",
+      "origin": "https://noscope.example.com",
+      "status": "ACTIVE",
+      "scopes": []
+    },
+    {
+      "id": "to_invalid_scope_010",
+      "name": "Invalid Scope Origin",
+      "origin": "https://invalid-scope.example.com",
+      "status": "ACTIVE",
+      "scopes": [
+        { "type": "CORS" },
+        { "type": "ADMIN" }
+      ]
+    },
+    {
+      "id": "to_duplicate_source_011",
+      "name": "Duplicate Origin A",
+      "origin": "https://duplicate.example.com",
+      "status": "ACTIVE",
+      "scopes": [
+        { "type": "REDIRECT" }
+      ]
+    },
+    {
+      "id": "to_duplicate_target_012",
+      "name": "Duplicate Origin B",
+      "origin": "https://duplicate.example.com/",
+      "status": "ACTIVE",
+      "scopes": [
+        { "type": "IFRAME_EMBED" }
+      ]
+    },
+    {
+      "id": "to_wildcard_iframe_013",
+      "name": "Wildcard iFrame Origin",
+      "origin": "https://*.iframe-test.example.com",
+      "status": "ACTIVE",
+      "scopes": [
+        { "type": "IFRAME_EMBED" }
+      ]
+    }
+  ]
+}

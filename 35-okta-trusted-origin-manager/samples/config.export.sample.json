@@ -1,0 +1,8 @@
+{
+  "operation": "export",
+  "outputDirectory": "output",
+  "includeInactiveOrigins": true,
+  "redactSensitiveValues": true,
+  "timeoutSeconds": 30,
+  "maxRetries": 3
+}
