@@ -1,0 +1,12 @@
+{
+  "outputDir": "output",
+  "includeInactive": true,
+  "includeLinks": false,
+  "includeKeys": true,
+  "splitByType": true,
+  "redactSensitiveValues": true,
+  "filters": {
+    "types": ["SAML2", "OIDC"],
+    "statuses": []
+  }
+}

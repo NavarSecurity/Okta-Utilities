@@ -1,0 +1,24 @@
+{
+  "outputDir": "output",
+  "includeInactive": true,
+  "includeLinks": false,
+  "includeKeys": true,
+  "splitByType": true,
+  "redactSensitiveValues": true,
+  "redaction": {
+    "replacement": "[REDACTED]",
+    "redactKeyNamesContaining": [
+      "secret",
+      "token",
+      "password",
+      "private",
+      "authorization",
+      "client_secret",
+      "assertion"
+    ]
+  },
+  "filters": {
+    "types": [],
+    "statuses": []
+  }
+}
