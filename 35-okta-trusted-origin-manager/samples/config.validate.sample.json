@@ -1,0 +1,8 @@
+{
+  "operation": "validate",
+  "inputFile": "samples/trusted-origins.import.sample.json",
+  "outputDirectory": "output",
+  "allowHttpLocalhost": true,
+  "allowWildcardForIframeOnly": true,
+  "failOnWarnings": false
+}

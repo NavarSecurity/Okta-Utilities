@@ -1,0 +1,2 @@
+[console_scripts]
+okta-trusted-origin-manager = okta_trusted_origin_manager.cli:main

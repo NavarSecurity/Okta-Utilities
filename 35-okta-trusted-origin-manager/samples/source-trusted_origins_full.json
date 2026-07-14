@@ -1,0 +1,40 @@
+{
+  "trustedOrigins": [
+    {
+      "id": "to_source_1",
+      "name": "Production App",
+      "origin": "https://app.example.com",
+      "status": "ACTIVE",
+      "scopes": [
+        {
+          "type": "CORS"
+        },
+        {
+          "type": "REDIRECT"
+        }
+      ]
+    },
+    {
+      "id": "to_source_2",
+      "name": "Embedded Portal Parent",
+      "origin": "https://portal.example.com",
+      "status": "ACTIVE",
+      "scopes": [
+        {
+          "type": "IFRAME_EMBED"
+        }
+      ]
+    },
+    {
+      "id": "to_source_3",
+      "name": "Legacy App",
+      "origin": "https://legacy.example.com",
+      "status": "ACTIVE",
+      "scopes": [
+        {
+          "type": "REDIRECT"
+        }
+      ]
+    }
+  ]
+}
