@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: okta-app-provisioning-exporter
+Version: 1.0.0
+Summary: Export Okta app provisioning settings, app schemas, profile mappings, and connector details.
+Requires-Python: >=3.10
+Requires-Dist: requests>=2.31.0
+Requires-Dist: python-dotenv>=1.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0.0; extra == "dev"

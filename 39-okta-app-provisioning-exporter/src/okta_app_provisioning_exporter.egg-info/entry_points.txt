@@ -1,0 +1,2 @@
+[console_scripts]
+okta-app-provisioning-exporter = okta_app_provisioning_exporter.cli:main

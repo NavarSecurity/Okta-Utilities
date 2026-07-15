@@ -1,0 +1,25 @@
+{
+  "outputDirectory": "output",
+  "includeInactiveApps": false,
+  "includeAppSchemas": true,
+  "includeProfileMappings": true,
+  "includeAppFeatures": true,
+  "includeConnectorDetails": true,
+  "skipOktaSystemApps": true,
+  "continueOnAppSchemaError": true,
+  "redactSensitiveValues": true,
+  "appSelection": {
+    "mode": "file",
+    "appIds": [],
+    "appNames": [],
+    "appFile": "input/apps.txt"
+  },
+  "excludedAppNames": [
+    "saasure",
+    "okta_enduser",
+    "okta_browser_plugin",
+    "okta_oin_submission_tester_app",
+    "okta_iga_reviewer"
+  ],
+  "timeoutSeconds": 30
+}

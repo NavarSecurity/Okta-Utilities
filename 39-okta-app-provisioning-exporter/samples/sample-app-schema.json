@@ -1,0 +1,24 @@
+{
+  "id": "0oa1abc/default",
+  "title": "Salesforce User",
+  "definitions": {
+    "custom": {
+      "properties": {
+        "externalRole": {
+          "title": "External Role",
+          "type": "string",
+          "required": false
+        }
+      }
+    },
+    "base": {
+      "properties": {
+        "email": {
+          "title": "Email",
+          "type": "string",
+          "required": true
+        }
+      }
+    }
+  }
+}
