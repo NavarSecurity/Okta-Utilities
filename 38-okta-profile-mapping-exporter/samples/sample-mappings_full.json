@@ -1,0 +1,29 @@
+[
+  {
+    "id": "prm1example",
+    "source": {
+      "id": "user_default",
+      "name": "Okta User",
+      "type": "user"
+    },
+    "target": {
+      "id": "appuser_example",
+      "name": "Example SAML App User",
+      "type": "appuser"
+    },
+    "properties": {
+      "email": {
+        "expression": "user.email",
+        "pushStatus": "PUSH"
+      },
+      "firstName": {
+        "expression": "user.firstName",
+        "pushStatus": "PUSH"
+      },
+      "department": {
+        "expression": "user.department",
+        "pushStatus": "PUSH"
+      }
+    }
+  }
+]
