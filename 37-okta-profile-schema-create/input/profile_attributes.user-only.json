@@ -1,0 +1,21 @@
+{
+  "attributes": [
+    {
+      "targetType": "user",
+      "schemaId": "default",
+      "name": "navarEmployeeType",
+      "definition": {
+        "title": "Navar Employee Type",
+        "description": "Employee type used for IAM testing and profile schema validation.",
+        "type": "string",
+        "required": false,
+        "permissions": [
+          {
+            "principal": "SELF",
+            "action": "READ_ONLY"
+          }
+        ]
+      }
+    }
+  ]
+}

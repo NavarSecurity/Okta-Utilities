@@ -1,0 +1,617 @@
+# WARNING
+
+These utilities have limited testing and are provided as-is with no warranty. Use at your own risk.
+
+# okta-profile-schema-create
+
+Python utility for creating Okta custom profile schema attributes from a JSON configuration file.
+
+This utility is intended for Okta Universal Directory work, migration preparation, profile cleanup, and controlled schema creation. It helps create custom user profile attributes and selected app user profile attributes with dry-run output and execution evidence.
+
+---
+
+## What This Utility Does
+
+The `okta-profile-schema-create` utility creates custom profile schema attributes in Okta.
+
+Supported targets:
+
+| Target | Purpose |
+|---|---|
+| `user` | Create custom attributes on an Okta user profile schema. |
+| `app` | Create custom attributes on an Okta app user profile schema. |
+
+Common examples include attributes such as:
+
+```text
+employeeType
+costCenter
+division
+region
+externalRole
+applicationRole
+```
+
+This utility creates schema definitions. It does not populate user values.
+
+---
+
+## Safety Model
+
+This utility is designed to be conservative.
+
+Dry-run mode previews planned changes:
+
+```bash
+okta-profile-schema-create --config config.json --dry-run
+```
+
+Apply mode makes changes in Okta:
+
+```bash
+okta-profile-schema-create --config config.json --apply
+```
+
+The utility defaults to dry-run behavior when `--apply` is not provided.
+
+Recommended safety settings:
+
+```json
+{
+  "checkExisting": true,
+  "onExisting": "skip",
+  "continueOnError": true,
+  "redactSensitiveValues": true
+}
+```
+
+For production use, run dry-run first, review the planned output, and then run apply mode only after approval.
+
+---
+
+## Folder Structure
+
+```text
+37-okta-profile-schema-create/
+  README.md
+  pyproject.toml
+  .env.example
+  .gitignore
+  config.example.json
+  src/
+    okta_profile_schema_create/
+      __init__.py
+      __main__.py
+      cli.py
+      config.py
+      okta_client.py
+      operations.py
+      payload.py
+      planner.py
+      redact.py
+      reports.py
+  samples/
+    config.create.sample.json
+    config.user-only.sample.json
+    profile_attributes.create.sample.json
+  tests/
+    test_config.py
+    test_okta_client.py
+    test_payload.py
+    test_planner.py
+    test_redact.py
+  input/
+    profile_attributes.create.json
+    profile_attributes.user-only.json
+  output/
+    .gitkeep
+```
+
+---
+
+## Requirements
+
+- Python 3.10 or newer
+- Okta admin API token
+- Okta org URL
+- Network access to the Okta tenant
+
+The Okta API token should be generated from an account with permissions to manage profile schemas.
+
+---
+
+## Setup
+
+Run these commands from the utility folder.
+
+Create a virtual environment:
+
+```bash
+python3 -m venv .venv
+```
+
+Activate the virtual environment on macOS or Linux:
+
+```bash
+source .venv/bin/activate
+```
+
+Activate the virtual environment on Windows PowerShell:
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+Install the utility:
+
+```bash
+python -m pip install -e .
+```
+
+Copy the environment example:
+
+```bash
+cp .env.example .env
+```
+
+Copy a sample configuration file:
+
+```bash
+cp samples/config.create.sample.json config.json
+```
+
+Copy a sample input file:
+
+```bash
+cp samples/profile_attributes.create.sample.json input/profile_attributes.create.json
+```
+
+Open `.env` and update the Okta values.
+
+---
+
+## Environment Variables
+
+Create a `.env` file using `.env.example`.
+
+Example:
+
+```env
+OKTA_ORG_URL=https://your-org.okta.com
+OKTA_API_TOKEN=replace-with-okta-api-token
+```
+
+Do not commit `.env` files.
+
+The `.gitignore` file should exclude:
+
+```text
+.env
+.venv/
+output/*
+!output/.gitkeep
+```
+
+---
+
+## Configuration
+
+The utility is driven by `config.json`.
+
+Example:
+
+```json
+{
+  "inputFile": "input/profile_attributes.create.json",
+  "outputDirectory": "output",
+  "checkExisting": true,
+  "onExisting": "skip",
+  "continueOnError": true,
+  "redactSensitiveValues": true,
+  "allowUserSchemaUpdates": true,
+  "allowAppSchemaUpdates": true,
+  "timeoutSeconds": 30
+}
+```
+
+Configuration fields:
+
+| Field | Purpose |
+|---|---|
+| `inputFile` | JSON file containing attributes to create. |
+| `outputDirectory` | Folder where execution evidence is written. |
+| `checkExisting` | Checks the current schema before planning changes. |
+| `onExisting` | Controls behavior when an attribute already exists. Values: `skip`, `update`, or `fail`. |
+| `continueOnError` | Continue processing remaining attributes when one fails validation. |
+| `redactSensitiveValues` | Redacts sensitive values in output reports. |
+| `allowUserSchemaUpdates` | Allows user profile schema changes. |
+| `allowAppSchemaUpdates` | Allows app user profile schema changes. |
+| `timeoutSeconds` | HTTP timeout for Okta API calls. |
+
+Recommended default for `onExisting`:
+
+```json
+{
+  "onExisting": "skip"
+}
+```
+
+Use `update` carefully. Okta may reject incompatible changes, such as changing an existing attribute type.
+
+---
+
+## Input File Format
+
+The input file must contain an `attributes` array.
+
+Example:
+
+```json
+{
+  "attributes": [
+    {
+      "targetType": "user",
+      "schemaId": "default",
+      "name": "navarEmployeeType",
+      "definition": {
+        "title": "Navar Employee Type",
+        "description": "Employee type used for IAM testing and profile schema validation.",
+        "type": "string",
+        "required": false,
+        "permissions": [
+          {
+            "principal": "SELF",
+            "action": "READ_ONLY"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+---
+
+## Creating a User Profile Attribute
+
+Use this input format to create a custom Okta user profile attribute:
+
+```json
+{
+  "targetType": "user",
+  "schemaId": "default",
+  "name": "navarCostCenter",
+  "definition": {
+    "title": "Navar Cost Center",
+    "description": "Cost center used for IAM reporting and lifecycle rules.",
+    "type": "string",
+    "required": false,
+    "permissions": [
+      {
+        "principal": "SELF",
+        "action": "READ_ONLY"
+      }
+    ]
+  }
+}
+```
+
+For the default Okta user type, use:
+
+```text
+schemaId: default
+```
+
+---
+
+## Creating an App User Profile Attribute
+
+Use this input format to create a custom app user profile attribute:
+
+```json
+{
+  "targetType": "app",
+  "appId": "replace-with-okta-app-id",
+  "schemaId": "default",
+  "name": "externalRole",
+  "definition": {
+    "title": "External Role",
+    "description": "Example app user profile attribute for downstream role mapping.",
+    "type": "string",
+    "required": false
+  }
+}
+```
+
+You can find the Okta app ID in the Admin Console URL when viewing the application, or from an app inventory/export utility.
+
+---
+
+## Attribute Name Rules
+
+Attribute names should use letters, numbers, and underscores.
+
+Good examples:
+
+```text
+employeeType
+costCenter
+externalRole
+navarLifecycleStatus
+```
+
+Avoid:
+
+```text
+employee-type
+Employee Type
+employee.type
+1employeeType
+```
+
+---
+
+## Supported Attribute Types
+
+Supported types:
+
+```text
+string
+number
+integer
+boolean
+array
+```
+
+For array attributes, include an `items` definition when needed:
+
+```json
+{
+  "title": "Authorized Regions",
+  "type": "array",
+  "items": {
+    "type": "string"
+  },
+  "required": false
+}
+```
+
+---
+
+## Run a Dry Run
+
+Run dry-run mode first:
+
+```bash
+okta-profile-schema-create --config config.json --dry-run
+```
+
+Expected output:
+
+```text
+output/profile-schema-create-<timestamp>/
+  planned_changes.json
+  planned_changes.csv
+  redacted_payloads.json
+  execution_report.json
+  manifest.json
+```
+
+Review the planned output before applying changes.
+
+---
+
+## Apply Schema Changes
+
+Apply only after dry-run output has been reviewed:
+
+```bash
+okta-profile-schema-create --config config.json --apply
+```
+
+Expected output:
+
+```text
+output/profile-schema-create-<timestamp>/
+  planned_changes.json
+  planned_changes.csv
+  redacted_payloads.json
+  applied_changes.json
+  applied_changes.csv
+  failed_changes.json
+  rollback_actions.json
+  execution_report.json
+  manifest.json
+```
+
+---
+
+## Output Reports
+
+Each run creates timestamped output.
+
+Common files:
+
+| File | Purpose |
+|---|---|
+| `planned_changes.json` | Full planned schema changes. |
+| `planned_changes.csv` | Human-readable summary of planned changes. |
+| `redacted_payloads.json` | API payloads with sensitive values redacted. |
+| `applied_changes.json` | Changes applied during apply mode. |
+| `failed_changes.json` | Changes that failed during apply mode. |
+| `rollback_actions.json` | Best-effort rollback review actions. |
+| `execution_report.json` | Counts, status, warnings, and run metadata. |
+| `manifest.json` | Input files, output files, config file, and timestamp. |
+
+Execution reports should not include API tokens or sensitive headers.
+
+---
+
+## Recommended Workflow
+
+For a normal schema creation task, use this sequence:
+
+```bash
+cp samples/config.create.sample.json config.json
+cp samples/profile_attributes.create.sample.json input/profile_attributes.create.json
+```
+
+Open `input/profile_attributes.create.json` and update the attribute names, descriptions, definitions, and app IDs.
+
+Run a dry run:
+
+```bash
+okta-profile-schema-create --config config.json --dry-run
+```
+
+Review:
+
+```text
+planned_changes.csv
+planned_changes.json
+redacted_payloads.json
+execution_report.json
+```
+
+Apply after review:
+
+```bash
+okta-profile-schema-create --config config.json --apply
+```
+
+After apply mode, verify the attributes in Okta:
+
+```text
+Okta Admin Console → Directory → Profile Editor
+```
+
+---
+
+## Testing
+
+Install test dependencies:
+
+```bash
+python -m pip install -e ".[dev]"
+```
+
+Run tests:
+
+```bash
+pytest
+```
+
+Run tests with verbose output:
+
+```bash
+pytest -v
+```
+
+---
+
+## Troubleshooting
+
+### 401 Unauthorized
+
+Confirm the Okta org URL and API token in `.env`.
+
+```bash
+cat .env
+```
+
+The org URL should look like:
+
+```text
+https://your-org.okta.com
+```
+
+Do not include `/api/v1` in `OKTA_ORG_URL`.
+
+---
+
+### 403 Forbidden
+
+The API token may not have permission to manage profile schemas.
+
+Confirm the token was generated by an Okta admin account with the required permissions.
+
+---
+
+### Attribute already exists
+
+If `onExisting` is set to `skip`, the utility records the existing attribute and does not update it.
+
+```json
+{
+  "onExisting": "skip"
+}
+```
+
+If you intentionally want to update an existing attribute definition, set:
+
+```json
+{
+  "onExisting": "update"
+}
+```
+
+Use update mode carefully because Okta may reject incompatible changes.
+
+---
+
+### App schema update failed
+
+Confirm the target app supports app user profile schema updates.
+
+Some Okta-owned system apps and internal apps may not expose app profile schemas suitable for schema creation. Use a normal SAML, OIDC, or supported application integration for testing.
+
+---
+
+### Invalid attribute name
+
+Use letters, numbers, and underscores. The name must start with a letter.
+
+Valid:
+
+```text
+navarEmployeeType
+```
+
+Invalid:
+
+```text
+navar-employee-type
+```
+
+---
+
+## Security Notes
+
+- Do not commit `.env`.
+- Do not commit raw client exports without review.
+- Treat schema exports as sensitive because they may reveal HR, lifecycle, security, or app integration design.
+- Run dry-run mode before apply mode.
+- Use `onExisting: skip` unless an approved change requires an update.
+- Do not create unnecessary attributes in production orgs.
+- Review rollback actions as evidence only. Schema deletion or rollback should be handled carefully in Okta.
+
+---
+
+## Practical Use Cases
+
+Use this utility to:
+
+- Create approved custom Universal Directory attributes.
+- Prepare a target Okta org for migration.
+- Recreate profile schema attributes from a reviewed design.
+- Create app user profile fields required for app onboarding.
+- Standardize attributes across dev, test, and production Okta orgs.
+- Generate evidence showing which schema attributes were planned, skipped, created, or failed.
+
+---
+
+## Notes
+
+This utility creates schema fields. It does not populate values on users.
+
+Use utility 36 first to export and review existing profile schemas before creating new attributes with this utility.

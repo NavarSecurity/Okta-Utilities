@@ -1,0 +1,11 @@
+{
+  "inputFile": "input/profile_attributes.create.json",
+  "outputDirectory": "output",
+  "checkExisting": true,
+  "onExisting": "skip",
+  "continueOnError": true,
+  "redactSensitiveValues": true,
+  "allowUserSchemaUpdates": true,
+  "allowAppSchemaUpdates": true,
+  "timeoutSeconds": 30
+}
