@@ -1,0 +1,25 @@
+[
+  {
+    "id": "prm1",
+    "source": {
+      "id": "user",
+      "name": "user",
+      "type": "user"
+    },
+    "target": {
+      "id": "0oa1abc",
+      "name": "salesforce",
+      "type": "appuser"
+    },
+    "properties": {
+      "email": {
+        "expression": "user.email",
+        "pushStatus": "PUSH"
+      },
+      "externalRole": {
+        "expression": "user.department",
+        "pushStatus": "PUSH"
+      }
+    }
+  }
+]

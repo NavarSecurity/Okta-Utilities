@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "okta-app-provisioning-exporter"
+version = "1.0.0"
+description = "Export Okta app provisioning settings, app schemas, profile mappings, and connector details."
+requires-python = ">=3.10"
+dependencies = [
+  "requests>=2.31.0",
+  "python-dotenv>=1.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0.0"
+]
+
+[project.scripts]
+okta-app-provisioning-exporter = "okta_app_provisioning_exporter.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

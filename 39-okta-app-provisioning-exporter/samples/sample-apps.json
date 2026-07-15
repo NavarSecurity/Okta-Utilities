@@ -1,0 +1,38 @@
+[
+  {
+    "id": "0oa1abc",
+    "name": "salesforce",
+    "label": "Salesforce",
+    "status": "ACTIVE",
+    "signOnMode": "SAML_2_0",
+    "features": [
+      "PUSH_NEW_USERS",
+      "PUSH_PROFILE_UPDATES",
+      "IMPORT_NEW_USERS",
+      "GROUP_PUSH"
+    ],
+    "settings": {
+      "app": {
+        "instanceType": "PRODUCTION",
+        "loginUrl": "https://example.my.salesforce.com"
+      }
+    },
+    "_links": {
+      "self": {
+        "href": "https://example.okta.com/api/v1/apps/0oa1abc"
+      }
+    }
+  },
+  {
+    "id": "0oa2def",
+    "name": "okta_enduser",
+    "label": "Okta Dashboard",
+    "status": "ACTIVE",
+    "signOnMode": "BOOKMARK",
+    "features": [],
+    "settings": {
+      "app": {}
+    },
+    "_links": {}
+  }
+]
