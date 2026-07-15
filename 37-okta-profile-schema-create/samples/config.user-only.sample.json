@@ -1,0 +1,11 @@
+{
+  "inputFile": "input/profile_attributes.user-only.json",
+  "outputDirectory": "output",
+  "checkExisting": true,
+  "onExisting": "skip",
+  "continueOnError": true,
+  "redactSensitiveValues": true,
+  "allowUserSchemaUpdates": true,
+  "allowAppSchemaUpdates": false,
+  "timeoutSeconds": 30
+}

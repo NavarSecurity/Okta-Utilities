@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "okta-profile-schema-create"
+version = "1.0.0"
+description = "Create Okta custom profile schema attributes from config with dry-run and evidence reporting."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "requests>=2.31.0",
+  "python-dotenv>=1.0.1"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0.0"
+]
+
+[project.scripts]
+okta-profile-schema-create = "okta_profile_schema_create.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

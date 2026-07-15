@@ -1,0 +1,2 @@
+[console_scripts]
+okta-profile-schema-create = okta_profile_schema_create.cli:main

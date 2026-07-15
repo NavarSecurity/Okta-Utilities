@@ -1,0 +1,50 @@
+{
+  "attributes": [
+    {
+      "targetType": "user",
+      "schemaId": "default",
+      "name": "navarEmployeeType",
+      "definition": {
+        "title": "Navar Employee Type",
+        "description": "Employee type used for IAM testing and profile schema validation.",
+        "type": "string",
+        "required": false,
+        "permissions": [
+          {
+            "principal": "SELF",
+            "action": "READ_ONLY"
+          }
+        ]
+      }
+    },
+    {
+      "targetType": "user",
+      "schemaId": "default",
+      "name": "navarCostCenter",
+      "definition": {
+        "title": "Navar Cost Center",
+        "description": "Cost center used for IAM testing and app profile mapping preparation.",
+        "type": "string",
+        "required": false,
+        "permissions": [
+          {
+            "principal": "SELF",
+            "action": "READ_ONLY"
+          }
+        ]
+      }
+    },
+    {
+      "targetType": "app",
+      "appId": "replace-with-okta-app-id",
+      "schemaId": "default",
+      "name": "externalRole",
+      "definition": {
+        "title": "External Role",
+        "description": "Example app user profile attribute for downstream role mapping.",
+        "type": "string",
+        "required": false
+      }
+    }
+  ]
+}
