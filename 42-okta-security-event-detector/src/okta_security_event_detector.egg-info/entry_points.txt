@@ -1,0 +1,2 @@
+[console_scripts]
+okta-security-event-detector = okta_security_event_detector.cli:main
