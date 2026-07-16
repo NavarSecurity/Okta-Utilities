@@ -1,0 +1,38 @@
+{
+  "testUser": {
+    "schemas": [
+      "urn:ietf:params:scim:schemas:core:2.0:User"
+    ],
+    "userName": "utility40.scim.test@example.com",
+    "externalId": "utility40-test-user-001",
+    "name": {
+      "givenName": "Utility40",
+      "familyName": "SCIMTest"
+    },
+    "displayName": "Utility40 SCIM Test",
+    "emails": [
+      {
+        "value": "utility40.scim.test@example.com",
+        "type": "work",
+        "primary": true
+      }
+    ],
+    "active": true
+  },
+  "updateUser": {
+    "name.givenName": "Utility40Updated",
+    "title": "Updated by utility 40",
+    "department": "IAM Test"
+  },
+  "group": {
+    "schemas": [
+      "urn:ietf:params:scim:schemas:core:2.0:Group"
+    ],
+    "displayName": "Utility40 SCIM Test Group",
+    "externalId": "utility40-test-group-001"
+  },
+  "cleanup": {
+    "deleteUserAfterTest": false,
+    "deleteGroupAfterTest": false
+  }
+}

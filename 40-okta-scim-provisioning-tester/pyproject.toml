@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "okta-scim-provisioning-tester"
+version = "1.0.0"
+description = "Test downstream SCIM provisioning behavior for create, update, deactivate, and group push operations."
+requires-python = ">=3.10"
+dependencies = [
+  "requests>=2.31.0",
+  "python-dotenv>=1.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0.0"
+]
+
+[project.scripts]
+okta-scim-provisioning-tester = "okta_scim_provisioning_tester.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,26 @@
+{
+  "operation": "discovery",
+  "outputDirectory": "output",
+  "planFile": "input/scim_test_plan.json",
+  "baseUrlEnv": "SCIM_BASE_URL",
+  "authTypeEnv": "SCIM_AUTH_TYPE",
+  "timeoutSeconds": 30,
+  "verifySsl": true,
+  "continueOnError": true,
+  "redactSensitiveValues": true,
+  "operations": {
+    "serviceProviderConfig": true,
+    "schemas": true,
+    "resourceTypes": true,
+    "createUser": false,
+    "updateUser": false,
+    "deactivateUser": false,
+    "createGroup": false,
+    "groupPush": false,
+    "cleanup": false
+  },
+  "cleanup": {
+    "deleteUserAfterTest": false,
+    "deleteGroupAfterTest": false
+  }
+}
