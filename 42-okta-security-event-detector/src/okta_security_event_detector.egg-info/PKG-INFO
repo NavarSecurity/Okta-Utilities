@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: okta-security-event-detector
+Version: 1.0.0
+Summary: Analyze Okta System Log exports for risky or suspicious activity.
+Author: Navar IAM Engineering
+Requires-Python: >=3.10
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0.0; extra == "dev"

@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "okta-security-event-detector"
+version = "1.0.0"
+description = "Analyze Okta System Log exports for risky or suspicious activity."
+requires-python = ">=3.10"
+authors = [{ name = "Navar IAM Engineering" }]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0"]
+
+[project.scripts]
+okta-security-event-detector = "okta_security_event_detector.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

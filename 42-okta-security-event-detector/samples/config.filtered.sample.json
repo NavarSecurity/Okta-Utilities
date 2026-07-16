@@ -1,0 +1,18 @@
+{
+  "inputFile": "samples/sample-system-log-events.json",
+  "outputDirectory": "output",
+  "redactSensitiveValues": true,
+  "filters": {
+    "eventTypes": [
+      "user.authentication.failed",
+      "user.mfa.factor.verify"
+    ],
+    "actors": [],
+    "excludeActors": [
+      "service.account@example.com"
+    ],
+    "ipAddresses": [],
+    "startTime": null,
+    "endTime": null
+  }
+}

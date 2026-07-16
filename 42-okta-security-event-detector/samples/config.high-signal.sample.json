@@ -1,0 +1,31 @@
+{
+  "inputFile": "samples/sample-system-log-events.json",
+  "outputDirectory": "output",
+  "redactSensitiveValues": true,
+  "includeLowSeverity": false,
+  "includeInformationalFindings": false,
+  "detections": {
+    "failedSignInSpike": {
+      "enabled": true,
+      "threshold": 10,
+      "severity": "medium"
+    },
+    "mfaFailureSpike": {
+      "enabled": true,
+      "threshold": 5,
+      "severity": "high"
+    },
+    "suspiciousCountry": {
+      "enabled": true,
+      "allowedCountries": [
+        "United States"
+      ],
+      "severity": "medium"
+    },
+    "multipleCountriesPerActor": {
+      "enabled": true,
+      "threshold": 3,
+      "severity": "medium"
+    }
+  }
+}

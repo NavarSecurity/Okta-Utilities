@@ -1,0 +1,83 @@
+[
+  {
+    "uuid": "evt-001",
+    "published": "2026-07-16T14:00:00.000Z",
+    "eventType": "user.authentication.failed",
+    "displayMessage": "User login failed",
+    "outcome": { "result": "FAILURE", "reason": "INVALID_CREDENTIALS" },
+    "actor": { "id": "00u1", "type": "User", "alternateId": "alex@example.com", "displayName": "Alex Example" },
+    "client": { "ipAddress": "198.51.100.10", "geographicalContext": { "country": "United States", "city": "Houston" }, "userAgent": { "rawUserAgent": "Mozilla/5.0" } },
+    "target": []
+  },
+  {
+    "uuid": "evt-002",
+    "published": "2026-07-16T14:01:00.000Z",
+    "eventType": "user.authentication.failed",
+    "displayMessage": "User login failed",
+    "outcome": { "result": "FAILURE", "reason": "INVALID_CREDENTIALS" },
+    "actor": { "id": "00u1", "type": "User", "alternateId": "alex@example.com", "displayName": "Alex Example" },
+    "client": { "ipAddress": "198.51.100.10", "geographicalContext": { "country": "United States", "city": "Houston" } },
+    "target": []
+  },
+  {
+    "uuid": "evt-003",
+    "published": "2026-07-16T14:02:00.000Z",
+    "eventType": "user.authentication.failed",
+    "displayMessage": "User login failed",
+    "outcome": { "result": "FAILURE", "reason": "INVALID_CREDENTIALS" },
+    "actor": { "id": "00u1", "type": "User", "alternateId": "alex@example.com", "displayName": "Alex Example" },
+    "client": { "ipAddress": "198.51.100.10", "geographicalContext": { "country": "United States", "city": "Houston" } },
+    "target": []
+  },
+  {
+    "uuid": "evt-004",
+    "published": "2026-07-16T14:03:00.000Z",
+    "eventType": "user.mfa.factor.verify",
+    "displayMessage": "MFA factor verification failed",
+    "outcome": { "result": "FAILURE", "reason": "Invalid passcode" },
+    "actor": { "id": "00u1", "type": "User", "alternateId": "alex@example.com", "displayName": "Alex Example" },
+    "client": { "ipAddress": "203.0.113.77", "geographicalContext": { "country": "Canada", "city": "Toronto" } },
+    "target": []
+  },
+  {
+    "uuid": "evt-005",
+    "published": "2026-07-16T14:04:00.000Z",
+    "eventType": "user.mfa.factor.verify",
+    "displayMessage": "MFA factor verification failed",
+    "outcome": { "result": "FAILURE", "reason": "Invalid passcode" },
+    "actor": { "id": "00u1", "type": "User", "alternateId": "alex@example.com", "displayName": "Alex Example" },
+    "client": { "ipAddress": "203.0.113.77", "geographicalContext": { "country": "Canada", "city": "Toronto" } },
+    "target": []
+  },
+  {
+    "uuid": "evt-006",
+    "published": "2026-07-16T14:05:00.000Z",
+    "eventType": "policy.lifecycle.update",
+    "displayMessage": "Policy updated",
+    "outcome": { "result": "SUCCESS" },
+    "actor": { "id": "00u2", "type": "User", "alternateId": "admin@example.com", "displayName": "Admin Example" },
+    "client": { "ipAddress": "198.51.100.20", "geographicalContext": { "country": "United States", "city": "Austin" } },
+    "target": [{ "id": "pol1", "type": "PolicyEntity", "displayName": "Global Session Policy" }]
+  },
+  {
+    "uuid": "evt-007",
+    "published": "2026-07-16T14:06:00.000Z",
+    "eventType": "api.token.create",
+    "displayMessage": "API token created",
+    "outcome": { "result": "SUCCESS" },
+    "actor": { "id": "00u2", "type": "User", "alternateId": "admin@example.com", "displayName": "Admin Example" },
+    "client": { "ipAddress": "198.51.100.20", "geographicalContext": { "country": "United States", "city": "Austin" } },
+    "debugContext": { "debugData": { "authorization": "SSWS example-token" } },
+    "target": []
+  },
+  {
+    "uuid": "evt-008",
+    "published": "2026-07-16T14:07:00.000Z",
+    "eventType": "user.lifecycle.deactivate",
+    "displayMessage": "User deactivated",
+    "outcome": { "result": "SUCCESS" },
+    "actor": { "id": "00u2", "type": "User", "alternateId": "admin@example.com", "displayName": "Admin Example" },
+    "client": { "ipAddress": "198.51.100.20", "geographicalContext": { "country": "United States", "city": "Austin" } },
+    "target": [{ "id": "00u3", "type": "User", "alternateId": "terminated@example.com", "displayName": "Terminated User" }]
+  }
+]

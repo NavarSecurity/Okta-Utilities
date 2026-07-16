@@ -1,0 +1,12 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+
+# Keep input and output directories, ignore generated contents
+input/*
+!input/.gitkeep
+output/*
+!output/.gitkeep
