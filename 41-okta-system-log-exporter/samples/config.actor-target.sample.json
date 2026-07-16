@@ -1,0 +1,29 @@
+{
+  "outputDirectory": "output",
+  "relativeHours": 24,
+  "since": null,
+  "until": null,
+  "limit": 1000,
+  "maxEvents": 5000,
+  "sortOrder": "ASCENDING",
+  "filter": null,
+  "q": null,
+  "eventTypes": [],
+  "actorIds": [
+    "00u123example"
+  ],
+  "actorLogins": [
+    "admin@example.com"
+  ],
+  "targetIds": [
+    "0oa123example"
+  ],
+  "targetTypes": [
+    "AppInstance"
+  ],
+  "outcomes": [],
+  "includeRawEvents": true,
+  "writeEventsByType": true,
+  "redactSensitiveValues": true,
+  "timeoutSeconds": 30
+}

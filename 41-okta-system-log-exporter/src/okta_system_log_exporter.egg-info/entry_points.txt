@@ -1,0 +1,2 @@
+[console_scripts]
+okta-system-log-exporter = okta_system_log_exporter.cli:main

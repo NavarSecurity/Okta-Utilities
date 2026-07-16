@@ -1,0 +1,21 @@
+{
+  "outputDirectory": "output",
+  "relativeHours": 24,
+  "since": null,
+  "until": null,
+  "limit": 1000,
+  "maxEvents": 5000,
+  "sortOrder": "ASCENDING",
+  "filter": null,
+  "q": null,
+  "eventTypes": [],
+  "actorIds": [],
+  "actorLogins": [],
+  "targetIds": [],
+  "targetTypes": [],
+  "outcomes": [],
+  "includeRawEvents": true,
+  "writeEventsByType": true,
+  "redactSensitiveValues": true,
+  "timeoutSeconds": 30
+}
