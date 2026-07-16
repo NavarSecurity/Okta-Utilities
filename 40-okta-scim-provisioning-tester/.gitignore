@@ -1,0 +1,18 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+
+# Keep input and output folders, ignore generated/local contents
+input/*
+!input/.gitkeep
+!input/scim_test_plan.json
+output/*
+!output/.gitkeep
+
+*.log
+.DS_Store
