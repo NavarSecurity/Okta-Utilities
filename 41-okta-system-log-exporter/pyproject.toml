@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "okta-system-log-exporter"
+version = "1.0.0"
+description = "Export Okta System Log events by date range, actor, target, outcome, event type, or custom filter."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "requests>=2.31.0",
+  "python-dotenv>=1.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0.0"
+]
+
+[project.scripts]
+okta-system-log-exporter = "okta_system_log_exporter.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

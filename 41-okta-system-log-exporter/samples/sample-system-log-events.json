@@ -1,0 +1,61 @@
+[
+  {
+    "uuid": "evt-001",
+    "published": "2026-07-16T18:30:00.000Z",
+    "eventType": "user.authentication.sso",
+    "displayMessage": "User single sign on to app",
+    "severity": "INFO",
+    "actor": {
+      "id": "00uabc123",
+      "type": "User",
+      "alternateId": "jane@example.com",
+      "displayName": "Jane Example"
+    },
+    "client": {
+      "ipAddress": "203.0.113.10",
+      "geographicalContext": {
+        "country": "United States",
+        "state": "Texas",
+        "city": "Houston"
+      }
+    },
+    "outcome": {
+      "result": "SUCCESS"
+    },
+    "target": [
+      {
+        "id": "0oaapp123",
+        "type": "AppInstance",
+        "alternateId": "OIDC Test App",
+        "displayName": "OIDC Test App"
+      }
+    ],
+    "transaction": {
+      "id": "txn-001"
+    }
+  },
+  {
+    "uuid": "evt-002",
+    "published": "2026-07-16T18:45:00.000Z",
+    "eventType": "user.authentication.failed",
+    "displayMessage": "User login failed",
+    "severity": "WARN",
+    "actor": {
+      "id": "00uabc456",
+      "type": "User",
+      "alternateId": "sam@example.com",
+      "displayName": "Sam Example"
+    },
+    "client": {
+      "ipAddress": "198.51.100.25"
+    },
+    "outcome": {
+      "result": "FAILURE",
+      "reason": "INVALID_CREDENTIALS"
+    },
+    "target": [],
+    "transaction": {
+      "id": "txn-002"
+    }
+  }
+]
