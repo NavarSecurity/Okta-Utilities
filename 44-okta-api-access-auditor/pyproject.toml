@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "okta-api-access-auditor"
+version = "1.0.0"
+description = "Audit Okta API tokens, OAuth service apps, scopes, admin roles, and overprivileged API access."
+requires-python = ">=3.10"
+dependencies = [
+  "requests>=2.31.0",
+  "python-dotenv>=1.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0.0"
+]
+
+[project.scripts]
+okta-api-access-auditor = "okta_api_access_auditor.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

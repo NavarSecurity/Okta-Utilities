@@ -1,0 +1,13 @@
+[
+  {
+    "id": "00Tabc123",
+    "name": "Legacy automation token",
+    "status": "ACTIVE",
+    "created": "2025-01-01T00:00:00.000Z",
+    "lastUpdated": "2025-01-01T00:00:00.000Z",
+    "lastUsed": "2025-02-01T00:00:00.000Z",
+    "expiresAt": "2027-01-01T00:00:00.000Z",
+    "createdBy": {"id": "00uadmin", "displayName": "Admin User", "login": "admin@example.com"},
+    "network": {"connection": "ANYWHERE"}
+  }
+]
