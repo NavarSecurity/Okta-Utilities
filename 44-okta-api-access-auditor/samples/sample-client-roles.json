@@ -1,0 +1,10 @@
+[
+  {
+    "appId": "0oaservice123",
+    "appLabel": "Example API Services App",
+    "clientId": "0oa-client-id-example",
+    "roles": [
+      {"id": "role1", "type": "SUPER_ADMIN", "label": "Super Administrator"}
+    ]
+  }
+]
