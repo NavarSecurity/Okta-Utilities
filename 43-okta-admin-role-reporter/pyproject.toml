@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "okta-admin-role-reporter"
+version = "1.0.0"
+description = "Exports Okta admin role assignments, delegated admin access, and privileged principals."
+requires-python = ">=3.10"
+dependencies = [
+  "requests>=2.31.0"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0.0"
+]
+
+[project.scripts]
+okta-admin-role-reporter = "okta_admin_role_reporter.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

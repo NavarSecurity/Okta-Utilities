@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: okta-admin-role-reporter
+Version: 1.0.0
+Summary: Exports Okta admin role assignments, delegated admin access, and privileged principals.
+Requires-Python: >=3.10
+Requires-Dist: requests>=2.31.0
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0.0; extra == "dev"

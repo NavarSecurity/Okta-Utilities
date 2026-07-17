@@ -1,0 +1,2 @@
+[console_scripts]
+okta-admin-role-reporter = okta_admin_role_reporter.cli:main
