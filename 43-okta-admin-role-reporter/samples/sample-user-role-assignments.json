@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": "00uadmin1",
+      "profile": {
+        "login": "admin@example.com",
+        "email": "admin@example.com",
+        "firstName": "Admin",
+        "lastName": "User"
+      },
+      "status": "ACTIVE",
+      "roles": [
+        {
+          "id": "roleAssign1",
+          "type": "SUPER_ADMIN",
+          "label": "Super Administrator",
+          "status": "ACTIVE"
+        }
+      ]
+    }
+  ]
+}

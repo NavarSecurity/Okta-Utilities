@@ -1,0 +1,46 @@
+{
+  "outputDirectory": "output",
+  "includeUserRoleAssignments": true,
+  "includeUserRoleTargets": true,
+  "includeUserRoleGovernance": false,
+  "includeGroupRoleAssignments": true,
+  "includeGroupRoleTargets": true,
+  "includeClientRoleAssignments": false,
+  "includeClientRoleTargets": false,
+  "includeCustomRoles": true,
+  "includeCustomRolePermissions": true,
+  "includeResourceSets": true,
+  "includeResourceSetResources": true,
+  "includeResourceSetBindings": true,
+  "includeBindingMembers": true,
+  "includePrivilegedGroupMembers": false,
+  "continueOnRequestError": true,
+  "redactSensitiveValues": true,
+  "groupSelection": {
+    "mode": "all",
+    "groupIds": [],
+    "groupNames": [],
+    "groupFile": "input/groups.txt",
+    "limit": 200
+  },
+  "clientSelection": {
+    "mode": "ids",
+    "clientIds": [],
+    "clientFile": "input/clients.txt"
+  },
+  "highPrivilegeRoles": [
+    "SUPER_ADMIN",
+    "ORG_ADMIN",
+    "APP_ADMIN",
+    "GROUP_ADMIN",
+    "GROUP_MEMBERSHIP_ADMIN",
+    "USER_ADMIN",
+    "HELP_DESK_ADMIN",
+    "MOBILE_ADMIN",
+    "API_ACCESS_MANAGEMENT_ADMIN",
+    "ACCESS_CERTIFICATIONS_ADMIN",
+    "ACCESS_REQUESTS_ADMIN",
+    "CUSTOM"
+  ],
+  "timeoutSeconds": 30
+}

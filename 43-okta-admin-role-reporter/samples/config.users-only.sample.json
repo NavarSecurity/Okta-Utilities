@@ -1,0 +1,21 @@
+{
+  "outputDirectory": "output",
+  "includeUserRoleAssignments": true,
+  "includeUserRoleTargets": true,
+  "includeUserRoleGovernance": false,
+  "includeGroupRoleAssignments": false,
+  "includeGroupRoleTargets": false,
+  "includeClientRoleAssignments": false,
+  "includeClientRoleTargets": false,
+  "includeCustomRoles": false,
+  "includeCustomRolePermissions": false,
+  "includeResourceSets": false,
+  "includeResourceSetResources": false,
+  "includeResourceSetBindings": false,
+  "includeBindingMembers": false,
+  "includePrivilegedGroupMembers": false,
+  "continueOnRequestError": true,
+  "redactSensitiveValues": true,
+  "highPrivilegeRoles": ["SUPER_ADMIN", "ORG_ADMIN", "CUSTOM"],
+  "timeoutSeconds": 30
+}
