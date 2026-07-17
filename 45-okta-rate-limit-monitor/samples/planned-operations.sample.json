@@ -1,0 +1,22 @@
+{
+  "plannedOperations": [
+    {
+      "name": "large-user-export",
+      "endpoint": "/api/v1/users",
+      "estimatedRequests": 250,
+      "windowMinutes": 5
+    },
+    {
+      "name": "terraform-import-apps",
+      "endpoint": "/api/v1/apps",
+      "estimatedRequests": 120,
+      "windowMinutes": 3
+    },
+    {
+      "name": "system-log-audit-export",
+      "endpoint": "/api/v1/logs",
+      "estimatedRequests": 80,
+      "windowMinutes": 2
+    }
+  ]
+}

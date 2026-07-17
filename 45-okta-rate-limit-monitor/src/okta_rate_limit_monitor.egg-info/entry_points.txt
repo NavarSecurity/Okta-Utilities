@@ -1,0 +1,2 @@
+[console_scripts]
+okta-rate-limit-monitor = okta_rate_limit_monitor.cli:main
