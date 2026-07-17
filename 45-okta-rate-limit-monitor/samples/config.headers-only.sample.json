@@ -1,0 +1,31 @@
+{
+  "outputDirectory": "output",
+  "timeoutSeconds": 30,
+  "redactSensitiveValues": true,
+  "continueOnRequestError": true,
+  "includeHeaderProbes": true,
+  "includeSystemLogEvents": false,
+  "includePlannedOperationEstimate": false,
+  "probeEndpoints": [
+    {
+      "name": "users-list",
+      "method": "GET",
+      "path": "/api/v1/users",
+      "params": { "limit": "1" }
+    },
+    {
+      "name": "apps-list",
+      "method": "GET",
+      "path": "/api/v1/apps",
+      "params": { "limit": "1" }
+    }
+  ],
+  "riskThresholds": {
+    "remainingPercentCritical": 10,
+    "remainingPercentWarning": 25,
+    "plannedUsagePercentCritical": 90,
+    "plannedUsagePercentWarning": 70,
+    "rateLimitEventsCritical": 1,
+    "rateLimitEventsWarning": 1
+  }
+}

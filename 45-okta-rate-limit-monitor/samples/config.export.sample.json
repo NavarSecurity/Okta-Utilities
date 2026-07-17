@@ -1,0 +1,62 @@
+{
+  "outputDirectory": "output",
+  "timeoutSeconds": 30,
+  "redactSensitiveValues": true,
+  "continueOnRequestError": true,
+  "includeHeaderProbes": true,
+  "includeSystemLogEvents": true,
+  "includePlannedOperationEstimate": true,
+  "lookbackHours": 24,
+  "systemLogFilters": [
+    "displayMessage eq \"Rate limit warning\"",
+    "displayMessage eq \"Rate limit violation\""
+  ],
+  "probeEndpoints": [
+    {
+      "name": "users-list",
+      "method": "GET",
+      "path": "/api/v1/users",
+      "params": { "limit": "1" }
+    },
+    {
+      "name": "groups-list",
+      "method": "GET",
+      "path": "/api/v1/groups",
+      "params": { "limit": "1" }
+    },
+    {
+      "name": "apps-list",
+      "method": "GET",
+      "path": "/api/v1/apps",
+      "params": { "limit": "1" }
+    },
+    {
+      "name": "system-log",
+      "method": "GET",
+      "path": "/api/v1/logs",
+      "params": { "limit": "1" }
+    }
+  ],
+  "plannedOperations": [
+    {
+      "name": "nightly-backup-users",
+      "endpoint": "/api/v1/users",
+      "estimatedRequests": 40,
+      "windowMinutes": 1
+    },
+    {
+      "name": "nightly-backup-apps",
+      "endpoint": "/api/v1/apps",
+      "estimatedRequests": 15,
+      "windowMinutes": 1
+    }
+  ],
+  "riskThresholds": {
+    "remainingPercentCritical": 10,
+    "remainingPercentWarning": 25,
+    "plannedUsagePercentCritical": 90,
+    "plannedUsagePercentWarning": 70,
+    "rateLimitEventsCritical": 1,
+    "rateLimitEventsWarning": 1
+  }
+}

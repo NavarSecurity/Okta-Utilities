@@ -1,0 +1,22 @@
+{
+  "outputDirectory": "output",
+  "timeoutSeconds": 30,
+  "redactSensitiveValues": true,
+  "continueOnRequestError": true,
+  "includeHeaderProbes": false,
+  "includeSystemLogEvents": true,
+  "includePlannedOperationEstimate": false,
+  "lookbackHours": 72,
+  "systemLogFilters": [
+    "displayMessage eq \"Rate limit warning\"",
+    "displayMessage eq \"Rate limit violation\""
+  ],
+  "riskThresholds": {
+    "remainingPercentCritical": 10,
+    "remainingPercentWarning": 25,
+    "plannedUsagePercentCritical": 90,
+    "plannedUsagePercentWarning": 70,
+    "rateLimitEventsCritical": 1,
+    "rateLimitEventsWarning": 1
+  }
+}

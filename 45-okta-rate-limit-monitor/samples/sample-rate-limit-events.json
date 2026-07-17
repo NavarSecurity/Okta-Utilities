@@ -1,0 +1,60 @@
+[
+  {
+    "uuid": "evt-warning-1",
+    "published": "2026-07-17T13:00:00.000Z",
+    "eventType": "system.org.rate_limit.warning",
+    "displayMessage": "Rate limit warning",
+    "severity": "WARN",
+    "actor": {
+      "id": "unknown",
+      "alternateId": "api-token-owner@example.com",
+      "displayName": "API Token Owner",
+      "type": "User"
+    },
+    "client": {
+      "userAgent": {
+        "rawUserAgent": "python-requests"
+      },
+      "ipAddress": "203.0.113.10"
+    },
+    "debugContext": {
+      "debugData": {
+        "requestUri": "/api/v1/users?limit=200",
+        "url": "/api/v1/users"
+      }
+    },
+    "outcome": {
+      "result": "SUCCESS",
+      "reason": "API rate limit warning threshold exceeded"
+    }
+  },
+  {
+    "uuid": "evt-violation-1",
+    "published": "2026-07-17T14:00:00.000Z",
+    "eventType": "system.org.rate_limit.violation",
+    "displayMessage": "Rate limit violation",
+    "severity": "ERROR",
+    "actor": {
+      "id": "unknown",
+      "alternateId": "terraform@example.com",
+      "displayName": "Terraform Service Account",
+      "type": "User"
+    },
+    "client": {
+      "userAgent": {
+        "rawUserAgent": "terraform-provider-okta"
+      },
+      "ipAddress": "203.0.113.20"
+    },
+    "debugContext": {
+      "debugData": {
+        "requestUri": "/api/v1/apps?limit=200",
+        "url": "/api/v1/apps"
+      }
+    },
+    "outcome": {
+      "result": "FAILURE",
+      "reason": "Rate limit violation"
+    }
+  }
+]
